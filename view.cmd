@@ -1,0 +1,1 @@
+tools\Ruby\bin\nanoc view

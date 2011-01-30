@@ -1,0 +1,86 @@
+#!/usr/bin/env ruby
+# encoding: utf-8
+
+$LOAD_PATH.unshift(File.dirname(__FILE__) + '/../lib')
+
+require 'nanoc-select'
+require 'getoptlong'
+
+def version(io)
+  io.puts "nanoc-select #{NanocSelect::VERSION} (c) 2010 Denis Defreyne."
+  io.puts "Ruby #{RUBY_VERSION} (#{RUBY_RELEASE_DATE}) running on #{RUBY_PLATFORM}"
+end
+
+def usage(io, option_definitions)
+  io.puts "usage: #{$0} version"
+  io.puts
+  io.puts <<-EOS
+Since nanoc 3.x is not backwards compatible with nanoc 2.x, it can be useful
+to have multiple versions of nanoc installed simultaneously. In order to avoid
+having to type `nanoc2` or `nanoc3`, the `nanoc-select` tool can be used to
+make `nanoc` invoke either `nanoc2` or `nanoc3`.
+EOS
+  io.puts
+  io.puts "Options:"
+  io.puts
+  option_definitions.each do |opt_def|
+    io.puts "    #{opt_def[1]} #{format '%-10s', opt_def[0]} #{opt_def[-1]}"
+  end
+end
+
+def list(io)
+  io.puts 'Available nanoc versions:'
+  io.puts
+  NanocSelect::VERSIONS.each do |v|
+    io.puts "    #{v} -- nanoc #{v}.x"
+  end
+end
+
+# Parse options
+begin
+  option_definitions = [
+    [ '--help',    '-h', GetoptLong::NO_ARGUMENT, 'show this help and exit'           ],
+    [ '--version', '-v', GetoptLong::NO_ARGUMENT, 'show version information and exit' ],
+    [ '--list',    '-l', GetoptLong::NO_ARGUMENT, 'list available versions and exit'  ]
+  ]
+  options = GetoptLong.new(*option_definitions.map { |od| od[0..-2] })
+  options.each do |opt, arg|
+    case opt
+    when '--help'
+      usage($stdout, option_definitions)
+      exit 0
+
+    when '--version'
+      version($stdout)
+      exit 0
+
+    when '--list'
+      list($stdout)
+      exit 0
+    end
+  end
+rescue GetoptLong::InvalidOption
+  $stderr.puts
+  usage($stderr, option_definitions)
+  exit 1
+end
+
+# Get version argument
+if ARGV.size != 1
+  usage($stderr, option_definitions)
+  exit 1
+end
+version_raw = ARGV[0]
+version     = version_raw.to_i
+if !NanocSelect::VERSIONS.include?(version)
+  $stderr.puts "There is no nanoc version #{version_raw}!"
+  $stderr.puts
+  list($stderr)
+  exit 1
+end
+
+# Switch
+version_file_path = File.join(ENV['APPDATA'] || ENV['HOME'], '.nanoc-select-version')
+p version_file_path
+File.open(version_file_path, 'w') { |io| io.write(version.to_s + "\n") }
+puts "Switched to nanoc version #{version}."

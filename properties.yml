@@ -1,0 +1,81 @@
+global: &global
+  project: therightstuff.de
+
+  dir:
+    build: build
+    site: build/site
+    deploy: build/deploy
+    tmp: tmp
+
+  build:
+    number: <%= ENV['BUILD_NUMBER'] %>
+    commit_sha: <%= ENV['BUILD_VCS_NUMBER'] || "no SHA" %>
+
+  app:
+    base_url: http://localhost
+    compress_output: false
+    meta:
+      title: The Right Stuff
+      claim: A blog by Alexander Groß
+      copyright: Alexander Groß
+      description: The Right Stuff, a blog by Alexander Groß
+      keywords:
+        - blog
+        - .net
+        - windows
+        - music
+        - consulting
+        - jetbrains academy
+    geo:
+      latitude: 51.325330
+      longitude: 12.342740
+      placename: Leipzig, Sachsen
+      region: DE-Sachsen
+    openid:
+      server: http://www.myopenid.com/server
+      provider: http://www.myopenid.com/server
+      delegate: alexandergross.myopenid.com
+    skype:
+      name: alexander_gross
+    lastfm:
+      name: alexandergross
+    clustrmap:
+      url: http://www.it99.org/axl/
+    twitter:
+      name: agross
+    feedburner:
+      name: alexandergross
+    google_analytics:
+      key: UA-124781-1
+
+  deployment:
+    base_href: /
+
+  tools:
+    msdeploy: tools/MSDeploy/msdeploy.exe
+    zip: tools/7-Zip/7za.exe
+
+development:
+  default_to: global
+  
+qa:
+  default_to: global
+
+  app:
+    base_url: http://therightstuff.de
+    compress_output: true
+
+  deployment:
+    base_href: /beta/
+    mode: upgrade
+    location: (agross) therightstuff.de
+    server: team.torstenweber.de
+    logfile: build/msdeploy.log
+    user: <%= ENV['DEPLOY_USER'] %>
+    password: <%= ENV['DEPLOY_PASSWORD'] %>
+    
+production:
+  default_to: qa
+
+  deployment:
+    base_href: /

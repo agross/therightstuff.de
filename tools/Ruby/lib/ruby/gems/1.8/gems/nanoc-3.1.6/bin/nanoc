@@ -1,0 +1,32 @@
+#!/usr/bin/env ruby
+# encoding: utf-8
+
+# Find version
+version_file_path = File.join(ENV['APPDATA'] || ENV['HOME'], '.nanoc-select-version')
+if !File.exist?(version_file_path)
+  version = 3
+else
+  version = File.read(version_file_path).to_i
+end
+
+# Determine nanoc executable name
+VERSION_MAP = {
+  2 => 'nanoc2',
+  3 => 'nanoc3'
+}
+name = VERSION_MAP[version]
+if name.nil?
+  $stderr.puts "Unsupported nanoc version number: #{version}. Supported versions: #{VERSION_MAP.keys.join(', ')}."
+  exit 1
+end
+
+# Run nanoc
+begin
+  exec name, *ARGV
+rescue Errno::ENOENT
+  $stderr.puts "Could not execute #{name}, which is your selected nanoc version. Make sure that #{name} is installed and that it is in your $PATH."
+  $stderr.puts
+  $stderr.puts "* To install #{name}, run `gem install #{name}`."
+  $stderr.puts "* To select a different version of nanoc, run `nanoc-select`."
+  exit 1
+end

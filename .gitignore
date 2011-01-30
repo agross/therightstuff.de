@@ -1,0 +1,11 @@
+*.bak
+*.suo
+*.user
+*~
+~*
+_ReSharper.*
+
+build
+tmp
+local-properties.yml
+config.yaml
