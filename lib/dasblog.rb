@@ -63,8 +63,9 @@ class DasBlogDataSource < Nanoc3::DataSource
     tags = entry.xpath 'db:Categories', @@ns
     
     attributes = {
+      :kind        => 'article',
       :created_at  => DateTime.parse(created_at.text),
-      :modified_at => DateTime.parse(modified_at.text),
+      :updated_at  => DateTime.parse(modified_at.text),
       :guid        => guid.text,
       :title       => title.text,
       :tags        => tags.text.split(';')
