@@ -5,3 +5,4 @@ include Nanoc3::Helpers::Rendering
 
 include Helpers::RandomText
 include Helpers::Links
+include Helpers::Blocks
