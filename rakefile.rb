@@ -7,7 +7,7 @@ Dir.glob(File.join(File.dirname(__FILE__), 'tools/Rake/*.rb')).each do |f|
   require f
 end
 
-task :default => [:clobber, 'package:all']
+task :default => ['generate:site']
 
 namespace :env do
   Rake::EnvTask.new do |env|
@@ -32,7 +32,6 @@ namespace :env do
     version_package
     update_paths
 
-    CLEAN.include('teamcity-info.xml')
     CLEAN.include('msdeploy.log'.in(configatron.dir.build))
     CLEAN.include(configatron.dir.deploy)
     CLEAN.include(configatron.dir.site)
@@ -82,7 +81,7 @@ namespace :generate do
   end
 
   desc 'Generates the site from the templates'
-  task :site => [:clean, :config] do
+  task :site => :config do
     Nanoc3::CLI::Base.shared_base.run("compile")
   end
 end
@@ -90,10 +89,12 @@ end
 desc 'Packages the build artifacts'
 namespace :package do
   desc 'Prepares the web application for packaging'
-  task :webapp => ['generate:site'] do
+  task :webapp => [:clean, 'generate:site'] do
     sourceDir = configatron.dir.site
     webAppFiles = FileList.new() \
           .include("#{sourceDir}/**/*.deploy") \
+          .include("#{sourceDir}/**/*.swf") \
+          .include("#{sourceDir}/**/*.vcf") \
           .include("#{sourceDir}/**/*.gif") \
           .include("#{sourceDir}/**/*.jpg") \
           .include("#{sourceDir}/**/*.jpeg") \
@@ -148,7 +149,7 @@ task :deploy => ['package:all'] do
       Dictionary[
         :objectName, "dirPath",
         :skipAction, "Delete",
-        :absolutePath, "Downloads"
+        :absolutePath, "beta"
       ],
       Dictionary[
         :objectName, "dirPath",

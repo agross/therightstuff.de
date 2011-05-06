@@ -19,7 +19,7 @@ route '/static/css/_*' do
 end
 
 route '/static/css/*/' do
-  item.identifier.chop + '.css'
+  @item.identifier.chop + '.css'
 end
 
 compile '/static/images/*/' do
@@ -35,14 +35,14 @@ compile '/sitemap/' do
 end
 
 compile '/dasblog/*/' do
-  filter :relativize_paths, :type => :html  
+  filter :relativize_paths, :type => :html
   layout 'default'
 end
 
 compile '*' do
   filter :erb
   filter :kramdown
-  filter :relativize_paths, :type => :html  
+  filter :relativize_paths, :type => :html
   layout 'default'
 end
 
