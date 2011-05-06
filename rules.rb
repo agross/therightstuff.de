@@ -34,9 +34,36 @@ compile '/sitemap/' do
   filter :erb
 end
 
+route '/sitemap/' do
+  '/sitemap.xml'
+end
+
+compile '/robots/' do
+  filter :erb
+end
+
+route '/robots/' do
+  '/robots.txt'
+end
+
+route '/google*/' do
+  item.identifier.chop + '.' + @item[:extension]
+end
+
+compile '/dasblog/images/*/' do
+end
+
 compile '/dasblog/*/' do
   filter :relativize_paths, :type => :html
   layout 'default'
+end
+
+route '/dasblog/images/*/' do
+  @item.identifier.sub(/^\/dasblog/, '/content/binary').chop + '.' + @item[:extension]
+end
+
+route '/dasblog/*/' do
+  @item.identifier.sub(/^\/dasblog/, '') + 'index.html'
 end
 
 compile '*' do
@@ -44,14 +71,6 @@ compile '*' do
   filter :kramdown
   filter :relativize_paths, :type => :html
   layout 'default'
-end
-
-route '/sitemap/' do
-  '/sitemap.xml'
-end
-
-route '/dasblog/*/' do
-  item.identifier.sub(/^\/dasblog\//, '/') + 'index.html'
 end
 
 route '*' do

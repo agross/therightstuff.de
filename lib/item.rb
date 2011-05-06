@@ -4,7 +4,7 @@ class Nanoc3::Item
   end
   
   def title
-    self[:title]
+    self[:title] && !self[:title].empty? && self[:title]
   end
   
   def current?(item)

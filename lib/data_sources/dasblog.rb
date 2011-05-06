@@ -1,6 +1,4 @@
-class DasBlogDataSource < Nanoc3::DataSource
-  include Nanoc3::DataSources::Filesystem
-  
+class DasBlogDataSource < Nanoc3::DataSources::FilesystemUnified
   identifier :dasblog
   
   @@ns = { 'db' => 'urn:newtelligence-com:dasblog:runtime:data' }
@@ -15,22 +13,22 @@ class DasBlogDataSource < Nanoc3::DataSource
   
   def items
     @items ||= begin
-        require 'nokogiri'
-        require 'date'
-        require 'time'
+      require 'nokogiri'
+      require 'date'
+      require 'time'
+      
+      all_split_files_in(@config[:path]).map do |base_filename, (meta_ext, content_ext)|
+        doc = Nokogiri::XML(open(filename_for(base_filename, content_ext)))
         
-        all_split_files_in(@config[:path]).map do |base_filename, (meta_ext, content_ext)|
-          doc = Nokogiri::XML(open(filename_for(base_filename, content_ext)))
-          
-          entries = doc.xpath '//db:Entry', @@ns
-          entries.map do |entry|
-              parse_entry entry, filename_for(base_filename, content_ext)
-          end
+        entries = doc.xpath '//db:Entry', @@ns
+        entries.map do |entry|
+          parse_entry entry, filename_for(base_filename, content_ext)
         end
       end
+    end
     
     # Need to flatten because there might be > 1 entry for a particular day.
-    @items.flatten
+    @items.flatten!
   end
   
   def layouts
@@ -38,20 +36,9 @@ class DasBlogDataSource < Nanoc3::DataSource
     []
   end
   
-  # See {Nanoc3::DataSources::Filesystem#filename_for}.
-  def filename_for(base_filename, ext)
-    if ext.nil?
-      nil
-    elsif ext.empty?
-      base_filename
-    else
-      base_filename + '.' + ext
-    end
-  end
-  
   private
   def identifier_for(attributes)
-    @items_root + attributes[:created_at].strftime("%Y/%m/%d/") + attributes[:title].slug
+    attributes[:created_at].strftime("%Y/%m/%d/") + attributes[:title].slug
   end
   
   def parse_entry(entry, filename)

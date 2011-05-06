@@ -47,4 +47,11 @@ data_sources:
     type: dasblog
     items_root: /dasblog/
     config:
-      path: dasblog
+      path: dasblog/posts
+
+  -
+    type: filesystem_custom
+    items_root: /dasblog/images/
+    config:
+      path: dasblog/images/
+      allow_periods_in_identifiers: true
