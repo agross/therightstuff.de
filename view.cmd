@@ -1,2 +1,2 @@
-@set path=%path%;tools\Ruby\bin
+@set path=tools\Ruby\bin;%path%
 tools\Ruby\bin\nanoc view
