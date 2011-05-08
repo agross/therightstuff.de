@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2009-02-07T01:00:00+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;In ungefähr einer Woche, am 16.02.2009, findet das &lt;a href="http://dotnet-leipzig.de/veranstaltungen/net-bootcamp-2009-2/"&gt;zweite .NET Bootcamp&lt;/a&gt; der &lt;a href="http://dotnet-leipzig.de/"&gt;.NET User Group Leipzig&lt;/a&gt; statt. Das Thema lautet diesmal Unit Tests und wird neben einer Einführung in das Testen auch &lt;a href="http://en.wikipedia.org/wiki/Test-Driven_Development"&gt;Test-Driven Development&lt;/a&gt; und &lt;a href="http://en.wikipedia.org/wiki/Behavior-driven_development"&gt;Behavior-Driven Development&lt;/a&gt; aufgreifen.&lt;/p&gt;  &lt;p&gt;Die Organisation des Bootcamps findet wieder nach dem Konzept “&lt;a href="http://blogs.compactframework.de/Torsten.Weber/2009/01/15/LdL+Ndash+Lernen+Durch+Lehren+Ein+Erfahrungsbericht.aspx"&gt;Lernen durch Lehren&lt;/a&gt;” (LdL) statt. Das heißt, dass jeder Teilnehmer im Vorfeld zwei &lt;a href="http://dotnet-leipzig.de/vortraege/net-bootcamp-2009-unit-tests/"&gt;Fragen&lt;/a&gt; als “Hausaufgabe” bekommt und seine Ergebnisse während der Veranstaltung vorstellt. Ich werde die Rolle des Moderators übernehmen, Fragen klären, weitere Aspekte aufzeigen und sicher auch etwas von den Teilnehmern lernen.&lt;/p&gt;  &lt;p&gt;Wie unser erster Testballon auf dem Gebiet &lt;abbr title="Lernen durch Lehren"&gt;LdL&lt;/abbr&gt; zum Thema &lt;a href="http://dotnet-leipzig.de/veranstaltungen/net-bootcamp-2009-1/"&gt;.NET Framework 3.5&lt;/a&gt; ist dieses Bootcamp mit 19 Teilnehmern überbucht. Offenbar kommt &lt;abbr title="Lernen durch Lehren"&gt;LdL&lt;/abbr&gt; gut bei unseren User Group-Mitgliedern an, aus Sicht der Organisation kann ich dies jedenfalls bestätigen!&lt;/p&gt;</Content>
+      <Created>2009-02-07T16:19:54.7817496+01:00</Created>
+      <Modified>2009-02-07T16:19:54.7817496+01:00</Modified>
+      <EntryId>beb2a32d-ac57-43df-af7d-d1a30919ad4d</EntryId>
+      <Description />
+      <Title>.NET Bootcamp: Unit Tests</Title>
+      <Categories>.NET;BDD;DNUG Leipzig</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

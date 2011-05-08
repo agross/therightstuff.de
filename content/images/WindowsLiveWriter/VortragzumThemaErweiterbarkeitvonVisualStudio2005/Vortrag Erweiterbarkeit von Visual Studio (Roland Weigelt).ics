@@ -1,0 +1,95 @@
+﻿BEGIN:VCALENDAR
+PRODID:-//Microsoft Corporation//Outlook 12.0 MIMEDIR//EN
+VERSION:2.0
+X-MS-OLK-FORCEINSPECTOROPEN:TRUE
+BEGIN:VEVENT
+CLASS:PUBLIC
+CREATED:20070505T081925Z
+DESCRIPTION:Visual Studio 2005 kann auf vielfältige Weise an die eigenen B
+	edürfnisse angepasst und ggf. um fehlende Funktionalität erweitert werde
+	n. Der Vortrag stellt die folgenden Möglichkeiten vor:\n\n*	Code Snippets
+	\n*	Item und Project Templates\n*	Wizards\n*	Makros\n*	Add-ins\n\nEin gewi
+	sser Schwerpunkt wird bei den Visual Studio Add-ins liegen\, bei denen Rol
+	and Weigelt auf seine Erfahrungen aus der Entwicklung des mehrfach ausgeze
+	ichneten Add-ins GhostDoc (http://www.roland-weigelt.de/ghostdoc) zurückg
+	reifen kann. Er weist dabei auf diverse Fallstricke hin\, die sich z.B. du
+	rch internationale Versionen von Windows und/oder Visual Studio ergeben.\n
+	\n
+DTEND:20070706T213000Z
+DTSTAMP:20070502T194217Z
+DTSTART:20070706T173000Z
+LAST-MODIFIED:20070505T081925Z
+LOCATION:WiFa Raum 309\; Marschnerstraße 31\; 04109 Leipzig
+PRIORITY:5
+SEQUENCE:0
+SUMMARY;LANGUAGE=de:Vortrag Erweiterbarkeit von Visual Studio (Roland Weige
+	lt)
+TRANSP:OPAQUE
+UID:040000008200E00074C5B7101A82E0080000000060D974C1028DC701000000000000000
+	0100000008FE8C5C7DD02304B95529E280D7A788D
+X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//E
+	N">\n<HTML>\n<HEAD>\n<META NAME="Generator" CONTENT="MS Exchange Server ve
+	rsion 08.00.0681.000">\n<TITLE></TITLE>\n</HEAD>\n<BODY>\n<!-- Converted f
+	rom text/rtf format -->\n\n<P DIR=LTR><SPAN LANG="de"></SPAN><SPAN LANG="d
+	e"></SPAN><SPAN LANG="de"><FONT SIZE=2 FACE="Arial">Visual Studio 2005 kan
+	n auf vielfältige Weise an die eigenen Bedürfnisse angepasst und ggf. um
+	 fehlende Funktionalität erweitert werden. Der Vortrag stellt die folgend
+	en Möglichkeiten vor:</FONT></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="de"
+	></SPAN><SPAN LANG="de"></SPAN></P>\n\n<P DIR=LTR><SPAN LANG="de"><FONT SI
+	ZE=2 FACE="Symbol">&#183\;<FONT FACE="Courier New">&nbsp\;&nbsp\;&nbsp\;&n
+	bsp\;&nbsp\;&nbsp\;</FONT></FONT></SPAN><SPAN LANG="de"></SPAN><SPAN LANG=
+	"de"></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="de">
+	</SPAN><SPAN LANG="de"> <FONT SIZE=2 FACE="Arial">Code Snippets</FONT></SP
+	AN><SPAN LANG="de"></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="de"></SPAN></
+	P>\n\n<P DIR=LTR><SPAN LANG="de"><FONT SIZE=2 FACE="Symbol">&#183\;<FONT F
+	ACE="Courier New">&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;</FONT></FONT>
+	</SPAN><SPAN LANG="de"></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="de"></SPA
+	N><SPAN LANG="de"> <FONT SIZE=2 FACE="Arial">Item und Project Templates</F
+	ONT></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="de"><
+	/SPAN></P>\n\n<P DIR=LTR><SPAN LANG="de"><FONT SIZE=2 FACE="Symbol">&#183\
+	;<FONT FACE="Courier New">&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;</FONT
+	></FONT></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="d
+	e"></SPAN><SPAN LANG="de"> <FONT SIZE=2 FACE="Arial">Wizards</FONT></SPAN>
+	<SPAN LANG="de"></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="de"></SPAN></P>\
+	n\n<P DIR=LTR><SPAN LANG="de"><FONT SIZE=2 FACE="Symbol">&#183\;<FONT FACE
+	="Courier New">&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;</FONT></FONT></S
+	PAN><SPAN LANG="de"></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="de"></SPAN><
+	SPAN LANG="de"> <FONT SIZE=2 FACE="Arial">Makros</FONT></SPAN><SPAN LANG="
+	de"></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="de"></SPAN></P>\n\n<P DIR=LT
+	R><SPAN LANG="de"><FONT SIZE=2 FACE="Symbol">&#183\;<FONT FACE="Courier Ne
+	w">&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;&nbsp\;</FONT></FONT></SPAN><SPAN LA
+	NG="de"></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="d
+	e"> <FONT SIZE=2 FACE="Arial">Add-ins</FONT></SPAN><SPAN LANG="de"></SPAN>
+	<SPAN LANG="de"></SPAN><SPAN LANG="de"></SPAN></P>\n\n<P DIR=LTR><SPAN LAN
+	G="de"></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="de
+	"></SPAN></P>\n\n<P DIR=LTR><SPAN LANG="de"></SPAN><SPAN LANG="de"></SPAN>
+	<SPAN LANG="de"><FONT SIZE=2 FACE="Arial">Ein gewisser Schwerpunkt wird be
+	i den Visual Studio Add-ins liegen\, bei denen Roland Weigelt auf seine Er
+	fahrungen aus der Entwicklung des mehrfach ausgezeichneten Add-ins GhostDo
+	c (</FONT></SPAN><SPAN LANG="de"></SPAN><A HREF="http://www.roland-weigelt
+	.de/ghostdoc"><SPAN LANG="de"></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="de
+	"><U><FONT COLOR="#0000FF" SIZE=2 FACE="Arial">http://www.roland-weigelt.d
+	e/ghostdoc</FONT></U></SPAN><SPAN LANG="de"></SPAN></A><SPAN LANG="de"></S
+	PAN><SPAN LANG="de"></SPAN><SPAN LANG="de"><FONT SIZE=2 FACE="Arial">)</FO
+	NT></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="de"><F
+	ONT SIZE=2 FACE="Arial"></FONT></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="d
+	e"></SPAN><SPAN LANG="de"> <FONT SIZE=2 FACE="Arial">zurückgreifen kann.
+	Er weist dabei auf diverse Fallstricke hin\, die sich z.B. durch internati
+	onale Versionen von Windows und/oder Visual Studio ergeben.</FONT></SPAN><
+	SPAN LANG="de"></SPAN><SPAN LANG="de"></SPAN><SPAN LANG="de"></SPAN></P>\n
+	\n</BODY>\n</HTML>
+X-MICROSOFT-CDO-BUSYSTATUS:BUSY
+X-MICROSOFT-CDO-IMPORTANCE:1
+X-MICROSOFT-CDO-INTENDEDSTATUS:BUSY
+X-MICROSOFT-DISALLOW-COUNTER:FALSE
+X-MS-OLK-ALLOWEXTERNCHECK:TRUE
+X-MS-OLK-AUTOFILLLOCATION:FALSE
+X-MS-OLK-AUTOSTARTCHECK:FALSE
+X-MS-OLK-CONFTYPE:0
+BEGIN:VALARM
+TRIGGER:-PT60M
+ACTION:DISPLAY
+DESCRIPTION:Reminder
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2010-03-03T01:00:00+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;A couple of days ago &lt;a href="http://hadihariri.com/" rel="contact"&gt;Hadi Hariri&lt;/a&gt; posted his set of MSpec (&lt;a href="http://github.com/machine/machine.specifications"&gt;Machine.Specifications&lt;/a&gt;) &lt;a href="http://hadihariri.com/blogengine/post/2010/03/01/MSpec-Live-Templates.aspx"&gt;templates for ReSharper&lt;/a&gt;. ReSharper’s templating system helps you type less repeated code. On top of that, ReSharper templates are much richer when compared to what’s built into Visual Studio. Plus, you edit them with a decent editor instead of hacking XML files.&lt;/p&gt;  &lt;p&gt;Like Hadi, I also created a couple of templates specific to MSpec over the course of the last year or so and found them often to reduce the amount of text I have to write. ReSharper Templates are divided into three categories, with at least one MSpec template in each.&lt;/p&gt;  &lt;h3&gt;Legend&lt;/h3&gt;  &lt;ul&gt;   &lt;li&gt;&lt;code style="border-bottom: red 1px solid; border-left: red 1px solid; border-top: red 1px solid; border-right: red 1px solid"&gt;foo&lt;/code&gt; denotes an editable part of the template &lt;/li&gt;    &lt;li&gt;&lt;code style="color: green"&gt;|&lt;/code&gt; denotes where the cursor will be put upon expansion &lt;/li&gt; &lt;/ul&gt;  &lt;h3&gt;File Template&lt;/h3&gt;  &lt;p&gt;Basically, this is just a new C# file with a single MSpec context in it.&lt;/p&gt;  &lt;pre&gt;using System;
+
+using Machine.Specifications;
+
+namespace ClassLibrary1
+{
+  [Subject(typeof(&lt;span style="border-bottom: red 1px solid; border-left: red 1px solid; border-top: red 1px solid; border-right: red 1px solid"&gt;Type&lt;/span&gt;))]
+  public class When_&lt;span style="border-bottom: red 1px solid; border-left: red 1px solid; border-top: red 1px solid; border-right: red 1px solid"&gt;Context&lt;/span&gt;
+  {
+    Establish context = () =&amp;gt; { &lt;span style="color: green"&gt;|&lt;/span&gt; };
+
+    Because of = () =&amp;gt; { };
+
+    It should_ = () =&amp;gt; { };
+  }
+}&lt;/pre&gt;
+
+&lt;h3&gt;Live Templates (a.k.a. Snippets)&lt;/h3&gt;
+
+&lt;p&gt;Live Templates provide expansion of keyword-like identifiers. For example &lt;code&gt;cw (Tab)&lt;/code&gt; will expand to &lt;code&gt;Console.WriteLine();&lt;/code&gt;&lt;/p&gt;
+
+&lt;table&gt;&lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+
+      &lt;th&gt;Expanded&lt;/th&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;spec&lt;/code&gt;&lt;/td&gt;
+
+      &lt;td&gt;A new context, similar to what the File Template above creates.&lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;est&lt;/code&gt;&lt;/td&gt;
+
+      &lt;td&gt;&lt;code&gt;Establish context = () =&amp;gt; { &lt;span style="color: green"&gt;|&lt;/span&gt; };&lt;/code&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;bec&lt;/code&gt;&lt;/td&gt;
+
+      &lt;td&gt;&lt;code&gt;Because of = () =&amp;gt; { &lt;span style="color: green"&gt;|&lt;/span&gt; };&lt;/code&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;it&lt;/code&gt;&lt;/td&gt;
+
+      &lt;td&gt;&lt;code&gt;It should_&lt;span style="border-bottom: red 1px solid; border-left: red 1px solid; border-top: red 1px solid; border-right: red 1px solid"&gt;observation&lt;/span&gt; = () =&amp;gt; { &lt;span style="color: green"&gt;|&lt;/span&gt; };&lt;/code&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td&gt;&lt;a name="fail"&gt;&lt;/a&gt;&lt;code&gt;fail&lt;/code&gt;&lt;/td&gt;
+
+      &lt;td&gt;&lt;code style="white-space: pre"&gt;It should_fail = () =&amp;gt; Exception.ShouldNotBeNull();
+
+static Exception Exception;&lt;/code&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;l&lt;/code&gt;&lt;/td&gt;
+
+      &lt;td&gt;&lt;code&gt;() =&amp;gt; &lt;span style="color: green"&gt;| &lt;/span&gt;;&lt;/code&gt; 
+
+        &lt;p&gt;Only valid for assignments. For example:&lt;/p&gt;
+        &lt;code style="white-space: pre"&gt;var x = l (Tab)
+var x = () =&amp;gt; &lt;span style="color: green"&gt;| &lt;/span&gt;;&lt;/code&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+
+    &lt;tr&gt;
+      &lt;td&gt;&lt;code&gt;ll&lt;/code&gt;&lt;/td&gt;
+
+      &lt;td&gt;&lt;code&gt;() =&amp;gt; { &lt;span style="color: green"&gt;|&lt;/span&gt; }; &lt;/code&gt;Only valid for assignments. &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;&lt;/table&gt;
+
+&lt;h3&gt;Surround Templates&lt;/h3&gt;
+
+&lt;p&gt;Surround Templates are useful when you want to wrap a block of code with other code, for example, an &lt;code&gt;if&lt;/code&gt; statement (this is one that’s built-in).&lt;/p&gt;
+
+&lt;p&gt;Unit testing frameworks almost always have means to assert that are particular test should fail with a specific exception, for example by marking the test method with the &lt;code&gt;ExpectedExceptionAttribute&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;The MSpec way of handling/expecting exceptions is to surround the code in &lt;code&gt;Because&lt;/code&gt; with &lt;code&gt;Catch.Exception&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre class="brush: csharp;"&gt;public class When_a_negative_amount_is_deducted
+{
+  static Exception Exception;
+  static Account Account;
+
+  Establish context =
+    () =&amp;gt; { Account = new Account(); };
+
+  Because of =
+    () =&amp;gt; { Exception = Catch.Exception(() =&amp;gt; Account.Deduct(-1)); };
+
+  It should_fail =
+    () =&amp;gt; Exception.ShouldNotBeNull();
+}&lt;/pre&gt;
+
+&lt;p&gt;There’s a surround template named &lt;code&gt;Catch.Exception&lt;/code&gt; that we can make wrap the call to &lt;code&gt;Account.Deduct&lt;/code&gt;:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Create the context with just the &lt;code&gt;Account&lt;/code&gt; field, &lt;code&gt;Establish&lt;/code&gt; and the &lt;code&gt;Because&lt;/code&gt;. Select the highlighted code. 
+
+    &lt;pre&gt;public class When_a_negative_amount_is_deducted
+{
+  // Account field and Establish cut for brevity.
+
+  Because of =
+    () =&amp;gt; { &lt;span style="background-color: #3399ff"&gt;Account.Deduct(-1);&lt;/span&gt; };
+}&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Press the shortcut for ReSharper | Edit | Surround With Template, select &amp;quot;Catch.Exception&amp;quot; from the list of available templates. 
+    &lt;pre&gt;public class When_a_negative_amount_is_deducted
+{
+  // Account field and Establish cut for brevity.
+
+  Because of =
+    () =&amp;gt; { Exception = Catch.Exception(() =&amp;gt; { Account.Deduct(-1); }); };
+}&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Navigate out of the &lt;code&gt;Because&lt;/code&gt; field, for example by pressing the &lt;code&gt;(End)&lt;/code&gt; key. Type &lt;code&gt;fail&lt;/code&gt; (a Live Template, &lt;a href="#fail"&gt;see above&lt;/a&gt;) and press &lt;code&gt;(Tab)&lt;/code&gt;. 
+
+    &lt;pre&gt;public class When_a_negative_amount_is_deducted
+{
+  // Account field and Establish cut for brevity.
+
+  Because of =
+    () =&amp;gt; { Exception = Catch.Exception(() =&amp;gt; { Account.Deduct(-1); }); };
+  fail(Tab)
+}&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Marvel at the amount of code you didn't have to write. 
+    &lt;pre&gt;public class When_a_negative_amount_is_deducted
+{
+  // Account field and Establish cut for brevity.
+
+  Because of =
+    () =&amp;gt; { Exception = Catch.Exception(() =&amp;gt; { Account.Deduct(-1); }); };
+
+  It should_fail =
+    () =&amp;gt; Exception.ShouldNotBeNull();
+
+  static Exception Exception;
+}&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;Download&lt;/h3&gt;
+
+&lt;div class="download"&gt;
+  &lt;p&gt;&lt;img style="margin-right: 4px" class="download" title="Download" alt="Download" src="http://therightstuff.de/content/binary/Download.gif" /&gt;Download &lt;a href="http://therightstuff.de/download/MSpec-Templates.zip"&gt;Machine.Specifications Templates For ReSharper&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</Content>
+      <Created>2010-03-03T14:56:54.8861989+01:00</Created>
+      <Modified>2010-03-03T14:58:37.9305023+01:00</Modified>
+      <EntryId>35785cdb-ff2c-4f67-9d4b-bc9e419e0477</EntryId>
+      <Description />
+      <Title>Machine.Specifications Templates For ReSharper</Title>
+      <Categories>BDD;MSpec;ReSharper</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

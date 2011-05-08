@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2007-09-06T02:00:00+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;Robert und &lt;a href="http://blog.pixelplastic.de/" rel="friend co-resident met"&gt;Marci&lt;/a&gt;, zwei der Mitorganisatoren der &lt;a href="http://www.therightstuff.de/2007/06/11/Danke.aspx"&gt;Überraschungs-Geocaching-Rallye zu meinen Ehren&lt;/a&gt; (i.e. Geburtstag) wurden vor einigen Wochen vom Leipziger Lokalradio&amp;nbsp;&lt;a href="http://mephisto976.uni-leipzig.de/"&gt;mephisto 97.6&lt;/a&gt; zur neuartigen&amp;nbsp;Freizeitbeschäftigung Geocaching &lt;a title="Zum Beitrag" href="http://mephisto976.uni-leipzig.de/modules.php?name=News&amp;amp;file=article&amp;amp;sid=23129"&gt;interviewt&lt;/a&gt;.&lt;/p&gt; &lt;blockquote cite="http://mephisto976.uni-leipzig.de/modules.php?name=News&amp;amp;file=article&amp;amp;sid=23129"&gt; &lt;p&gt;Durch Wald und Wiesen, in Städte, oder an abgelegene Orte wie z.B. Abrisshäuser. Das neue Hobby Geocaching führt querfeldein. Geocaching ist ein noch recht unbekanntes Abenteuer. Wir haben mal die Leipziger dazu befragt. &lt;p&gt;&lt;/p&gt;&lt;/blockquote&gt; &lt;p&gt;Dabei ist ein &lt;a title="Zum Beitrag" href="http://mephisto976.uni-leipzig.de/modules.php?name=News&amp;amp;file=article&amp;amp;sid=23129"&gt;kleiner 4-Minuten-Beitrag&lt;/a&gt; entstanden der einen guten Einstieg in das Thema gibt. Leipziger die es gern selbst einmal ausprobieren möchten, starten am besten &lt;a title="Karte mit Geocaches" href="http://www.geocaching.de/index.php?id=65"&gt;hier&lt;/a&gt;.&lt;/p&gt;</Content>
+      <Created>2007-09-06T23:50:47.657625+02:00</Created>
+      <Modified>2007-09-06T23:50:47.657625+02:00</Modified>
+      <EntryId>5f670dc6-bd93-48f2-b603-d702da790cb9</EntryId>
+      <Description />
+      <Title>Geocaching: Robert und Marci auf mephisto 97.6</Title>
+      <Categories>NonTech</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

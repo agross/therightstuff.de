@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2007-10-12T02:00:00+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;Die Menge reicht für ein großes Backblech. &lt;ul&gt; &lt;li&gt;800 ml Brühe&lt;/li&gt; &lt;li&gt;800 ml Sahne&lt;/li&gt; &lt;li&gt;400 g Polenta (Maismehl)&lt;/li&gt; &lt;li&gt;8 Eigelb&lt;/li&gt; &lt;li&gt;Butter zum Anbraten&lt;/li&gt;&lt;/ul&gt; &lt;p&gt;Sahne und Brühe zusammen aufkochen lassen, dann Polenta dazugeben und so lange mit dem Schneebesen rühren bis sich der Brei vom Topfboden löst (das spritzt evtl. etwas, also Vorsicht). Das Rühren ist sehr wichtig, denn es entscheidet, wie gut sich der Brei später ausstreichen lässt. Ruhig etwas länger rühren, aber nicht anbrennen lassen.&amp;nbsp;Anschließend vom Herd nehmen und schnell das Eigelb drunterheben und verrühren.&lt;/p&gt; &lt;p&gt;Vorher sollte man das Blech vorbereiten, d. h. mit Öl einfetten, und einen Kuchenschaber bereithalten. Jetzt kommt es auf jede Sekunde an:&lt;/p&gt; &lt;p&gt;Die Masse auf das Blech geben und zügig gleichmäßig ausstreichen. Sie kühlt recht schnell ab und dann kann man die Masse nicht mehr nach Belieben formen. Nach ca. 1 Stunde ist die Masse kalt und hält sich im Kühlschrank ca. 3 Tage.&lt;/p&gt; &lt;p&gt;Vor dem Servieren mit einer schönen Plätzchenform Häppchen ausstechen. Diese dann in einer Pfanne&amp;nbsp;mit ein wenig Butter anbraten.&lt;/p&gt;</Content>
+      <Created>2007-10-12T12:51:18.7552006+02:00</Created>
+      <Modified>2007-10-12T12:51:18.7552006+02:00</Modified>
+      <EntryId>7f7b9ad4-bf21-4afa-860f-98c76be13371</EntryId>
+      <Description />
+      <Title>Rezept: Polenta-Sterne</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

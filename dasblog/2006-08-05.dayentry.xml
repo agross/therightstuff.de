@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-08-05T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;We are working with a DSL connection here and offer some services to the outside world, for example Remote Desktop login to each roommate's workstation. This web site is also served through&amp;nbsp;this DSL connection. That's what Bill Gates must have meant when he talked about the vision of "&lt;A href="http://www.microsoft.com/billgates/speeches/industry&amp;amp;tech/iayf2005.asp"&gt;information on your fingertips&lt;/A&gt;"¹.&lt;/P&gt;
+&lt;P&gt;Simple consumer DSL line like ours have&amp;nbsp;an annoying&amp;nbsp;"feature": The provider disconnects the line every 24 hours to force redialing the connection and thus allowing him to assign a new public IP address.&amp;nbsp;This prevents offering large scale services and forces businesses to buy a more expensive connection package with static public IPs.&amp;nbsp;Because nobody on the internet knowns our current IP address (as it changes every day) we use a &lt;A href="http://en.wikipedia.org/wiki/Dyndns"&gt;Dynamic DNS&lt;/A&gt;&amp;nbsp;service to update the IP addresses of our domains (&lt;A href="http://www.it99.org/"&gt;www.it99.org&lt;/A&gt;,&amp;nbsp;&lt;A href="http://www.pixelplastic.de/"&gt;www.pixelplastic.de&lt;/A&gt;&amp;nbsp;and some others).&lt;/P&gt;
+&lt;P&gt;There are Dynamic DNS clients that monitor the connection and issue an IP update to Dynamic DNS service like &lt;A href="http://www.dyndns.com/"&gt;DynDNS&lt;/A&gt;. Current routers even come with such a client. I was trying the demo version of &lt;A href="http://www.directupdate.net/"&gt;DirectUpdate&lt;/A&gt; to see how it works.&lt;/P&gt;
+&lt;P align=center&gt;&lt;A href="http://www.it99.org/axl/content/binary/DirectUpdate%20Screenshot.png"&gt;&lt;IMG title=DirectUpdate height=425 alt=DirectUpdate src="http://www.it99.org/axl/content/binary/DirectUpdate%20Screenshot%20small.png" width=550 border=0&gt;&lt;/A&gt;&lt;/P&gt;
+&lt;P&gt;This is the DirectUpdate management screen. Notice that the window is not resizable by means of the standard minimize, maximize and restore buttons (&lt;IMG title="Minimize, Maximize and Restore Buttons" alt="Minimize, Maximize and Restore Buttons" src="http://www.it99.org/axl/content/binary/Minimize%20Maximize%20Restore%20Buttons.png"&gt;). What happens if you log in with a resolution of 640x480 and the window floats around off-screen? You're lost. One might say that this a very uncommon case today as CRTs with this resolution are pretty much dead, but we had such a display connected to the old server.&lt;/P&gt;
+&lt;P&gt;After installing DirectUpdate everything worked fine, DynDNS updates were issued and the service&amp;nbsp;ran reliably.&amp;nbsp;However, the security event log &lt;A href="http://groups.google.de/group/microsoft.public.windows.server.security/browse_frm/thread/2d56ea2a50950ccc/9cafaa6da7935470?tvc=1&amp;amp;hl=de#9cafaa6da7935470"&gt;filled up with strange "Audit Policy Change" events&lt;/A&gt;. These events occurred at random times. Each time the Logon/Logoff and Account Logon audit, which&amp;nbsp;forces Windows&amp;nbsp;to log successful and failed logon attempts to the security event log, was completely disabled. All other audit settings&amp;nbsp;remained untouched.&lt;/P&gt;&lt;PRE&gt;Event ID: 612
+User:  NT AUTHORITY\SYSTEM
+Audit Policy Change:
+New Policy:
+Success Failure
+ &lt;STRONG&gt; -  - Logon/Logoff&lt;/STRONG&gt;
+  -  - Object Access
+  -  - Privilege Use
+  -  - Account Management
+  -  - Policy Change
+  -  + System
+  -  - Detailed Tracking
+  -  - Directory Service Access
+  &lt;STRONG&gt;-  - Account Logon&lt;/STRONG&gt;
+Changed By:
+User Name: ARWEN$
+Domain Name: WG
+Logon ID: (0x0,0x3E7)&lt;/PRE&gt;
+&lt;P&gt;I've reset the &lt;A href="http://technet2.microsoft.com/WindowsServer/en/library/962f5863-15df-4271-9ae0-4b0412e297491033.mspx?mfr=true"&gt;Windows Audit Policy&lt;/A&gt; to log Logon/Logoff and Account Logon events each time a 612 event&amp;nbsp;was logged&amp;nbsp;but after some hours the&amp;nbsp;policy change&amp;nbsp;would occur again.&amp;nbsp;Tracing the system events using &lt;A href="http://www.sysinternals.com/Utilities/Filemon.html"&gt;Filemon&lt;/A&gt;, &lt;A href="http://www.sysinternals.com/Utilities/Regmon.html"&gt;Regmon&lt;/A&gt; and &lt;A href="http://www.sysinternals.com/utilities/processexplorer.html"&gt;Process Explorer&lt;/A&gt; gave no clue about the source of the error. Time to open a support case using a voucher that &lt;A href="http://www.dotnet-leipzig.de/"&gt;Torsten&lt;/A&gt; kindly let me use.&lt;/P&gt;
+&lt;P&gt;The&amp;nbsp;Microsoft support clerk recommended disabling all non-Microsoft services (there&amp;nbsp;were about four) on the system. Lo and behold, the Audit Policy Change events didn't appear again. After gradually&amp;nbsp;re-enabling these services I found that DirectUpdate was the source of the policy changes. The next step was to prevent DirectUpdate from issuing policy change requests. As there's no setting on the UI regarding policy, I had to dig deeper.&lt;/P&gt;
+&lt;P&gt;DirectUpdate installs as a Windows service. Because it appears easier for the developers if DirectUpdate the service runs under the SYSTEM account, the most powerful account&amp;nbsp;in Windows that's allowed to perform every operation. Why should a service that's&amp;nbsp;sole purpose is to monitor IPs and sending HTTP requests run&amp;nbsp;in such an&amp;nbsp;unrestricted environment? I changed the service to run under&amp;nbsp;the &lt;A href="http://www.microsoft.com/technet/security/topics/serversecurity/serviceaccount/default.mspx"&gt;Network Service&lt;/A&gt;&amp;nbsp;account, a restricted&amp;nbsp;user for the very purpose of running services under it:&lt;/P&gt;
+&lt;BLOCKQUOTE&gt;The new Network Service account [...] has a greatly reduced privilege level on the server itself and, therefore, does not have local administrator privileges.&lt;/BLOCKQUOTE&gt;
+&lt;OL&gt;
+&lt;LI&gt;Open the Services MMC Snap-In by&amp;nbsp;running &lt;STRONG&gt;services.msc&lt;/STRONG&gt;
+&lt;LI&gt;Search for the "DirectUpdate engine" service
+&lt;LI&gt;Right-click, select Properties and open the Logon tab
+&lt;LI&gt;Enable the This account radio button, then Browse and enter NetworkService or browse for the localized Network Service name&lt;BR&gt;&lt;A href="http://www.it99.org/axl/content/binary/DirectUpdate%20Logon%20Settings%20Screenshot.png"&gt;&lt;IMG title="DirectUpdate Logon Settings" height=281 alt="DirectUpdate Logon Settings" src="http://www.it99.org/axl/content/binary/DirectUpdate%20Logon%20Settings%20Screenshot%20small.png" width=250 border=0&gt;&lt;/A&gt;
+&lt;LI&gt;Click OK
+&lt;LI&gt;Grant the following rights to the Network Service account&lt;BR&gt;
+&lt;UL&gt;
+&lt;LI&gt;Change in the DirectUpdate log file folder
+&lt;LI&gt;Change in &lt;STRONG&gt;C:\Program Files\DirectUpdate\Dump\&lt;/STRONG&gt;
+&lt;LI&gt;Full Access&amp;nbsp;in HKEY_LOCAL_MACHINE\SOFTWARE\Fraggers.net&lt;/LI&gt;&lt;/UL&gt;
+&lt;LI&gt;Restart the service&lt;/LI&gt;&lt;/OL&gt;
+&lt;P&gt;This did the trick. DirectUpdate runs peacefully and the Security Policy doesn't get changed anymore. So, thanks again &lt;A href="http://www.dotnet-leipzig.de/"&gt;Torsten&lt;/A&gt; for allowing me to contact Microsoft Support on the issue!&lt;/P&gt;
+&lt;P&gt;¹ Phew, this is the ugliest Microsoft site I've ever seen.&lt;/P&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;A href="http://www.music-map.de/yonderboi.html"&gt;Yonderboi&lt;/A&gt; - &lt;A href="http://www.amazon.com/exec/obidos/ASIN/B000BQ7CCW/therightstu0e-20"&gt;Splendid Isolation&lt;/A&gt; - Motor&lt;/P&gt;</Content>
+      <Created>2006-08-05T14:32:55.8212662+02:00</Created>
+      <Modified>2006-08-05T14:32:55.8212662+02:00</Modified>
+      <EntryId>f7ade299-54f0-4e1b-86f3-4c3e9de7669c</EntryId>
+      <Description />
+      <Title>DirectUpdate and Windows Security Policy</Title>
+      <Categories>Tools and Software;Networking</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

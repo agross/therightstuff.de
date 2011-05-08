@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-10-09T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;Oh my god... Seems like I ran into the hard drive hell. This morning my almost five year old IBM drive (120 GB) failed. After booting the machine Windows had a bad user experience (it went incredibly slow, the opposite is usual). The event log showed some events about paging operations that failed on the only partition on the drive. After the PC hang I booted into &lt;A href="http://www.hgst.com/hdd/support/download.htm"&gt;IBM Drive Fitness Test&lt;/A&gt; that revealed bad sectors after scanning the drive.&amp;nbsp;After the unsuccessful try of repairing these sectors (i.e.&amp;nbsp;the data&amp;nbsp;of the files stored in those sectors will be lost), it reported a "component failure". Time to retire the hard disk after it served dutifully for long years.&lt;/P&gt;
+&lt;P&gt;This disk hasn't been in my &lt;A href="http://www.it99.org/axl/default.aspx?date=2005-08-30#ae39e7613-eb92-4e83-8e11-ef8cf145c800"&gt;RAID 1 array&lt;/A&gt;. Fortunately I did a backup yesterday so no important data will be lost.&lt;/P&gt;
+&lt;P&gt;I've decided to replace the faulty drive with a bigger drive (a &lt;A href="http://www.samsung.com/Products/HardDiskDrive/SpinPointPSeries/HardDiskDrive_SpinPointPSeries_SP2504C.htm"&gt;Samsung SP2504C&lt;/A&gt; with&amp;nbsp;250 GB of capacity) that&amp;nbsp;I'll purchase tomorrow. Hopefully my drives will keep quiet for some years now.&lt;/P&gt;</Content>
+      <Created>2005-10-10T00:36:25.1710000+02:00</Created>
+      <Modified>2005-10-10T00:36:51.3281250+02:00</Modified>
+      <EntryId>be48dcfd-fdd8-40a8-a4b3-b3e38215e7bf</EntryId>
+      <Description />
+      <Title>The next hard drive crashes</Title>
+      <Categories>Geek Mode</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2007-04-01T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;&lt;a href="http://www.torstenweber.net/" rel="friend met"&gt;Torsten&lt;/a&gt;&amp;nbsp;pointed me to a video about an English boy with incredible&amp;nbsp;mental capabilities. For example, &lt;a href="http://en.wikipedia.org/wiki/Daniel_Tammet" rel="previewlink"&gt;Daniel Tammet&lt;/a&gt;&amp;nbsp;is able to recall&amp;nbsp;22514 decimal places of the number π (a very beautiful number to his mind) envisioning some kind of landscape that's unique to this number, mentally connecting properties of the landscape to actual digits. At the end of the video he's learning Icelandic in just one week and puts his knowledge to&amp;nbsp;the test in a TV show.&lt;/p&gt; &lt;div style="text-align:center;"&gt;$googlevid(4913196365903075662)&lt;/div&gt; &lt;p&gt;Absolutely amazing!&amp;nbsp;&lt;/p&gt; &lt;p class="now-playing"&gt;Now Playing [&lt;a title="Insert Now Playing into Your Own Blog Posts" href="http://www.it99.org/axl/Projects/NowPlaying/" rel="previewlink"&gt;?&lt;/a&gt;]: &lt;a title="Display Relations of Kaiser Chiefs to Other Artists" href="http://www.music-map.de/the+kaiser+chiefs.html"&gt;Kaiser Chiefs&lt;/a&gt; – &lt;a title="Display Amazon Page of the Yours truly, angry mob Album" href="http://www.amazon.com/exec/obidos/ASIN/B000MNNRWI/therightstu0e-20"&gt;Yours truly, angry mob&lt;/a&gt; – &lt;a title="Preview Ruby on Last.fm" href="http://www.last.fm/music/Kaiser+Chiefs/_/Ruby/"&gt;Ruby&lt;/a&gt;&lt;/p&gt;</Content>
+      <Created>2007-04-01T16:25:04.7958750+02:00</Created>
+      <Modified>2007-04-01T16:25:51.2177500+02:00</Modified>
+      <EntryId>19de6e18-3367-47f6-b290-f567396044c4</EntryId>
+      <Title>The Boy With The Incredible Brain</Title>
+      <Categories>General</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

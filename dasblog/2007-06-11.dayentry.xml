@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2007-06-11T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p style="text-align: center"&gt;&lt;a title="Surprise Geocaching Rallye" href="http://www.therightstuff.de/content/binary/WindowsLiveWriter/Danke_114C3/Surprise%20Geocaching%20Rallye.jpg" rel="lightbox"&gt;&lt;img alt="Surprise Geocaching Rallye" src="http://www.therightstuff.de/content/binary/WindowsLiveWriter/Danke_114C3/Surprise%20Geocaching%20Rallye_thumb.jpg"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;Danke für das schönste Geburtstagsgeschenk!&lt;/p&gt; &lt;p&gt;&lt;a href="http://blog.pixelplastic.de/" rel="previewlink friend met co-resident"&gt;Marci&lt;/a&gt;, Robert, Robert, Markus, Claudi, &lt;a href="http://www.it99.org/ebi/" rel="previewlink friend met"&gt;Ebi&lt;/a&gt;, Sabine, &lt;a href="http://www.boldhaus.info/" rel="previewlink friend met"&gt;Gunnar&lt;/a&gt;, &lt;a href="http://www.boldhaus.info/" rel="previewlink friend met"&gt;Antje&lt;/a&gt;, Sabine, &lt;a href="http://silke.pixelplastic.de/" rel="previewlink friend met"&gt;Silke&lt;/a&gt;, Martin, Sabine W., Susanne, Anita, Gesa, Susi, &lt;a href="http://blogs.compactframework.de/Torsten.Weber/" rel="previewlink friend met"&gt;Torsten&lt;/a&gt;, die Alex, Äffchen, Anna, Kay, Maria, Evy und Andreas vom &lt;a href="http://www.google.de/maps?num=50&amp;amp;hl=de&amp;amp;safe=off&amp;amp;q=speisekammer&amp;amp;near=Leipzig&amp;amp;radius=0.0&amp;amp;latlng=51339762,12371358,11838518984740641965&amp;amp;cd=1&amp;amp;dtab=0" rel="previewlink"&gt;Späti&lt;/a&gt;.&lt;/p&gt;</Content>
+      <Created>2007-06-11T17:22:28.4010000+02:00</Created>
+      <Modified>2007-06-11T20:51:11.9015896+02:00</Modified>
+      <EntryId>ac488f50-206e-4725-bd91-487b23403c84</EntryId>
+      <Description />
+      <Title>Danke</Title>
+      <Categories>NonTech</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

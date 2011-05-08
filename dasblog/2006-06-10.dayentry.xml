@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-06-10T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;I found a possible solution to the &lt;A href="http://www.it99.org/axl/PermaLink,guid,3b7f5173-16c0-4dd7-9e36-2ce18a1e0f64.aspx"&gt;disappearing CF card problems&lt;/A&gt; with my Dell Axim X51v on &lt;A href="http://www.aximsite.com/boards/showthread.php?t=104366&amp;amp;page=1&amp;amp;pp=20"&gt;Aximsite&lt;/A&gt;:&lt;/P&gt;
+&lt;BLOCKQUOTE&gt;
+&lt;P&gt;&lt;STRONG&gt;CF/SD disappearance intermittently&lt;/STRONG&gt; **&amp;nbsp;&amp;nbsp; (posted by Corny)&lt;BR&gt;HKEY_LOCAL_MACHINE\System\StorageManager\&lt;BR&gt;PNPUnloadDelay=1500&lt;BR&gt;The solution is to change PNPUnloadDelay to 4096.&lt;BR&gt;Soft Reset is required after the application of this registry hack.&lt;BR&gt;I tried this but I am still experiencing problem..Soft reset is only way to get CF/SD back.&lt;/P&gt;&lt;/BLOCKQUOTE&gt;
+&lt;P&gt;In case you don't have Visual Studio's Remote Registry Editor at hand, you can use one of these free utilities to edit the device's registry.&lt;/P&gt;
+&lt;UL&gt;
+&lt;LI&gt;&lt;A href="http://www.phm.lu/Products/PocketPC/RegEdit/"&gt;PHM Registry Editor&lt;/A&gt;&lt;BR&gt;A mobile application.&lt;/LI&gt;
+&lt;LI&gt;&lt;A href="http://www.breaksoft.com/Blog/Utilities/2005/1/Mobile_Registry_Editor.aspx"&gt;Mobile Registry Editor&lt;/A&gt;&lt;BR&gt;A Windows utility to remotely edit the device's registry.&lt;/LI&gt;&lt;/UL&gt;</Content>
+      <Created>2006-06-10T20:11:13.2310000+02:00</Created>
+      <Modified>2006-08-05T14:59:54.8880265+02:00</Modified>
+      <EntryId>23a90f2a-c2cf-4646-b04f-74de6e74fb3f</EntryId>
+      <Description />
+      <Title>Possible Solution to the CF Card Problems with Axim X51v</Title>
+      <Categories>Tools and Software;Mobility</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

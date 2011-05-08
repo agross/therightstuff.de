@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-02-12T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;Jon Galloway describes &lt;A href="http://weblogs.asp.net/jgalloway/archive/2006/02/11/438009.aspx"&gt;how to disable the restart of Windows after automatic Windows Updates&lt;/A&gt;. I've been looking for something like this for some time now, but didn't have the idea of inspecting Group Policy. Browse the Group Policy to get a feeling of what can be done with it. It's amazing how comprehensive the list of tweaks is.&lt;/P&gt;
+&lt;P&gt;&lt;A title="Group Policy" style="FLOAT: right; MARGIN-BOTTOM: 10px; MARGIN-LEFT: 10px" href="http://www.it99.org/axl/content/binary/Group%20Policy.png" rel=lightbox&gt;&lt;IMG title="Group Policy" alt="Group Policy" src="http://www.it99.org/axl/content/binary/Group%20Policy%20small.png" border=0&gt;&lt;/A&gt;Unfortunately there's no built-in shortcut to Group Policy anywhere inside the Control Panel and the Administrative Tools on most versions of Windows. (IIRC there is&amp;nbsp;one on Active Directory-enabled Domain Controllers.)&amp;nbsp;So if you're wondering how to access Group Policy on the workstation and server versions of Windows (2000, XP and&amp;nbsp;2003) without AD, run &lt;STRONG&gt;gpedit.msc&lt;/STRONG&gt; under an administrative session.&lt;/P&gt;
+&lt;P&gt;Another possibility is to run Microsoft Management Console (&lt;STRONG&gt;mmc.exe&lt;/STRONG&gt;) and add the Group Policy Snap-In using the File menu.&lt;/P&gt;</Content>
+      <Created>2006-02-12T03:37:13.1460000+01:00</Created>
+      <Modified>2006-02-12T15:05:32.0306468+01:00</Modified>
+      <EntryId>5250744f-34e0-4c81-9ad8-63db5d934ecd</EntryId>
+      <Description />
+      <Title>Windows Update Woes</Title>
+      <Categories>Windows</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+    <Entry>
+      <Content>&lt;P&gt;&lt;STRONG&gt;Dillsauce&lt;/STRONG&gt;&lt;/P&gt;
+&lt;UL&gt;
+&lt;LI&gt;2 EL Butter&lt;/LI&gt;
+&lt;LI&gt;2 EL Mehl&lt;/LI&gt;
+&lt;LI&gt;500 ml Milch&lt;/LI&gt;
+&lt;LI&gt;2 Päckchen Dillspitzen (z.B. tiefgefroren)&lt;/LI&gt;
+&lt;LI&gt;1 Zitrone&lt;/LI&gt;
+&lt;LI&gt;Salz, Pfeffer, Zucker&lt;/LI&gt;&lt;/UL&gt;
+&lt;P&gt;Butter in einem Topf zergehen lassen. Mehl hinzugeben und so eine Mehlschwitze herstellen. Die Schwitze zur Bindung unter Rühren ein wenig köcheln lassen. Mit Milch auffüllen und unter ständigem Rühren einkochen bis die Sauce dick wird. Dill hinzugeben, salzen und leicht pfeffern. Mit Zucker und Zitronensaft abschmecken. Warm stellen.&lt;/P&gt;
+&lt;P&gt;&lt;STRONG&gt;Bratklopse&lt;/STRONG&gt;&lt;/P&gt;
+&lt;UL&gt;
+&lt;LI&gt;500 g Schweinehack (gewürzt oder ungewürzt)&lt;/LI&gt;
+&lt;LI&gt;2&amp;nbsp;Zwiebeln&lt;/LI&gt;
+&lt;LI&gt;1 EL Senf&lt;/LI&gt;
+&lt;LI&gt;1 EL Quark&lt;/LI&gt;
+&lt;LI&gt;2 Eier&lt;/LI&gt;
+&lt;LI&gt;Semmelbrösel&lt;/LI&gt;
+&lt;LI&gt;1 TL gemahlenes Piment, 1 TL gemahlener&amp;nbsp;Kümmel&lt;/LI&gt;
+&lt;LI&gt;Salz, Pfeffer&lt;/LI&gt;&lt;/UL&gt;
+&lt;P&gt;Schweinehack würzen falls es ungewürzt ist. Kleingewürfelte Zwiebeln hinzugeben und die restlichen Zutaten gut vermengen. Falls die Masse zu feucht ist, mit etwas Semmelbröseln abbinden. Mit der Hand flache Bratklopse (a.k.a. Buletten) formen und in den Semmelbröseln wenden. Margarine in einer Pfanne zerlassen, die Klopse von beiden Seiten braun braten.&lt;/P&gt;
+&lt;P&gt;Kartoffeln kochen und Rührei nach eigenem Geschmack herstellen. Das ganze zusammen servieren.&lt;/P&gt;</Content>
+      <Created>2006-02-13T00:01:40.0883162+01:00</Created>
+      <Modified>2006-02-13T00:01:40.0883162+01:00</Modified>
+      <EntryId>32229cf1-255c-4ac3-981e-33dee9a4f0a8</EntryId>
+      <Description />
+      <Title>Rezept: Bratklops mit Dillsauce, Rührei und Kartoffeln</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

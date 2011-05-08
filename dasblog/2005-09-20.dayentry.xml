@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-09-20T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;Zutaten:&lt;/P&gt;
+&lt;TABLE class=&quot;no-style&quot;&gt;
+&lt;TBODY&gt;
+&lt;TR&gt;
+&lt;TD&gt;
+&lt;UL&gt;
+&lt;LI&gt;Spaghetti
+&lt;LI&gt;getrocknete Tomaten (ca. 6 Stück)
+&lt;LI&gt;1/2 Glas Kapern
+&lt;LI&gt;1/2 Glas schwarze Oliven ohne Kern
+&lt;LI&gt;4 Tomaten &lt;/LI&gt;&lt;/UL&gt;&lt;/TD&gt;
+&lt;TD&gt;
+&lt;UL&gt;
+&lt;LI&gt;2 mittelgroße Zwiebeln
+&lt;LI&gt;Olivenöl
+&lt;LI&gt;ca. 250 g Serrano- oder Parmaschinken
+&lt;LI&gt;Parmesan
+&lt;LI&gt;Pfeffer aus der Mühle&lt;/LI&gt;&lt;/UL&gt;
+&lt;UL&gt;&lt;/UL&gt;&lt;/TD&gt;&lt;/TR&gt;&lt;/TBODY&gt;&lt;/TABLE&gt;
+&lt;P&gt;Zubereitung:&lt;/P&gt;
+&lt;UL&gt;
+&lt;LI&gt;Nudeln kochen
+&lt;LI&gt;Zwiebeln würfeln, Oliven halbieren, getrocknete Tomaten kleinschneiden
+&lt;LI&gt;Schinken ebenfalls zerkleinern
+&lt;LI&gt;frische Tomaten kleinschneiden (Schale kann dranbleiben)
+&lt;LI&gt;Zwiebeln in der Pfanne in Olivenöl anbraten
+&lt;LI&gt;frische und getrocknete Tomaten, Oliven und Kapern hinzugeben, 5-10 Minuten köcheln
+&lt;LI&gt;zum Schluß den Schinken hinzugeben (darf nicht so lang braten weil er sonst zu trocken wird)
+&lt;LI&gt;leicht pfeffern, Salz ist meist aufgrund der getrockneten gesalzenen Tomaten nicht nötig
+&lt;LI&gt;Nudeln abtropfen und mit der Soße vermengen
+&lt;LI&gt;mit geriebenen Parmesan servieren &lt;/LI&gt;&lt;/UL&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;A href="http://www.music-map.de/thievery+corporation.html"&gt;Thievery Corporation&lt;/A&gt; - &lt;A href="http://www.amazon.com/exec/obidos/ASIN/B00006CY6H/therightstu0e-20"&gt;The richest Man in Babylon&lt;/A&gt; - The state of the union&lt;/P&gt;</Content>
+      <Created>2005-09-20T23:42:50.3450000+02:00</Created>
+      <Modified>2005-09-20T23:54:26.3297810+02:00</Modified>
+      <EntryId>f7e2610d-8a96-4fe3-a0cb-a015b7eb22b9</EntryId>
+      <Description />
+      <Title>Rezept: Aline's Nudeln</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

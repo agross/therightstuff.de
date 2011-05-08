@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-10-13T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;My workflow of taking screenshots&amp;nbsp;had to be revised:&amp;nbsp;Instead of hitting Print (captures the whole screen) or Alt+Print (which captures the current foreground window), booting &lt;a href="http://www.adobe.com/photoshop/"&gt;Photoshop&lt;/a&gt;, cropping the image and saving it I was looking for a nice and handy solution. I found &lt;a href="http://blogs.geekdojo.net/brian/articles/Cropper.aspx"&gt;Cropper&lt;/a&gt; that &lt;a href="http://www.lennybacon.com/"&gt;Daniel Fisher&lt;/a&gt; used during his talk at the &lt;a href="http://www.dotnet-leipzig.de/summercamp/"&gt;.NET Summer Camp 2005&lt;/a&gt; pretty straight-forward.&lt;/p&gt;
+&lt;p align="center"&gt;&lt;img src="http://www.it99.org/axl/content/binary/Cropper%20Screenshot.png" alt="Cropper Screenshot" border="0"&gt;&lt;/p&gt;
+&lt;p&gt;Start the tool, select the screen area to capture, double-click and you're&amp;nbsp;done. I especially like that one has quick access to image format and quality via the&amp;nbsp;right-click menu. Also note the size info in the top left corner.&amp;nbsp;Neat.&lt;/p&gt;
+&lt;p&gt;BTW: This screenshot was made using the old workflow :-)&lt;/p&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;a href="http://www.music-map.de/goldfrapp.html"&gt;Goldfrapp&lt;/a&gt; - Strict machine&lt;/p&gt;</Content>
+      <Created>2005-10-13T12:31:37.8280000+02:00</Created>
+      <Modified>2006-08-31T00:22:37.7812500+02:00</Modified>
+      <EntryId>467f17ed-1256-451a-9a24-253f75efc296</EntryId>
+      <Description />
+      <Title>Screen shots made easy</Title>
+      <Categories>Tools and Software</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

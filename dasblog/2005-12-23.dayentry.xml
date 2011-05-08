@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-12-23T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;No&amp;nbsp;comment on this one...&lt;/P&gt;
+&lt;P align=center&gt;&lt;IMG src="http://www.it99.org/axl/content/binary/Informatiker.jpg" border=0&gt;&lt;/P&gt;
+&lt;P align=left&gt;[Via &lt;A href="http://blog.slash-me.net/index.php?/archives/111-Informatiker-sind-doch-alles-Killer....html"&gt;Dinge, Zeugs und Sachen&lt;/A&gt;]&lt;/P&gt;</Content>
+      <Created>2005-12-23T13:07:14.5725372+01:00</Created>
+      <Modified>2005-12-23T13:07:14.5725372+01:00</Modified>
+      <EntryId>d1955a56-af4c-48f6-85c0-161882684fe6</EntryId>
+      <Description />
+      <Title>Computer Scientists == Criminals</Title>
+      <Categories>Geek Mode;Fun Stuff</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2009-02-14T01:00:00+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;The Windows file systems (NTFS and FAT) are able to automatically detect if they are broken. You can even specify &lt;a href="http://technet.microsoft.com/en-us/library/bb490877.aspx"&gt;when that automatic check should be performed&lt;/a&gt;. But sometimes you would want to force a file system check, for example when Windows suddenly behaves strangely for no obvious reason. (For example last year, the day before I went on a month-long vacation, Vista suddenly refused to boot.)&lt;/p&gt;  &lt;p&gt;In order to schedule a file system check for the next reboot you will have to&lt;/p&gt;  &lt;ol&gt;   &lt;li&gt;Open an elevated command prompt or log in as an administrator, &lt;/li&gt;    &lt;li&gt;Run &lt;code&gt;&lt;a href="http://technet.microsoft.com/en-us/library/bb490877.aspx"&gt;chkdsk&lt;/a&gt; &amp;lt;Drive&amp;gt;: /f&lt;/code&gt;, &lt;/li&gt;    &lt;li&gt;Rinse and repeat for all installed drives. &lt;/li&gt; &lt;/ol&gt;  &lt;p&gt;This task isn’t easy for inexperienced users, especially given that they might not know about the &lt;a href="http://technet.microsoft.com/en-us/library/bb490877.aspx"&gt;chkdsk&lt;/a&gt; command line tool in the first place. They could use the UI, but would have to repeat the process for each and every drive nonetheless.&lt;/p&gt;  &lt;p&gt;&lt;img title="Chkdsk UI" style="border-top-width: 0px; display: block; border-left-width: 0px; float: none; border-bottom-width: 0px; margin-left: auto; margin-right: auto; border-right-width: 0px" height="200" alt="Chkdsk UI" src="http://www.therightstuff.de/content/binary/WindowsLiveWriter/ChkDskForAllDrives_B1F9/Chkdsk%20UI_624b8393-5caf-449c-b7c5-4109906a8678.png" width="413" border="0" /&gt; &lt;/p&gt;  &lt;p&gt;To make this task easier, I wrote a little .NET application that automates scheduling file system check for all drives at the next boot. Just double-click &lt;strong&gt;ChkDskAll.exe&lt;/strong&gt;, enter administrative credentials and wait for the goodness to happen.&lt;/p&gt;  &lt;p&gt;&lt;a title="ChkDskAll In Action" href="http://www.therightstuff.de/content/binary/WindowsLiveWriter/ChkDskForAllDrives_B1F9/ChkDskAll_2.png" rel="lightbox"&gt;&lt;img title="ChkDskAll In Action" style="border-top-width: 0px; display: block; border-left-width: 0px; float: none; border-bottom-width: 0px; margin-left: auto; margin-right: auto; border-right-width: 0px" height="112" alt="ChkDskAll In Action" src="http://www.therightstuff.de/content/binary/WindowsLiveWriter/ChkDskForAllDrives_B1F9/ChkDskAll_thumb.png" width="550" border="0" /&gt;&lt;/a&gt;&lt;/p&gt;  &lt;p&gt;If a drive has already been scheduled for scanning, it won’t be scheduled a second time. To exclude drives from being included in the scan, have a look at &lt;strong&gt;ChkdskAll.exe.config&lt;/strong&gt;. For example, &lt;a href="http://www.truecrypt.org/"&gt;TrueCrypt&lt;/a&gt; drives should be excluded if you do not &lt;a href="http://www.truecrypt.org/docs/?s=mounting-truecrypt-volumes"&gt;mount them as fixed drives&lt;/a&gt;.&lt;/p&gt;  &lt;pre class="brush:xml"&gt;&amp;lt;?xml version=&amp;quot;1.0&amp;quot; encoding=&amp;quot;utf-8&amp;quot; ?&amp;gt;
+&amp;lt;configuration&amp;gt;
+    &amp;lt;appSettings&amp;gt;
+        &amp;lt;!-- The list of excluded drives, e. g. &amp;quot;CDE&amp;quot;. --&amp;gt;
+        &amp;lt;add key=&amp;quot;ExcludeDrives&amp;quot; value=&amp;quot;YZ&amp;quot;/&amp;gt;
+    &amp;lt;/appSettings&amp;gt;
+&amp;lt;/configuration&amp;gt;&lt;/pre&gt;
+
+&lt;div class="download"&gt;
+  &lt;p&gt;&lt;img class="download" title="Download" style="margin-right: 4px" alt="Download" src="http://www.therightstuff.de/content/binary/Download.gif" /&gt;&lt;a href="http://www.therightstuff.de/download/ChkDskAll.zip"&gt;Download ChkDskAll binary and source code&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;</Content>
+      <Created>2009-02-14T16:41:57.436875+01:00</Created>
+      <Modified>2009-02-14T16:41:57.436875+01:00</Modified>
+      <EntryId>137392fe-a074-4fd5-ac5b-c917f5e7f711</EntryId>
+      <Description />
+      <Title>ChkDskAll ‒ ChkDsk For All Drives</Title>
+      <Categories>.NET;Tools and Software;Windows</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

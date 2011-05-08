@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-09-15T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;This week a friend of mine gave me his HP Pavilion ze4500 laptop to letting me install Windows and the common set of applications. His hard drive crashed after it was incredibly slow for some weeks. HP was nice enough to replace the drive.&lt;/P&gt;
+&lt;P&gt;However, I decided not to use HP's own recovery CD but a "real" (non-OEM) Windows installation I customized using &lt;A href="http://www.nliteos.com/"&gt;nLite&lt;/A&gt;. Of course, there were not all notebook-specific drivers included in this package. The drivers for video, networking and modem were available through &lt;A href="http://windowsupdate.microsoft.com"&gt;Windows Update&lt;/A&gt; and &lt;A href="http://h10025.www1.hp.com/ewfrf/wc/softwareList?lc=en&amp;amp;lang=en&amp;amp;cc=us&amp;amp;dlc=en&amp;amp;product=375237&amp;amp;os=228"&gt;the HP support page&lt;/A&gt;, but Windows refused to gather drivers for the WLAN device in this machine (a Pavilion ze4526EA namely). &lt;A href="http://h10025.www1.hp.com/ewfrf/wc/softwareList?dlc=de&amp;amp;lc=en&amp;amp;product=375237&amp;amp;lang=de&amp;amp;cc=de&amp;amp;os=228"&gt;HP's other support page&lt;/A&gt; doesn't show&amp;nbsp;it as well and a Google search for the PCI Vendor ID/Device ID wasn't successful either. I had to call HP support to find the drivers for the LAN-Express 802.11b WLAN card (&lt;A href="http://h20000.www2.hp.com/bizsupport/TechSupport/SoftwareDescription.jsp?locBasepartNum=hb-18842-2&amp;amp;lang=English+%28US%29"&gt;SP23038&lt;/A&gt;). The support people told me that there they built models with a LAN-Express card and a Broadcom card. However, the LAN-Express drivers are not listed on the support page (wheras the Broadcom drivers are on the English support page). That's not what I expect from a company like HP.&lt;/P&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;A href="http://www.music-map.de/dj+cam.html"&gt;DJ Cam&lt;/A&gt; - &lt;A href="http://www.amazon.com/exec/obidos/ASIN/B0000089A2/therightstu0e-20"&gt;Substances&lt;/A&gt; - Meera&lt;/P&gt;</Content>
+      <Created>2005-09-15T22:16:38.5820000+02:00</Created>
+      <Modified>2005-10-15T01:12:38.0000000+02:00</Modified>
+      <EntryId>e82f3868-0dc4-4fb2-857e-97567816c8d4</EntryId>
+      <Description />
+      <Title>Installing Windows on a HP Pavilion ze4500 Notebook</Title>
+      <Categories>Geek Mode</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

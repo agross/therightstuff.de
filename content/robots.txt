@@ -1,0 +1,17 @@
+Sitemap: <%= configatron.app.base_url %>/sitemap.xml
+
+User-agent: *
+Disallow: /download/
+Disallow: /howto/
+
+User-agent: Googlebot-Image
+Disallow: /
+
+User-agent: msnbot-media
+Disallow: /
+
+User-agent: psbot
+Disallow: /
+
+User-agent: Yahoo-MMCrawler
+Disallow: /

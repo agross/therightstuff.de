@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-08-14T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;Markus hat &lt;A href="http://www.boldhaus.info/2006/08/14/gulasch-rezept/"&gt;ein leckeres Gulasch-Rezept&lt;/A&gt; veröffentlicht. Mir hat es immer sehr gut geschmeckt, weswegen ich nochmal eine "Sicherheitskopie" anfertige.&lt;/P&gt;
+&lt;UL&gt;
+&lt;LI&gt;1 kg Rindfleisch, am besten Rouladenfleisch, jedenfalls das Beste was zu kriegen ist&lt;/LI&gt;
+&lt;LI&gt;reichlich Olivenöl&lt;/LI&gt;
+&lt;LI&gt;5 große Zwiebeln, geschwürfelt&lt;/LI&gt;
+&lt;LI&gt;10 Knoblauchzehen (kann auch mehr sein), in Scheibchen geschnitten&lt;/LI&gt;
+&lt;LI&gt;2-3 EL Tomatenmark aus der Tube&lt;/LI&gt;
+&lt;LI&gt;reichlich frisch gemahlener Pfeffer&lt;/LI&gt;
+&lt;LI&gt;1,5 TL Salz&lt;/LI&gt;
+&lt;LI&gt;1 Flasche Rotwein&lt;/LI&gt;
+&lt;LI&gt;1 Liter Hühnerbrühe&lt;/LI&gt;
+&lt;LI&gt;7 Lorbeerblätter&lt;/LI&gt;
+&lt;LI&gt;2 Becher Sahne&lt;/LI&gt;
+&lt;LI&gt;250 g Backpflaumen, halbiert&lt;/LI&gt;&lt;/UL&gt;
+&lt;P&gt;Das Olivenöl erhitzen und klein geschnittene Fleischstücke (ungefähr so groß wie bei Geschnetzeltem) kräftig anbraten. Zwiebel, Knoblauch, Salz und Pfeffer dazugeben. Alles so lange weiterbraten, bis die Flüssigkeit weitgehend verkocht ist und am Topfboden langsam anbäckt. Kurz bevor es anbrennt, mit 1/2 Flasche Rotwein ablöschen, den Rest trinken. Alle anderen Zutaten dazugeben, aufkochen lassen und 50-60 Minuten bei mittlerer Hitze köcheln lassen. Dabei häufig umrühren, damit nichts anbrennt - das wäre sehr ärgerlich. Das ganze schmeckt gut mit Basmatireis, aber Nudeln sollen wohl auch ganz lecker dazu sein.&lt;/P&gt;</Content>
+      <Created>2006-08-14T20:09:51.3183750+02:00</Created>
+      <Modified>2006-08-14T20:09:51.3183750+02:00</Modified>
+      <EntryId>01a1e36d-a8ef-44bd-a564-29a12160cbeb</EntryId>
+      <Description />
+      <Title>Rezept: Gulasch à la Markus</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

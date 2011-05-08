@@ -30,24 +30,12 @@ route '/static/images/*/' do
   @item.identifier.chop + '.' + @item[:extension]
 end
 
-compile '/sitemap/' do
+compile '/files/*/' do
   filter :erb
 end
 
-route '/sitemap/' do
-  '/sitemap.xml'
-end
-
-compile '/robots/' do
-  filter :erb
-end
-
-route '/robots/' do
-  '/robots.txt'
-end
-
-route '/google*/' do
-  item.identifier.chop + '.' + @item[:extension]
+route '/files/*/' do
+  @item.identifier.sub(/^\/files/, '').chop + '.' + @item[:extension]
 end
 
 compile '/dasblog/images/*/' do
@@ -63,7 +51,7 @@ route '/dasblog/images/*/' do
 end
 
 route '/dasblog/*/' do
-  @item.identifier.sub(/^\/dasblog/, '') + 'index.html'
+  @item.slug + 'index.html'
 end
 
 compile '*' do

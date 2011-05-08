@@ -1,0 +1,21 @@
+@import blueprint
+
+#layout
+  +container
+  //+showgrid
+  
+  #header,
+  #footer
+    +prepend(1)
+    +append(1)
+    +column($blueprint-grid-columns - 2)
+    +last
+    
+  #nav
+    +prepend(1)
+    +append(1)
+
+  #content
+    +push(1)
+    +column($blueprint-grid-columns - 2)
+    +append(1)

@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-11-02T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;In my &lt;a href="http://www.it99.org/axl/PermaLink,guid,5e54eab9-94c9-40f8-8df9-b7fe86d7e642.aspx"&gt;previous post&lt;/a&gt; on the development of my first Smart Tags I suspected the .NET Framework 2.0 beta bits to break Smart Tag functionality in Office. Now that the .NET Framework 2.0 is released it appears that Smart Tags don't work either. There's a simple solution that I found when trying to fix that issue.&lt;/p&gt;
+&lt;p&gt;All you have to do is place a &lt;strong&gt;config&lt;/strong&gt; file besides the Office excutables in &lt;strong&gt;%ProgramFiles%\Microsoft Office\Office11&lt;/strong&gt;. For Word the file has to be named &lt;strong&gt;winword.exe.config&lt;/strong&gt;, for Excel &lt;strong&gt;excel.exe.config&lt;/strong&gt; and so on.&lt;/p&gt;&lt;pre&gt;&lt;span style="color: blue;"&gt;&amp;lt;?&lt;/span&gt;&lt;span style="color: maroon;"&gt;xml &lt;/span&gt;&lt;span style="color: red;"&gt;version&lt;/span&gt;&lt;span style="color: blue;"&gt;="1.0"&lt;/span&gt;&lt;span style="color: blue;"&gt;?&amp;gt;&lt;br&gt;&lt;/span&gt;&lt;span style="color: maroon;"&gt;&lt;span style="color: blue;"&gt;&amp;lt;&lt;/span&gt;configuration&lt;span style="color: blue;"&gt;&amp;gt;&lt;span&gt;&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color: maroon;"&gt;&lt;span style="color: blue;"&gt;&amp;lt;&lt;/span&gt;startup&lt;font color="#0000ff"&gt;&amp;gt;&lt;/font&gt;&lt;br&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="color: blue;"&gt;&lt;span style="color: maroon;"&gt;&lt;span style="color: blue;"&gt;&lt;span style="color: blue;"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color: blue;"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;/span&gt;&amp;lt;&lt;/span&gt;supportedRuntime &lt;span style="color: red;"&gt;version&lt;/span&gt;&lt;span style="color: blue;"&gt;="v1.1.4322" /&lt;/span&gt;&lt;font color="#0000ff"&gt;&amp;gt;&lt;/font&gt;&lt;/span&gt;&lt;span style="color: blue;"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="color: blue;"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;span style="color: maroon;"&gt;&lt;span style="color: blue;"&gt;&amp;lt;/&lt;/span&gt;startup&lt;font color="#0000ff"&gt;&amp;gt;&lt;/font&gt;&lt;/span&gt;&lt;span style="color: blue;"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="color: maroon;"&gt;&lt;span style="color: blue;"&gt;&amp;lt;/&lt;/span&gt;configuration&lt;font color="#0000ff"&gt;&amp;gt;&lt;/font&gt;&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;
+&lt;p&gt;This forces the native Office applications that host the managed Smart Tag to &lt;a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpguide/html/cpcontargetingnetframeworkversion.asp"&gt;load specific .NET runtime versions&lt;/a&gt;. This apparently fixes the problems with .NET 2.0.&lt;/p&gt;
+&lt;p class="now-playing"&gt;Now playing: Audio Lotion - Advanced Skin Care - Lagrimas de rocio&lt;/p&gt;</Content>
+      <Created>2005-11-02T19:36:20.6090000+01:00</Created>
+      <Modified>2006-12-16T20:42:49.8408188+01:00</Modified>
+      <EntryId>891982b8-67c2-47d3-8a5f-863842292935</EntryId>
+      <Description />
+      <Title>Smart Tags and the .NET Framework 2.0</Title>
+      <Categories>Office</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-10-19T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;During the development of my &lt;a href="http://www.it99.org/axl/PermaLink,guid,5e54eab9-94c9-40f8-8df9-b7fe86d7e642.aspx"&gt;Smart Tag&lt;/a&gt; I needed to bind a &lt;a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfsystemcollectionsspecializedstringcollectionclasstopic.asp"&gt;StringCollection&lt;/a&gt; to a &lt;a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfSystemWindowsFormsListBoxClassTopic.asp"&gt;ListBox&lt;/a&gt;
+on a Windows Form. The initial databinding itself worked
+fine,&amp;nbsp;i.e. the original contents of the collection showed up. I
+even could add items to the collection or remove them. The UI remained
+unchanged, however: Basic collections don't support two-way databinding
+as I &lt;a href="http://www.dotnet247.com/247reference/msgs/58/291752.aspx"&gt;discovered&lt;/a&gt;.&lt;/p&gt;&lt;pre&gt;&lt;span style="color: blue;"&gt;private&lt;/span&gt;&lt;span style="color: black;"&gt; &lt;/span&gt;&lt;span style="color: blue;"&gt;void&lt;/span&gt;&lt;span style="color: black;"&gt; btnAdd_Click(&lt;/span&gt;&lt;span style="color: blue;"&gt;object&lt;/span&gt;&lt;span style="color: black;"&gt; sender, System.EventArgs e)&lt;br&gt;{&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;stringCollection1.Add(&lt;/span&gt;&lt;span style="color: maroon;"&gt;"foo"&lt;/span&gt;&lt;span style="color: black;"&gt;);&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span style="color: green;"&gt;// Use the currency manager to sync up the listbox.&lt;br&gt;&lt;/span&gt;&lt;span style="color: black;"&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;CurrencyManager cm =&lt;/span&gt;&lt;span style="color: black;"&gt;&lt;span style="color: black;"&gt;&lt;span style="color: black;"&gt; &lt;/span&gt;&lt;/span&gt;(CurrencyManager) &lt;/span&gt;&lt;span style="color: blue;"&gt;this&lt;/span&gt;&lt;span style="color: black;"&gt;.listBox1.BindingContext[stringCollection1];&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&lt;/span&gt;&lt;span style="color: blue;"&gt;if&lt;/span&gt;&lt;span style="color: black;"&gt; (cm != &lt;/span&gt;&lt;span style="color: blue;"&gt;null&lt;/span&gt;&lt;span style="color: black;"&gt;)&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;{&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;cm.Refresh();&lt;br&gt;&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;}&lt;br&gt;}&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;The same applies for&amp;nbsp;element updates and deletion.&lt;/p&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;a href="http://www.music-map.de/mc+conrad.html"&gt;MC Conrad&lt;/a&gt; - Logical Progression Level 4 (Limited Edition) - Cool vertigo&lt;/p&gt;</Content>
+      <Created>2005-10-19T18:04:39.0550000+02:00</Created>
+      <Modified>2005-10-29T20:35:29.2500000+02:00</Modified>
+      <EntryId>4ee5d0b6-ff05-4b14-a683-0f02588b6ae6</EntryId>
+      <Description />
+      <Title>Binding a StringCollection to a ListBox</Title>
+      <Categories>Geek Mode</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

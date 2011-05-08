@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2008-01-04T01:00:00+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;ul&gt;   &lt;li&gt;4 H&amp;#228;hnchenschenkel&lt;/li&gt;    &lt;li&gt;2 rote Zwiebeln&lt;/li&gt;    &lt;li&gt;3 Knoblauchzehen&lt;/li&gt;    &lt;li&gt;3 getrocknete Feigen&lt;/li&gt;    &lt;li&gt;1 s&amp;#252;&amp;#223;er Apfel&lt;/li&gt;    &lt;li&gt;etwas Apfelsaft&lt;/li&gt;    &lt;li&gt;Oliven&amp;#246;l&lt;/li&gt;    &lt;li&gt;1 TL Honig&lt;/li&gt;    &lt;li&gt;Salz, Pfeffer&lt;/li&gt; &lt;/ul&gt;  &lt;p&gt;Zwiebeln und Knoblauch sch&amp;#228;len und in Spalten schneiden. Den Apfel ebenfalls in Spalten zerlegen. Die getrockneten Feigen w&amp;#252;rfeln. Einen Br&amp;#228;ter mit Oliven&amp;#246;l bestreichen; Zwiebeln, Knoblauch und Feigen gleichm&amp;#228;&amp;#223;ig darin verteilen. Die H&amp;#228;hnchenschenkel salzen, pfeffern und obenauf legen, Zwischenr&amp;#228;ume mit Apfelst&amp;#252;ckchen auff&amp;#252;llen. 50 ml Apfelsaft aufgie&amp;#223;en.&lt;/p&gt;  &lt;p&gt;Den Br&amp;#228;ter mit geschlossenem Deckel 45 min. bei mittlerer Hitze in den Ofen stellen. Anschlie&amp;#223;end den Deckel abnehmen und die H&amp;#228;hnchenschenkel mit Honig besteichen. Bei Oberhitze &amp;#252;berkrusten.&lt;/p&gt;  &lt;p&gt;Dazu passt Baguette oder Couscous mit Rosinen (hierf&amp;#252;r die Rosinen vorher in etwas Apfelsaft aufkochen und weichen lassen).&lt;/p&gt;</Content>
+      <Created>2008-01-04T18:07:31.03375+01:00</Created>
+      <Modified>2008-01-04T18:07:31.03375+01:00</Modified>
+      <EntryId>aa8c8466-a561-4861-a204-32c0a6a6f22b</EntryId>
+      <Description />
+      <Title>Rezept: H&amp;auml;hnchenschenkel mit getrockneten Feigen</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+    <Entry>
+      <Content>&lt;p&gt;Vielleicht hat's auch deswegen nicht mit dem Gesch&amp;#228;ft geklappt?&lt;/p&gt;  &lt;p style="text-align: center;"&gt;&amp;#160;&lt;a title="Sp&amp;#228;ti" href="http://www.therightstuff.de/content/binary/WindowsLiveWriter/NeulichimSpti_10240/Sp%C3%A4ti_2.jpg" rel="lightbox"&gt;&lt;img title="Sp&amp;#228;ti" alt="Sp&amp;#228;ti" src="http://www.therightstuff.de/content/binary/WindowsLiveWriter/NeulichimSpti_10240/Sp%C3%A4ti_thumb.jpg" /&gt;&lt;/a&gt;&lt;/p&gt;</Content>
+      <Created>2008-01-04T18:23:12.47125+01:00</Created>
+      <Modified>2008-01-04T18:23:12.47125+01:00</Modified>
+      <EntryId>1c483ac3-cbb8-4249-b717-cd19c34ac017</EntryId>
+      <Description />
+      <Title>Neulich im Sp&amp;auml;ti</Title>
+      <Categories>Fun Stuff;NonTech</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

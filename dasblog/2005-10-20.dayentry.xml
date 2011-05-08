@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-10-20T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;Jakob Nielsen writes on &lt;A href="http://www.useit.com/alertbox/weblogs.html"&gt;the most design mistakes made regarding blogs&lt;/A&gt;:&lt;/P&gt;
+&lt;BLOCKQUOTE&gt;
+&lt;OL&gt;
+&lt;LI&gt;No Author Biographies
+&lt;LI&gt;No Author Photo
+&lt;LI&gt;Nondescript Posting Titles
+&lt;LI&gt;Links Don't Say Where They Go
+&lt;LI&gt;Classic Hits are Buried
+&lt;LI&gt;The Calendar is the Only Navigation
+&lt;LI&gt;Irregular Publishing Frequency
+&lt;LI&gt;Mixing Topics
+&lt;LI&gt;Forgetting That You Write for Your Future Boss
+&lt;LI&gt;Having a Domain Name Owned by a Weblog Service&lt;/LI&gt;&lt;/OL&gt;&lt;/BLOCKQUOTE&gt;
+&lt;P&gt;Me&amp;nbsp;as a blogger relatively new to the medium appreciate that I've done well so far in many points. A bio is missing, but that's something to be done during the next months.&lt;/P&gt;
+&lt;P&gt;Update: These design recommendations do not apply to &lt;A href="http://www.planetkris.de"&gt;Planetkris&lt;/A&gt;.&lt;/P&gt;</Content>
+      <Created>2005-10-20T21:07:15.7580000+02:00</Created>
+      <Modified>2005-10-22T14:21:19.0468750+02:00</Modified>
+      <EntryId>652f722f-ae34-4eba-9d58-2ac3a7cbe3e6</EntryId>
+      <Description />
+      <Title>Top 10 Blog Design Mistakes</Title>
+      <Categories>Geek Mode</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+    <Entry>
+      <Content>&lt;p&gt;&lt;a href="http://en.wikipedia.org/wiki/Splog"&gt;Splog&lt;/a&gt; stands for spam blog,&amp;nbsp;a new method of spammers &lt;a href="http://www.pcwelt.de/news/online/122282/index.html?NLC-Newsletter&amp;amp;id=122282"&gt;spreading their garbage around the web&lt;/a&gt;.&lt;/p&gt;
+&lt;p class="now-playing"&gt;Now playing: &lt;a href="http://www.music-map.de/roxette.html"&gt;Roxette&lt;/a&gt; - I wish I could fly&lt;/p&gt;</Content>
+      <Created>2005-10-20T11:42:39.6560000+02:00</Created>
+      <Modified>2006-12-16T20:45:26.1689438+01:00</Modified>
+      <EntryId>3397b94c-a0da-4621-8868-aadb0a0cea5c</EntryId>
+      <Description />
+      <Title>Neologisms, anyone?</Title>
+      <Categories>Fun Stuff;General</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

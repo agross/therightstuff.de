@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2008-01-19T01:00:00+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;&lt;img title="Siemens Gigaset SL 370" alt="Siemens Gigaset SL 370" src="http://www.therightstuff.de/content/binary/WindowsLiveWriter/SiemensGigasetQuickSynconVistax64_C900/SL370_a88e78d4-81fe-4af6-a537-5c13bbfcee4b.jpg" style="float: right; margin-left: 1em; margin-bottom: 1em;" /&gt;I recently purchased the Siemens Gigaset SL 370 phone for home telecommunications. The SL 370 is Siemens' premier DECT phone with a form factor comparable to mobile phones. It has plenty of advanced features, the most appealing one being Bluetooth support for headsets and, more importantly, syncing abilities with Outlook contacts. That is, you can sync your Windows Vista Contacts folder or Outlook contacts wirelessly over a Bluetooth connection.&lt;/p&gt;  &lt;p&gt;On the &lt;a href="http://gigaset.siemens.com/shc/0,1935,de_de_0_138448_rArNrNrNrN_variation%253A-5_pageType%253Adownloads_imagePos%253A0,00.html#content"&gt;SL 370 product support site&lt;/a&gt; there's a download option for the Gigaset QuickSync software needed for synchronizing the contact stores on your computer and the handset device. The software version I'm using is the current version 2.0 which needs the .NET Framework 2.0 to run (which is a good thing, see below).&lt;/p&gt;  &lt;p&gt;The SL 370 is a great piece of hardware, good sound quality, very light, well thought out and with outstanding battery life.&lt;/p&gt;  &lt;p&gt;However, there are some issues with the QuickSync software with Outlook 2007:&lt;/p&gt;  &lt;h3&gt;Gigaset QuickSync refuses to run on x64 versions of Windows Vista &lt;/h3&gt;  &lt;p&gt;After launching QuickSync on Vista x64, Windows instantly shows the generic &amp;quot;Program stopped working&amp;quot; dialog. &lt;/p&gt;  &lt;p style="text-align: center"&gt;&lt;img title="Gigaset QuickSync stopped working" alt="Gigaset QuickSync stopped working" src="http://www.therightstuff.de/content/binary/WindowsLiveWriter/SiemensGigasetQuickSynconVistax64_C900/Gigaset%20QuickSync%20stopped%20working_74403591-4c3b-49ff-8db5-97bf1db73380.png" /&gt;&lt;/p&gt;  &lt;p&gt;After clicking the &amp;quot;Debug&amp;quot; button Visual Studio starts up revealing that an assembly of the Gigaset QuickSync package refused to load. When the application's main executable (&lt;strong&gt;GigasetQuickSync.exe&lt;/strong&gt;) tries loading &lt;strong&gt;PCABManager.dll&lt;/strong&gt; a &lt;a href="http://msdn2.microsoft.com/en-us/library/system.badimageformatexception(VS.80).aspx"&gt;&lt;code&gt;BadImageFormatException&lt;/code&gt;&lt;/a&gt; is thrown.&lt;/p&gt;  &lt;p style="text-align: center"&gt;&lt;img title="BadImageFormatException" alt="BadImageFormatException" src="http://www.therightstuff.de/content/binary/WindowsLiveWriter/SiemensGigasetQuickSynconVistax64_C900/BadImageFormatException_2b109d45-3f6b-4fa2-a9e1-b8c1deaf4e89.png" /&gt; &lt;/p&gt;  &lt;p&gt;As one can glimpse from the screenshot above the &lt;strong&gt;PCABManager.dll&lt;/strong&gt; assembly is not strong named (&lt;em&gt;PublicKeyToken=null&lt;/em&gt;), so I could leverage some of the .NET Framework SDK tools to make QuickSync behave on Vista x64.&lt;/p&gt;  &lt;p&gt;Open up a Visual Studio Command Prompt and run &lt;strong&gt;corflags.exe&lt;/strong&gt; on the &lt;strong&gt;GigasetQuickSync.exe&lt;/strong&gt; and &lt;strong&gt;PCABManager.dll&lt;/strong&gt; assemblies. &lt;/p&gt;  &lt;pre&gt;corflags /32bit+ GigasetQuickSync.exe
+corflags /32bit+ PCABManager.dll&lt;/pre&gt;
+
+&lt;p&gt;The 32-bitness flags should be set afterwards &lt;/p&gt;
+
+&lt;pre&gt;&amp;gt;corflags GigasetQuickSync.exe
+Microsoft (R) .NET Framework CorFlags Conversion Tool.  Version  3.5.21022.8
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Version   : v2.0.50727
+CLR Header: 2.5
+PE        : PE32
+CorFlags  : 1
+ILONLY    : 1
+32BIT     : &lt;strong&gt;1&lt;/strong&gt;
+Signed    : 0&lt;/pre&gt;
+
+&lt;p&gt;This resolves the load errors on Vista x64 as we now force the 32-bit .NET Framework runtime to load. &lt;a href="http://www.hanselman.com/blog/32bitnessAnd64bitnessAndMigratingDasBlogOnIIS7AndASPNETUnderVista64.aspx"&gt;More technical details&lt;/a&gt; can be found on Scott Hanselman's blog (about 50% into the &lt;a href="http://www.hanselman.com/blog/32bitnessAnd64bitnessAndMigratingDasBlogOnIIS7AndASPNETUnderVista64.aspx"&gt;post&lt;/a&gt;). &lt;/p&gt;
+
+&lt;h3&gt;Deleted Outlook contacts sync back&lt;/h3&gt;
+
+&lt;p&gt;Because the phone has only a limited number of contacts (250) there's a filter dialog that can be used to tell the Gigaset QuickSync software which contacts should not be transmitted to the handset. Note that QuickSync will only load contacts that have a telephone number, so the contact count might differ from what Outlook reports.&lt;/p&gt;
+
+&lt;p style="text-align: center"&gt;&lt;img alt="QuickSync Contact Filter Reports 198 Contacts" title="QuickSync Contact Filter Reports 198 Contacts" src="http://www.therightstuff.de/content/binary/WindowsLiveWriter/SiemensGigasetQuickSynconVistax64_C900/Contact%20Filter_03f81d2f-22d5-43ea-9779-e0b37dc473f6.png" /&gt;&lt;/p&gt;
+
+&lt;p style="text-align: center"&gt;&lt;img title="Outlook Reports 219 Contacts" alt="Outlook Reports 219 Contacts" src="http://www.therightstuff.de/content/binary/WindowsLiveWriter/SiemensGigasetQuickSynconVistax64_C900/Outlook%20Contacts_38d6c8ea-5821-4f42-ad59-edb001b1c58b.png" /&gt; &lt;/p&gt;
+
+&lt;p&gt;Nice, but today flash memory is cheaper than ever before. &lt;strong&gt;Why did the SL 370 product designers choose to have only 250 contacts on a 120 &amp;#8364; phone?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;One (unresolved) problem I experience with the &amp;quot;syncing&amp;quot; ability is that if you delete an Outlook contact and re-sync the previously deleted contact will be recreated in Outlook. I suppose this is a known bug. One work-around is to delete all contacts on the phone before syncing.&lt;/p&gt;
+
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;The SL 370 is a great phone: I adore its flyweight, the clean UI, the great battery power and the rich set of options like turning down the ringtone volume at nighttime. The weaknesses on the Windows software side should be fixed in the next release of the QuickSync. &lt;/p&gt;
+
+&lt;p class="now-playing"&gt;Now Playing [&lt;a title="Insert Now Playing Into Your Own Blog Posts" href="http://www.therightstuff.de/Projects/NowPlaying/" rel="previewlink"&gt;?&lt;/a&gt;]: Sie &amp;#8211; &lt;a title="Display Amazon page of the Ruban D&amp;#39;Alpha album" href="http://www.amazon.com/exec/obidos/ASIN/B000008257/therightstu0e-20"&gt;Ruban D'Alpha&lt;/a&gt; &amp;#8211; &lt;a title="Preview Ciru catena on Last.fm" href="http://www.last.fm/music/Sie/_/Ciru+catena/"&gt;Ciru catena&lt;/a&gt;&lt;/p&gt;</Content>
+      <Created>2008-01-19T16:12:43.56675+01:00</Created>
+      <Modified>2008-01-19T16:19:17.426125+01:00</Modified>
+      <EntryId>e20b4717-da5d-4fd1-a3bc-8ce7ec17b236</EntryId>
+      <Description />
+      <Title>Siemens Gigaset QuickSync on Vista x64</Title>
+      <Categories>Hardware;Tools and Software;x64</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

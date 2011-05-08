@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-08-22T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;Today I had an interview at &lt;A href="http://www.saxsys.de/"&gt;Saxonia Systems&lt;/A&gt; in Dresden. I've sent them my resume to let them check the possibility of me writing my master thesis there.&lt;/P&gt;
+&lt;P&gt;The interview was nice and fluent and I was happy to gain a little insight to the company, the corporate philisophy and their projects. I especially&amp;nbsp;appreciate the way they're trying to develop the employees' skills&amp;nbsp;in meetings and reviews.&amp;nbsp;I hope they like the work I did until now, too. In about two weeks I'll be notified if I have the chance of joining the company and the topic they suggest writing on.&lt;/P&gt;
+&lt;P&gt;On the way to Dresden I gave a girl and a boy from Rostock &lt;A href="http://www.mitfahrgelegenheit.de/"&gt;a lift&lt;/A&gt;, so the journey time was pretty entertaining. When I got back to Leipzig I drove by Susi and Steffi but I was told that they're on vacation with their mum. Maybe next time.&lt;/P&gt;
+&lt;P&gt;What an interesting day. Tonight I'll join &lt;A href="http://www.boldhaus.info"&gt;Gunnar&lt;/A&gt; to have some draught together. :-)&lt;/P&gt;</Content>
+      <Created>2005-08-22T17:44:03.3430000+02:00</Created>
+      <Modified>2005-08-22T17:47:18.7343750+02:00</Modified>
+      <EntryId>bb662cd5-b523-4946-8abe-486418b4bf43</EntryId>
+      <Description />
+      <Title>Interview at Saxonia Systems</Title>
+      <Categories>General</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

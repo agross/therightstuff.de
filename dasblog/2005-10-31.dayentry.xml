@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-10-31T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;&lt;A href="http://www.charlespetzold.com/"&gt;Charles Petzold&lt;/A&gt;, the author of all Programming Windows editions, wrote a rather long but very good &lt;A href="http://www.charlespetzold.com/etc/DoesVisualStudioRotTheMind.html"&gt;article&lt;/A&gt; on the state of software development with tools like Visual Studio. &lt;EM&gt;Does Visual Studio Rot the Mind?&lt;/EM&gt; he asks, and while reading his article, I wonder how large software projects could be carried out without such development environments. Nevertheless, he points out that a strong knowledge of design principles, understanding of the&amp;nbsp;interface of the libs you're coding against and a good design/coding style is crucial to writing applications. Main takeaway: Do not blindly trust designers and drill into the code they generate.&lt;/P&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;A href="http://www.music-map.de/new+order.html"&gt;New Order&lt;/A&gt; - &lt;A href="http://www.amazon.com/exec/obidos/ASIN/B00005MOSX/therightstu0e-20"&gt;Get ready&lt;/A&gt; - Run wild&lt;/P&gt;</Content>
+      <Created>2005-10-31T02:01:31.5156250+01:00</Created>
+      <Modified>2005-10-31T02:01:31.5156250+01:00</Modified>
+      <EntryId>d2a6ab87-84bd-4a99-bda2-d6338f2b3583</EntryId>
+      <Description />
+      <Title>Charles Petzold on Software Development</Title>
+      <Categories>Geek Mode;Tools and Software;Visual Studio</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

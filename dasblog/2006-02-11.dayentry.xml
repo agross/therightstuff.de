@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-02-11T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;UL&gt;
+&lt;LI&gt;4 Zucchini (kleine sind besser da geschmackvoller)&lt;/LI&gt;
+&lt;LI&gt;500 g Hühnchenfleisch&lt;/LI&gt;
+&lt;LI&gt;2 Becher Sahne&lt;/LI&gt;
+&lt;LI&gt;Balsamicoessig&lt;/LI&gt;
+&lt;LI&gt;Salz, Pfeffer&lt;/LI&gt;
+&lt;LI&gt;Bandnudeln&lt;/LI&gt;
+&lt;LI&gt;Olivenöl&lt;/LI&gt;&lt;/UL&gt;
+&lt;P&gt;Zucchini in Scheiben schneiden,&amp;nbsp;Fleisch in kleine Stückchen schneiden. Zucchini in einer Pfanne in Olivenöl anbraten bis die Scheiben leicht bräunlich werden, anschließend herausnehmen. Das&amp;nbsp;Hühnchen ebenfalls anbraten, salzen&amp;nbsp;und pfeffern.&amp;nbsp;Zucchini wieder hinzugeben und&amp;nbsp;die Sahne in die Pfanne geben. Leicht einkochen lassen und&amp;nbsp;mit 5-6 EL Balsamico abschmecken bis sich ein süßlich-säuerlicher Geschmack bildet. Beim Kochen der Sauce&amp;nbsp;verschwindet die Säure mit der Zeit, für den Fall dass man ein wenig zu viel Balsamico&amp;nbsp;verwendet hat.&amp;nbsp;Mit Nudeln servieren.&lt;/P&gt;</Content>
+      <Created>2006-02-11T23:49:54.9180000+01:00</Created>
+      <Modified>2006-02-12T23:49:54.9185272+01:00</Modified>
+      <EntryId>0becad74-6efa-4565-89c7-a9eae75c6215</EntryId>
+      <Description />
+      <Title>Rezept: Bandnudeln mit Zucchini-Huhn-Sahne-Sauce</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

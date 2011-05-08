@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-08-02T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;Today I was checking the list of &lt;A href="http://www.ghisler.com/plugins.htm"&gt;plug-ins&lt;/A&gt; for my favorite Windows Explorer replacement &lt;A href="http://www.ghisler.com/"&gt;Total Commander&lt;/A&gt;. There I found&amp;nbsp;the WinCE file system plug-in (&lt;A href="http://ghisler.fileburst.com/fsplugins/wincefs.zip"&gt;direct download&lt;/A&gt;)&amp;nbsp;which plays perfectly with my &lt;A href="http://www.it99.org/axl/PermaLink,guid,3b7f5173-16c0-4dd7-9e36-2ce18a1e0f64.aspx"&gt;Dell Axim x51v&lt;/A&gt;. No need to launch Explorer just to copy my podcasts to the device. It's been a pain in the neck, especially the inconsistent handling of double-clicks on the device folders: Sometimes a new Explorer window would open for no obvious reason.&lt;/P&gt;
+&lt;P&gt;The &lt;A href="http://www.geocities.com/rs0319/"&gt;SymbFS plug-in&lt;/A&gt; for my Nokia phone didn't work so well, but this is maybe due the its beta state and that development ended in late 2004. If you're a Total Commander user you should definitely take a look&amp;nbsp;on the &lt;A href="http://www.ghisler.com/addons.htm"&gt;other plug-ins&lt;/A&gt; like Events NT, Registry, ProcFS, Services and WebDAV.&lt;/P&gt;
+&lt;P&gt;&lt;A href="http://www.it99.org/axl/PermaLink,guid,2765c5c2-ac9c-4a5d-b308-69ae51350a7e.aspx"&gt;BTW&lt;/A&gt;, Dell released&amp;nbsp;&lt;A href="http://support.euro.dell.com/support/downloads/download.aspx?c=de&amp;amp;cs=dedhs1&amp;amp;l=de&amp;amp;s=dhs&amp;amp;releaseid=R129882&amp;amp;SystemID=PDA_AXIM_X51&amp;amp;os=PPM&amp;amp;osl=GE&amp;amp;deviceid=7643&amp;amp;devlib=0&amp;amp;typecnt=1&amp;amp;vercnt=5&amp;amp;formatcnt=1&amp;amp;libid=7&amp;amp;fileid=173097"&gt;firmware update A04&lt;/A&gt; (German version) for the Axim x51v. This&amp;nbsp;release should provide "enhanced CF I/O card performance". Several forum entries state that the update has resolved the &lt;A href="http://www.it99.org/axl/PermaLink,guid,23a90f2a-c2cf-4646-b04f-74de6e74fb3f.aspx"&gt;disappearing CF card problem&lt;/A&gt;. I've updated my device last weekend and didn't have any problems so far.&lt;/P&gt;
+&lt;P&gt;&lt;B&gt;Update:&lt;/B&gt; The &lt;A href="http://tver.host.sk/nokiafs/"&gt;NokiaFS&lt;/A&gt; plug-in works fine with my Nokia 6680.&lt;/P&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;A href="http://www.music-map.de/aural+float.html"&gt;Aural Float&lt;/A&gt; - &lt;A href="http://www.amazon.com/exec/obidos/ASIN/B00005AW7L/therightstu0e-20"&gt;Freefloat&lt;/A&gt; - Soulsearching &lt;/P&gt;</Content>
+      <Created>2006-08-03T01:15:49.2550000+02:00</Created>
+      <Modified>2006-08-11T23:00:15.4687500+02:00</Modified>
+      <EntryId>8d52e27e-f28e-4a80-a930-50e75665644d</EntryId>
+      <Description />
+      <Title>Windows CE Plug-In for Total Commander</Title>
+      <Categories>Mobility;Tools and Software</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

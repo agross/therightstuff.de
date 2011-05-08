@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-08-18T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;In case somebody likes to &lt;A href="http://www.viceversa.com/Dynamic/Products,intCategoryID,34,intItemID,1447.html"&gt;buy&lt;/A&gt; a present for the chef :)&lt;/P&gt;
+&lt;DIV align=center&gt;&lt;IMG src="http://www.it99.org/axl/content/binary/Knives.jpg" border=0&gt; &lt;/DIV&gt;
+&lt;P&gt;[Via &lt;A href="http://www.schrankmonster.de/PermaLink,guid,806d9c3d-2c03-4f92-b6b0-2999ed518b06.aspx"&gt;schrankmonster&lt;/A&gt;]&lt;/P&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;A href="http://www.music-map.de/oasis.html"&gt;Oasis&lt;/A&gt; - &lt;A href="http://www.amazon.com/exec/obidos/ASIN/B00097A5I6/therightstu0e-20"&gt;Don't believe the truth&lt;/A&gt; - Part of the queue&lt;/P&gt;</Content>
+      <Created>2005-08-18T20:49:18.4060000+02:00</Created>
+      <Modified>2006-01-29T15:56:47.1108362+01:00</Modified>
+      <EntryId>7140a5e8-7ea4-41f7-9cb1-0ecb1cef2c53</EntryId>
+      <Description />
+      <Title>A kitchen accessory</Title>
+      <Categories>Fun Stuff</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+    <Entry>
+      <Content>&lt;P&gt;Yesterday, almost&amp;nbsp;six weeks after &lt;A href="http://www.seagate.com/products/personal/barracuda.html"&gt;my primary hard drive&lt;/A&gt; crashed, I received a repaired replacement. During this time I used a newly bought one (the same model) and set up Windows to be RAID-ready. This means that the RAID option was enabled in the BIOS and Intel RAID drivers&amp;nbsp;for the ICH6R chipset were installed, although there was only one drive mounted. I used the convenient &lt;A href="http://www.intel.com/support/chipsets/IAA/"&gt;Intel Application Accelerator&lt;/A&gt; to migrate the single-drive solution to a RAID 1 array today. The whole process took about two hours. In the meantime I was able to use Windows without limitations. Pretty neat.&lt;/P&gt;
+&lt;P&gt;I hope the next time a hard drive fails, some software component will&amp;nbsp;inform me about the failure and suggests what to to next. Nevertheless, I hope this won't happen (soon).&lt;/P&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;A href="http://www.music-map.de/bonobo.html"&gt;Bonobo&lt;/A&gt; - &lt;A href="http://www.amazon.com/exec/obidos/ASIN/B0000996HH/therightstu0e-20"&gt;Dial 'M' for Monkey&lt;/A&gt; - Noctuary&lt;/P&gt;</Content>
+      <Created>2005-08-18T15:29:44.9375000+02:00</Created>
+      <Modified>2005-08-18T15:29:44.9375000+02:00</Modified>
+      <EntryId>e39e7613-eb92-4e83-8e11-ef8cf145c800</EntryId>
+      <Description />
+      <Title>Running on RAID</Title>
+      <Categories>Geek Mode</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

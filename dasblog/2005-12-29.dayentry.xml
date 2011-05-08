@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-12-29T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;Just found this on &lt;a href="http://thedailywtf.com/"&gt;The Daily WTF&lt;/a&gt; in a &lt;a href="http://thedailywtf.com/ShowPost.aspx?PostID=27393#27406"&gt;thread&lt;/a&gt; about a (misunderstood and therefore discussed) random password generator. Instead, this one creates random fixed-length 8-character passwords fairly easy in T-SQL:&lt;/p&gt;&lt;pre&gt;&lt;span style="color: blue;"&gt;SELECT LEFT&lt;/span&gt;&lt;span style="color: black;"&gt;(NEWID(), 8)&lt;/span&gt;
+&lt;/pre&gt;</Content>
+      <Created>2005-12-29T01:44:12.1680000+01:00</Created>
+      <Modified>2006-12-16T20:40:37.8876938+01:00</Modified>
+      <EntryId>fcd307b9-d71f-4344-a216-1099cbf7ba00</EntryId>
+      <Description />
+      <Title>Random Password Generator</Title>
+      <Categories>SQL Server</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

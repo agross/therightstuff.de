@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-02-03T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;I like having my desktop windows arranged properly, i.e. adjacent to the edge of the screen instead of slightly overlapping the canvas. I've been using&amp;nbsp;&lt;a href="http://nunzioweb.com/daz/windock.html"&gt;WinDock&lt;/a&gt; that &lt;a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/winui/winui/windowsuserinterface/windowing/hooks/abouthooks.asp"&gt;hooks into Windows&lt;/a&gt; to accomplish this behavior for some years.&lt;/p&gt;
+&lt;p&gt;Today I found a better one! &lt;a href="http://www.cs.utoronto.ca/%7Eiheckman/allsnap/"&gt;allSnap&lt;/a&gt; is even more powerful than&amp;nbsp;the now-retired WinDock, although it leverages the same technique: Besides aligning windows to the screen border it also allows to&amp;nbsp;snap windows to each other. This is especially useful when&amp;nbsp;there are two or more windows&amp;nbsp;and you are comparing or synchronizing content between them. I use it when performing the tedious task of transferring account data (from a &lt;a href="http://www.mozilla.com/firefox/"&gt;browser&lt;/a&gt;) to Excel sheets. Yes, this could be automated. Especially since &lt;a href="http://www.postbank.de/"&gt;our bank&lt;/a&gt; allows CSV export of account statements. It just needs to be done!&lt;/p&gt;
+&lt;p&gt;Besides that, it's always nice to glue Outlook's reminder window and others to the screen edge without much fiddling around.&lt;/p&gt;
+&lt;p align="center"&gt;&lt;a href="http://www.it99.org/axl/content/binary/allSnap%20Properties%201.png" rel="lightbox"&gt;&lt;img title="allSnap Properties 1" alt="allSnap Properties 1" src="http://www.it99.org/axl/content/binary/allSnap%20Properties%201%20small.png" border="0"&gt;&lt;/a&gt;&amp;nbsp;&lt;a href="http://www.it99.org/axl/content/binary/allSnap%20Properties%202.png" rel="lightbox"&gt;&lt;img title="allSnap Properties 2" alt="allSnap Properties 2" src="http://www.it99.org/axl/content/binary/allSnap%20Properties%202%20small.png" border="0"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Note that&amp;nbsp;allSnap also handles child windows inside a &lt;a href="http://en.wikipedia.org/wiki/Multiple_Document_Interface"&gt;MDI&lt;/a&gt; parent.&lt;/p&gt;
+&lt;P class="now-playing"&gt;Now playing: Bexar Bexar - &lt;A href="http://www.amazon.com/exec/obidos/ASIN/B0000DJYQI/therightstu0e-20"&gt;Haralambos&lt;/a&gt; - Lascruces&lt;/p&gt;</Content>
+      <Created>2006-02-04T00:24:47.4800000+01:00</Created>
+      <Modified>2006-02-04T10:28:21.7693397+01:00</Modified>
+      <EntryId>48ad6cb4-4ebc-45fe-8868-3e2af4fb98d0</EntryId>
+      <Description />
+      <Title>Window Snapping Utility</Title>
+      <Categories>Tools and Software</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

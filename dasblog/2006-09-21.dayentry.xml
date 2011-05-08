@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-09-21T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;When you install &lt;a href="http://subversion.tigris.org/"&gt;Subversion&lt;/a&gt; 1.4.0 on the server and also &lt;a href="http://tortoisesvn.net/"&gt;TortoiseSVN&lt;/a&gt; on the client machine, the first time TortoiseSVN touches the repository on the server (for example by showing the log) the local working copy is upgraded to the &lt;a href="http://subversion.tigris.org/svn_1.4_releasenotes.html#wc-format-change"&gt;new format&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;Once a&amp;nbsp;working copy is upgraded AnkhSVN, the Visual Studio Add-In&amp;nbsp;for Subversion support refuses to attach to the the solution.&lt;/p&gt; &lt;p align="center"&gt;&lt;img title="AnkSVN Error" alt="AnkSVN Error" src="http://www.it99.org/axl/content/binary/AnkhSVN Error.gif"&gt;&lt;/p&gt; &lt;p&gt;Obviously AnkhSVN is out of date, so you're going to remove it using the uninstaller. The next time you open Visual Studio all traces of AnkhSVN will be gone, right? Unfortunately this is not the case. As you can see in the screenshot below, there's a entry left over in the main menu and several other items in the context menu of the Solution Explorer, all grayed out.&lt;/p&gt; &lt;p align="center"&gt;&lt;a href="http://www.it99.org/axl/content/binary/AnkhSVN%20Menus.png"&gt;&lt;img title="Remaining AnkhSVN Menus" alt="Remaining AnkhSVN Menus" src="http://www.it99.org/axl/content/binary/AnkhSVN%20Menus%20small.png" border="0"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;Removing the main menu entry is fairly easy using View/Toolbars/Customize... But how to modify the context menu to get rid those items? The AnkhSVN wiki &lt;a href="http://ankhsvn.com/wiki/default.aspx/AnkhWiki/Frequently%20Asked%20Questions.html#Uninstall"&gt;proposes resetting Visual Studio to the defaults&lt;/a&gt;. I believe&amp;nbsp;there's a better solution.&lt;/p&gt; &lt;p&gt;In case you&amp;nbsp;don't want to lose your IDE customizations&amp;nbsp;you may use the VBA macro that does the job by enumerating all Visual Studio toolbars and commands and deleting the ones that start with "Ankh". The script takes a while to run, but wipes&amp;nbsp;all menu&amp;nbsp;items&amp;nbsp;related to&amp;nbsp;AnkhSVN. Tested on Visual Studio .NET 2003 and Visual Studio 2005 &lt;em&gt;after&lt;/em&gt; uninstalling AnkhSVN.&lt;/p&gt;&lt;pre&gt;&lt;span style="color: blue"&gt;Imports&lt;/span&gt; System
+&lt;span style="color: blue"&gt;Imports&lt;/span&gt; EnvDTE
+&lt;span style="color: blue"&gt;Imports&lt;/span&gt; System.Diagnostics
+&lt;span style="color: green"&gt;' Comment the following line if you're running the macro in Visual Studio .NET 2003.&lt;/span&gt;
+&lt;span style="color: blue"&gt;Imports&lt;/span&gt; Microsoft.VisualStudio.CommandBars
+&lt;span style="color: blue"&gt;Imports&lt;/span&gt; Microsoft.Office.Core
+&amp;nbsp;
+&lt;span style="color: blue"&gt;Public&lt;/span&gt; &lt;span style="color: blue"&gt;Module&lt;/span&gt; RemoveAnkhMenus
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;Public&lt;/span&gt; &lt;span style="color: blue"&gt;Sub&lt;/span&gt; RemoveAnkhMenus()
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; DeleteAnkhCommandControls()
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; DeleteAnkhCommands()
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;End&lt;/span&gt; &lt;span style="color: blue"&gt;Sub&lt;/span&gt;
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;Private&lt;/span&gt; &lt;span style="color: blue"&gt;Sub&lt;/span&gt; DeleteAnkhCommandControls()
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;For&lt;/span&gt; &lt;span style="color: blue"&gt;Each&lt;/span&gt; bar &lt;span style="color: blue"&gt;As&lt;/span&gt; CommandBar &lt;span style="color: blue"&gt;In&lt;/span&gt; &lt;span style="color: blue"&gt;CType&lt;/span&gt;(DTE.CommandBars, CommandBars)
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: green"&gt;' Debug.WriteLine(String.Format("Processing : {0}", GetPath(bar)))&lt;/span&gt;
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; RecurseCommandControls(bar.Controls)
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;Next&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;End&lt;/span&gt; &lt;span style="color: blue"&gt;Sub&lt;/span&gt;
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;Private&lt;/span&gt; &lt;span style="color: blue"&gt;Sub&lt;/span&gt; RecurseCommandControls(&lt;span style="color: blue"&gt;ByVal&lt;/span&gt; controls &lt;span style="color: blue"&gt;As&lt;/span&gt; CommandBarControls)
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;For&lt;/span&gt; &lt;span style="color: blue"&gt;Each&lt;/span&gt; control &lt;span style="color: blue"&gt;As&lt;/span&gt; CommandBarControl &lt;span style="color: blue"&gt;In&lt;/span&gt; controls
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: green"&gt;' Debug.WriteLine(String.Format("Processing : {0}", GetPath(control)))&lt;/span&gt;
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: green"&gt;' Recurse childs.&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;If&lt;/span&gt; control.accChildCount &amp;gt; 0 &lt;span style="color: blue"&gt;Then&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;If&lt;/span&gt; control.Type = MsoControlType.msoControlPopup &lt;span style="color: blue"&gt;Then&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; RecurseCommandControls(&lt;span style="color: blue"&gt;CType&lt;/span&gt;(control, CommandBarPopup).Controls)
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;End&lt;/span&gt; &lt;span style="color: blue"&gt;If&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;End&lt;/span&gt; &lt;span style="color: blue"&gt;If&lt;/span&gt;
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: green"&gt;' Delete the control if it is related to AnkhSVN.&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; DeleteAnkhCommandControl(control)
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;Next&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;End&lt;/span&gt; &lt;span style="color: blue"&gt;Sub&lt;/span&gt;
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;Private&lt;/span&gt; &lt;span style="color: blue"&gt;Sub&lt;/span&gt; DeleteAnkhCommandControl(&lt;span style="color: blue"&gt;ByVal&lt;/span&gt; control &lt;span style="color: blue"&gt;As&lt;/span&gt; CommandBarControl)
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: green"&gt;' Delete control if it is related to AnkhSVN.&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;If&lt;/span&gt; control.Caption.StartsWith(&lt;span style="color: maroon"&gt;"Ankh"&lt;/span&gt;) &lt;span style="color: blue"&gt;Then&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; Debug.WriteLine(&lt;span style="color: blue"&gt;String&lt;/span&gt;.Format(&lt;span style="color: maroon"&gt;"Deleting control: {0}"&lt;/span&gt;, GetPath(control)))
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; control.Delete()
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;End&lt;/span&gt; &lt;span style="color: blue"&gt;If&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;End&lt;/span&gt; &lt;span style="color: blue"&gt;Sub&lt;/span&gt;
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;Private&lt;/span&gt; &lt;span style="color: blue"&gt;Sub&lt;/span&gt; DeleteAnkhCommands()
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: green"&gt;' Delete all commands related to AnkhSVN.&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;For&lt;/span&gt; &lt;span style="color: blue"&gt;Each&lt;/span&gt; command &lt;span style="color: blue"&gt;As&lt;/span&gt; Command &lt;span style="color: blue"&gt;In&lt;/span&gt; DTE.Commands
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;If&lt;/span&gt; command.Name &amp;lt;&amp;gt; &lt;span style="color: blue"&gt;Nothing&lt;/span&gt; &lt;span style="color: blue"&gt;Then&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;If&lt;/span&gt; command.Name.StartsWith(&lt;span style="color: maroon"&gt;"Ankh"&lt;/span&gt;) &lt;span style="color: blue"&gt;Then&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; Debug.WriteLine(&lt;span style="color: blue"&gt;String&lt;/span&gt;.Format(&lt;span style="color: maroon"&gt;"Deleting command: {0}"&lt;/span&gt;, command.Name))
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; command.Delete()
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;End&lt;/span&gt; &lt;span style="color: blue"&gt;If&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;End&lt;/span&gt; &lt;span style="color: blue"&gt;If&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;Next&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;End&lt;/span&gt; &lt;span style="color: blue"&gt;Sub&lt;/span&gt;
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;Private&lt;/span&gt; &lt;span style="color: blue"&gt;Function&lt;/span&gt; GetPath(&lt;span style="color: blue"&gt;ByVal&lt;/span&gt; control &lt;span style="color: blue"&gt;As&lt;/span&gt; &lt;span style="color: blue"&gt;Object&lt;/span&gt;) &lt;span style="color: blue"&gt;As&lt;/span&gt; &lt;span style="color: blue"&gt;String&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;If&lt;/span&gt; &lt;span style="color: blue"&gt;TypeOf&lt;/span&gt; (control) &lt;span style="color: blue"&gt;Is&lt;/span&gt; CommandBarControl &lt;span style="color: blue"&gt;Then&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;Dim&lt;/span&gt; cbc &lt;span style="color: blue"&gt;As&lt;/span&gt; CommandBarControl
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; cbc = &lt;span style="color: blue"&gt;CType&lt;/span&gt;(control, CommandBarControl)
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;Return&lt;/span&gt; GetPath(cbc.Parent) + &lt;span style="color: maroon"&gt;"-&amp;gt;"&lt;/span&gt; + cbc.Caption
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;End&lt;/span&gt; &lt;span style="color: blue"&gt;If&lt;/span&gt;
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;If&lt;/span&gt; &lt;span style="color: blue"&gt;TypeOf&lt;/span&gt; (control) &lt;span style="color: blue"&gt;Is&lt;/span&gt; CommandBar &lt;span style="color: blue"&gt;Then&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;Dim&lt;/span&gt; cb &lt;span style="color: blue"&gt;As&lt;/span&gt; CommandBar
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; cb = &lt;span style="color: blue"&gt;CType&lt;/span&gt;(control, CommandBar)
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;Return&lt;/span&gt; GetPath(cb.Parent) + &lt;span style="color: maroon"&gt;"-&amp;gt;"&lt;/span&gt; + cb.Name
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;End&lt;/span&gt; &lt;span style="color: blue"&gt;If&lt;/span&gt;
+&amp;nbsp;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;Return&lt;/span&gt; &lt;span style="color: maroon"&gt;"DTE"&lt;/span&gt;
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;span style="color: blue"&gt;End&lt;/span&gt; &lt;span style="color: blue"&gt;Function&lt;/span&gt;
+&lt;span style="color: blue"&gt;End&lt;/span&gt; &lt;span style="color: blue"&gt;Module&lt;/span&gt;
+&lt;/pre&gt;
+&lt;p&gt;&lt;img title="Download" class="download" style="margin-right: 4px;" alt="Download" src="http://www.it99.org/axl/content/binary/Download.gif"&gt;Download the &lt;a href="http://www.it99.org/axl/download/RemoveAnkhMenus.zip"&gt;macro file here&lt;/a&gt;.&lt;/p&gt;</Content>
+      <Created>2006-09-21T23:49:16.9531250+02:00</Created>
+      <Modified>2006-09-21T23:51:24.1718750+02:00</Modified>
+      <EntryId>783fe7bd-2194-49f4-8ae0-ac4fd9a93789</EntryId>
+      <Title>Removing AnkhSVN Commands from Visual Studio</Title>
+      <Categories>Visual Studio</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

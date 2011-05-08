@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-08-22T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;&lt;img title="Caps Lock Removed" style="padding-left: 10px; float: right; padding-bottom: 10px;" alt="Caps Lock Removed" src="http://www.it99.org/axl/content/binary/Caps%20Lock%20Removed.jpg" border="0"&gt;There was an article in a newsletter regarding the Caps Lock key. This key, used to make all letters UPPERCASE, has been bugging me for years. Caps Lock has been used in&amp;nbsp;ancient programming languages like&amp;nbsp;&lt;a href="http://en.wikipedia.org/wiki/Fortran"&gt;FORTRAN&lt;/a&gt;&amp;nbsp;(the name may indicate that uppercase letters were of interest). On internet forums and in chats uppercase&amp;nbsp;statements&amp;nbsp;are considered&amp;nbsp;as "shouting out loud", but&amp;nbsp;some people don't know this little detail. Offending more experienced&amp;nbsp;users is easy.&lt;/p&gt; &lt;p&gt;Do you really need the caps lock key? &lt;strong&gt;How often do you type whole sentences in upper case?&lt;/strong&gt;&lt;/p&gt; &lt;p&gt;To me, the key has been useless the last years, if not disturbing. I've been hitting caps lock accidentally&amp;nbsp;countless times. After realizing that I've written a whole sentence in upper case, I needed to delete the words I've just written and start over again.&lt;/p&gt; &lt;p&gt;For the reasons above the &lt;a href="http://capsoff.org/"&gt;CAPSoff campaign&lt;/a&gt; proposes a new keyboard layout where the caps lock key is moved to the top right where the Print Screen, Scroll Lock and Pause keys are located and thereby letting space to other more important keys (&lt;a href="http://capsoff.org/faq#toc1"&gt;more suggestions over here&lt;/a&gt;). I'm skeptical that the industry will make that move soon, but you can use your customer&amp;nbsp;voice to finally make it happen by &lt;a href="http://www.petitiononline.com/cpmov/petition.html"&gt;signing the petition&lt;/a&gt;.&lt;/p&gt; &lt;p&gt;To relieve you from the&amp;nbsp;Caps Lock pain today, you can physically remove the key (see the image above) but this leaves and ugly crater on the keyboard. A better approach is deactivating the key: Windows uses a keyboard map that translates the &lt;a href="http://en.wikipedia.org/wiki/Scancode"&gt;keyboard scancodes&lt;/a&gt; to internal windows keys (virtual keys). This level of indirection allows applications to respond to the virtual keys instead of dealing with proprietary scancodes issued by keyboards with function keys for e-mail, web search and the like.&lt;/p&gt; &lt;p&gt;To modify the keyboard map I use a tool called &lt;a href="http://webpages.charter.net/krumsick/"&gt;KeyTweak&lt;/a&gt;. KeyTweak virtually allows you to change the meaning of every key of your keyboard, so be cautious! Also, the&amp;nbsp;mappings apply to all users of the machine.&lt;/p&gt; &lt;p align="center"&gt;&lt;a href="http://www.it99.org/axl/content/binary/KeyTweak.png"&gt;&lt;img src="http://www.it99.org/axl/content/binary/KeyTweak%20small.png" border="0"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;Besides disabling Caps Lock I've also mapped the Scroll Lock key to the built-in Windows calculator, an applet I did use before.&lt;/p&gt;</Content>
+      <Created>2006-08-22T16:53:43.6080000+02:00</Created>
+      <Modified>2006-08-22T16:54:16.5772500+02:00</Modified>
+      <EntryId>01333fa1-8987-4326-b3e7-6f0cef6dd4cf</EntryId>
+      <Description />
+      <Title>Caps Lock</Title>
+      <Categories>Windows</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

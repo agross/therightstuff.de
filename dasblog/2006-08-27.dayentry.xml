@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-08-27T02:00:00+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;I've found an &lt;a href="http://www.slate.com/id/2133754/"&gt;interesting article&lt;/a&gt; about the pricing strategy of Starbucks and similar brands. Simply put, they set the prices for their small-amount products like a 200 ml coffee so high that it appears to make sense buying a middle-sized one for a&amp;nbsp;few&amp;nbsp;more cents. Other products of the cheaper&amp;nbsp;category are simply not advertised.&lt;/p&gt; &lt;blockquote&gt;The difficulty is that if some of your products are cheap, you may lose money from customers who would willingly have paid more. So, businesses try to discourage their more lavish customers from trading down by making their cheap products look or sound unattractive, or, in the case of Starbucks, making the cheap product invisible.&lt;/blockquote&gt; &lt;p&gt;The article explains that this pricing strategy is actually not a recent&amp;nbsp;invention:&lt;/p&gt; &lt;blockquote&gt;The practice is hundreds of years old. The French economist Emile Dupuit wrote about the early days of the railways, when third-class carriages were built without roofs, even though roofs were cheap: "What the company is trying to do is prevent the passengers who can pay the second-class fare from traveling third class; it hits the poor, not because it wants to hurt them, but to frighten the rich."&lt;/blockquote&gt; &lt;p&gt;Seems like I've been hit by the&amp;nbsp;marketing guys too,&amp;nbsp;but now I know their evil plans.&lt;/p&gt;</Content>
+      <Created>2006-08-28T00:34:01.890375+02:00</Created>
+      <Modified>2007-02-12T21:42:17.78825+01:00</Modified>
+      <EntryId>91b38f3f-9c91-46e5-ae46-87a7bfa6e4f2</EntryId>
+      <Title>Starbucks Pricing Strategy</Title>
+      <Categories>NonTech</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+    <Entry>
+      <Content>&lt;ul&gt; &lt;li&gt;2 Knoblauchzehen  &lt;/li&gt;&lt;li&gt;50 g Pinienkerne  &lt;/li&gt;&lt;li&gt;1 altes Brötchen  &lt;/li&gt;&lt;li&gt;1 Ei  &lt;/li&gt;&lt;li&gt;500 g gemischtes Hackfleisch  &lt;/li&gt;&lt;li&gt;2 Zwiebeln  &lt;/li&gt;&lt;li&gt;5 getrocknete Aprikosen  &lt;/li&gt;&lt;li&gt;850 g geschälte Tomaten aus der Dose  &lt;/li&gt;&lt;li&gt;Olivenöl  &lt;/li&gt;&lt;li&gt;gemahlener Kreuzkümmel  &lt;/li&gt;&lt;li&gt;1 Lorbeerblatt  &lt;/li&gt;&lt;li&gt;1 Zimtstange  &lt;/li&gt;&lt;li&gt;3 Nelken  &lt;/li&gt;&lt;li&gt;4 Kardamomkapseln  &lt;/li&gt;&lt;li&gt;Salz, Pfeffer&lt;/li&gt;&lt;/ul&gt; &lt;p&gt;Ofen auf 150 Grad vorheizen. Knoblauchzehen pellen,&amp;nbsp;hacken und&amp;nbsp;mit den Pinienkernen, eingeweichtem Brötchen, Ei und Hackfleisch vermengen. Mit Salz, Pfeffer und Kreuzkümmel würzen. Aus der Masse mit der Hand kleine Kugeln formen. 4 EL Ölivenöl in einer Pfanne erhitzen und die Hackbällchen braun anbraten. Aus der Pfanne nehmen und in den Ofen schieben.&lt;/p&gt; &lt;p&gt;Zwiebeln würfeln und im Bratfett andünsten. Die Aprikosen würfeln und zusammen mit den Tomaten, Lorbeer, Zimtstange, Gewürznelken und dem Kardamom zu den Zwiebeln geben. 10 Minuten köcheln.&lt;/p&gt; &lt;p&gt;Hackbällchen mit der Soße servieren. Dazu passt Safran-Couscous mit Rosinen.&lt;/p&gt;</Content>
+      <Created>2006-08-27T12:18:53.916+02:00</Created>
+      <Modified>2007-11-18T16:19:10.40625+01:00</Modified>
+      <EntryId>5dcac3e0-ceb9-4b8c-8d6b-10f1e0394b67</EntryId>
+      <Description />
+      <Title>Rezept: Gew&amp;uuml;rz-Hackb&amp;auml;llchen</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

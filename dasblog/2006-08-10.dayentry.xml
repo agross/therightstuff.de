@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-08-10T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;&lt;img title="Remote Desktop" style="padding-left: 10px; float: right; padding-bottom: 10px;" alt="Remote Desktop" src="http://www.it99.org/axl/content/binary/Remote%20Desktop.png" border="0"&gt;Windows Mobile devices come with an integrated Terminal Services client (also known as &lt;a href="http://en.wikipedia.org/wiki/Remote_Desktop_Protocol"&gt;Remote Desktop Protocol&lt;/a&gt;, RDP). This client allows you to connect to any Remote Desktop-enabled machine like Windows XP Professional, Windows Server and &lt;a href="http://www.thinstuff.com/products/touch-rdpserver/"&gt;Linux&lt;/a&gt;&amp;nbsp;(another &lt;a href="http://xrdp.sourceforge.net/"&gt;here&lt;/a&gt;). Actually a tempting idea to connect to your home machine if you're abroad.&amp;nbsp;You just need a some kind of internet connection.&lt;/p&gt;
+&lt;h3&gt;The Network&lt;/h3&gt;
+&lt;p&gt;If there are multiple machines in a &lt;a href="http://en.wikipedia.org/wiki/Network_address_translation"&gt;firewalled network&lt;/a&gt; the only public IP address known on the internet is the one of the router. The default server port for RDP connections is port 3389 (&lt;a href="http://en.wikipedia.org/wiki/Transmission_Control_Protocol"&gt;TCP protocol&lt;/a&gt;). RDP clients use this port when connecting to a RDP server. What happens if an internet user (RDP client)&amp;nbsp;connects to port 3389 on the public IP of the router? If the firewall is set up correctly, nothing, i.e. the connection is refused. To enable Remote Desktop connections the network administrator has to configure a &lt;a href="http://en.wikipedia.org/wiki/Port_forwarding"&gt;port mapping&lt;/a&gt;. The port mapping basically tells the firewall to open a specific port and route all data&amp;nbsp;from this port to a specific machine on the internal network (for example your Windows XP box). If two users want to expose their machines to the internet the administrator has to open two ports, because a single port is always attached to a single internal machine. See the illustration below for a general overview.&lt;/p&gt;
+&lt;p align="center"&gt;&lt;img title="Port Mappings" alt="Port Mappings" src="http://www.it99.org/axl/content/binary/PortMapping.gif" border="0" height="335" width="551"&gt;&lt;/p&gt;
+&lt;h3&gt;The Failure of the Windows Mobile RDP Client&lt;/h3&gt;
+&lt;p&gt;To connect to the first machine ("Your Computer") from the internet the user has to tell its RDP client to simply connect to the firewall (because it's the machine with the public IP address). Because 3389 is the default port this actually translates to ServerName:3389, where ":" delimits the server name from&amp;nbsp;the port number. To connect to "Another Computer" the address is ServerName:3390.&lt;/p&gt;
+&lt;p&gt;This is where the RDP client of Windows Mobile fails. It just won't accept servers with appended port numbers.&lt;/p&gt;
+&lt;p align="center"&gt;&lt;img title="RDP Invalid Server Name" alt="RDP Invalid Server Name" src="http://www.it99.org/axl/content/binary/RDP%20Invalid%20Server%20Name.jpg" border="0" height="320" width="240"&gt;&lt;/p&gt;
+&lt;h3&gt;The First Approach&lt;/h3&gt;
+&lt;p&gt;It's actually possible to change the behavior of the Remote Desktop client to connect to non-standard ports like 3390 or any other by applying a registry hack.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Open the device registry using a &lt;a href="http://www.phm.lu/Products/PocketPC/RegEdit/"&gt;registry editor&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Open the key &lt;code&gt;HKEY_CURRENT_USER\Software\Microsoft\Ter&lt;wbr&gt;minal Server Client\Default\&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Create an entry of type DWORD, called &lt;code&gt;Server Port&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Set the value to the required port number (3390 in the case above)&lt;/li&gt;&lt;/ol&gt;
+&lt;h3&gt;My Solution&lt;/h3&gt;
+&lt;p&gt;It's actually a very cumbersome task to edit the registry, especially if you're changing port numbers fairly often because you need to connect to different machines. After proof-reading Torsten's &lt;a href="http://www.amazon.de/exec/obidos/ASIN/3866454015/therightstu0e-20"&gt;book on Windows Mobile development&lt;/a&gt; I thought this would be an easy to automate task.&lt;/p&gt;
+&lt;p&gt;I've written a little helper application that sets the registry values for you. I've tested it on my Axim x51v and inside the emulators of Visual Studio 2005. It's a .NET Compact Framework 1.0 application so you most likely don't have to install the &lt;a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=a5a02311-194b-4c00-b445-f92bec03032f"&gt;.NET runtime&lt;/a&gt; on Windows Mobile 5.0 devices.&lt;br&gt;&lt;/p&gt;
+&lt;p align="center"&gt;&lt;img title="RDP Port Switcher" alt="RDP Port Switcher" src="http://www.it99.org/axl/content/binary/RDP%20Port%20Switcher%20Screenshot.jpg" border="0" height="320" width="240"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img title="Download" class="download" style="margin-right: 4px;" alt="Download" src="http://www.it99.org/axl/content/binary/Download.gif"&gt;Download the &lt;a href="http://www.it99.org/axl/download/RdpPortSwitcher-1.0-Setup.zip"&gt;RDP Port Switcher Setup CAB&lt;/a&gt;. Feel free to add your own functionality, &lt;a href="http://www.it99.org/axl/download/RdpPortSwitcher-1.0-Source.zip"&gt;source code is available&lt;/a&gt;.&lt;/p&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;a href="http://www.music-map.de/big+bud.html"&gt;Big Bud&lt;/a&gt; - &lt;A href="http://www.amazon.com/exec/obidos/ASIN/B000059TI7/therightstu0e-20"&gt;Late Night Blues&lt;/a&gt; - State of mind&lt;/p&gt;</Content>
+      <Created>2006-08-10T21:11:57.2180000+02:00</Created>
+      <Modified>2006-08-10T21:27:31.5781250+02:00</Modified>
+      <EntryId>3c1449f7-fa97-432c-b337-e78669f04b94</EntryId>
+      <Description />
+      <Title>RDP/Terminal Services Port Configurator for Windows Mobile</Title>
+      <Categories>Mobility;Tools and Software</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

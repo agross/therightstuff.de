@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2007-05-05T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;&lt;a href="http://www.torstenweber.net/" rel="friend met previewlink"&gt;&lt;img style="margin: 0px 0px 10px 10px" src="http://www.therightstuff.de/content/binary/DNUG%20Leipzig%20Logo.png" align="right"&gt;Torsten&lt;/a&gt;&amp;nbsp;ist es gelungen &lt;a href="http://www.roland-weigelt.de/" rel="previewlink contact"&gt;Roland Weigelt&lt;/a&gt;&amp;nbsp;für das nächste Event der &lt;a href="http://www.dotnet-leipzig.de/" rel="previewlink"&gt;.NET User Group Leipzig&lt;/a&gt; zu gewinnen. Roland ist Autor des mehrfach ausgezeichneten Visual Studio Add-Ins&amp;nbsp;&lt;a href="http://www.roland-weigelt.de/ghostdoc/" rel="previewlink"&gt;GhostDoc&lt;/a&gt;. Mit GhostDoc, das vor wenigen Tagen in der &lt;a href="http://www.roland-weigelt.de/ghostdoc/" rel="previewlink"&gt;Version 2.0.0&lt;/a&gt; erschienen ist,&amp;nbsp;wird das Erstellen von Code-Kommentaren zum Kinderspiel. Am &lt;strong&gt;06.07.2007&lt;/strong&gt; um &lt;strong&gt;19:30 Uhr&lt;/strong&gt;&amp;nbsp;beginnt der Vortrag der folgende Erweiterungsmöglichkeiten von Visual Studio vorstellt:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Code Snippets,  &lt;li&gt;Item und Project Templates,  &lt;li&gt;Wizards,  &lt;li&gt;Makros,  &lt;li&gt;Add-Ins.&lt;/li&gt;&lt;/ul&gt; &lt;p&gt;Aufgrund Rolands Erfahrung bei der Entwicklung von GhostDoc wird der Schwerpunkt auf der Bereitstellung von Add-Ins liegen, die anderen Themengebiete sind aber auch für Visual Studio-Einsteiger sehr interessant.&lt;/p&gt; &lt;p&gt;Die &lt;a href="http://www.dotnet-leipzig.de/v/visualstudioerweiterbarkeit/" rel="previewlink"&gt;Veranstaltung&lt;/a&gt; ist natürlich kostenfrei und es gibt sogar wieder &lt;a title="telerik r.a.d.controls" href="http://www.telerik.com/products/aspnet/overview.aspx" rel="previewlink"&gt;etwas zu gewinnen&lt;/a&gt;. Wir bitten um &lt;a href="http://www.dotnet-leipzig.de/v/visualstudioerweiterbarkeit/register.aspx" rel="previewlink"&gt;unverbindliche Anmeldung&lt;/a&gt;. Vielen Dank an unseren Sponsor &lt;a href="http://www.synexus.de/" rel="previewlink"&gt;Synexus GmbH&lt;/a&gt;, der im Übrigen gerade auf der &lt;a href="http://torstenweber.online.de/DNUG/public/Lists/Stellenausschreibungen/DispForm.aspx?ID=2" rel="previewlink"&gt;Suche nach .NET-Entwicklern&lt;/a&gt; ist.&lt;/p&gt; &lt;p&gt;Alle Informationen zusammengefasst:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Treffen am Freitag,&amp;nbsp;06.07.2007, 19:30 Uhr  &lt;li&gt;Ort: Wirtschaftswissenschaftliche Fakultät, Raum 309, &lt;a href="http://maps.google.de/maps?f=q&amp;amp;hl=de&amp;amp;q=marschnerstra%C3%9Fe+31+leipzig&amp;amp;sll=51.338079,12.355499&amp;amp;sspn=0.010979,0.033989&amp;amp;ie=UTF8&amp;amp;z=16&amp;amp;ll=51.339272,12.354727&amp;amp;spn=0.010979,0.033989&amp;amp;om=1&amp;amp;iwloc=addr" rel="previewlink"&gt;Marschnerstraße 31, 04109 Leipzig&lt;/a&gt;&amp;nbsp;(&lt;a href="http://www.uni-leipzig.de/wifa/ns/go.php?section=ns&amp;amp;to=1,1" rel="previewlink"&gt;Anfahrt&lt;/a&gt;)  &lt;li&gt;&lt;a href="http://www.therightstuff.de/content/binary/WindowsLiveWriter/VortragzumThemaErweiterbarkeitvonVisualStudio2005/Vortrag%20Erweiterbarkeit%20von%20Visual%20Studio%20(Roland%20Weigelt).ics" rel="appointment"&gt;Termin&lt;/a&gt; für Ihren Kalender (&lt;a href="http://de.wikipedia.org/wiki/ICalendar" rel="previewlink"&gt;iCalendar&lt;/a&gt;-Format)&lt;/li&gt;&lt;/ul&gt;</Content>
+      <Created>2007-05-05T10:30:23.9531250+02:00</Created>
+      <Modified>2007-05-05T10:47:18.3281250+02:00</Modified>
+      <EntryId>da60e394-bc9d-44eb-8fd4-d6eaf94c2899</EntryId>
+      <Description />
+      <Title>Vortrag zum Thema Erweiterbarkeit von Visual Studio 2005</Title>
+      <Categories>DNUG Leipzig</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

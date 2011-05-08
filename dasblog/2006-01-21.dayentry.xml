@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-01-21T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;UL&gt;
+&lt;LI&gt;Matjeshering&lt;/LI&gt;
+&lt;LI&gt;Äpfel&lt;/LI&gt;
+&lt;LI&gt;Gewürzgurken&lt;/LI&gt;
+&lt;LI&gt;Buttermilch&lt;/LI&gt;
+&lt;LI&gt;4-5 Wacholderbeeren&lt;/LI&gt;
+&lt;LI&gt;1 TL gemahlener Piment&lt;/LI&gt;
+&lt;LI&gt;1 TL süßer Paprika&lt;/LI&gt;
+&lt;LI&gt;Pfeffer&lt;/LI&gt;&lt;/UL&gt;
+&lt;P&gt;Äpfel und Zwiebeln&amp;nbsp;in Spalten, die Gurken in Scheiben. Matjes aus dem Öl nehmen und in eine Schüssel geben. Äpfel, Zwiebeln und Gurken hinzugeben. Mit Buttermilch auffüllen bis alles bedeckt ist und würzen. Mindestens 12 Stunden ziehen lassen. Dazu passen am besten Pellkartoffeln.&lt;/P&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;A href="http://www.music-map.de/monster+magnet.html"&gt;Monster Magnet&lt;/A&gt; - &lt;A href="http://www.amazon.com/exec/obidos/ASIN/B00018QIVG/therightstu0e-20"&gt;Monolithic Baby&lt;/A&gt; - Master of light&lt;/P&gt;</Content>
+      <Created>2006-01-21T19:28:09.1371669+01:00</Created>
+      <Modified>2006-01-21T19:28:09.1371669+01:00</Modified>
+      <EntryId>fd7a4024-7dbf-4c1c-a675-1eebfaf98242</EntryId>
+      <Description />
+      <Title>Rezept: Marinierter Hering</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

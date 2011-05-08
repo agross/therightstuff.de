@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2007-09-10T02:00:00+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;h3&gt;Our Dilemma&lt;/h3&gt; &lt;p&gt;For this year's &lt;a href="http://www.dotnet-leipzig.de/v/summercamp2007/"&gt;.NET Summercamp 2007&lt;/a&gt; we find ourselves in the lucky position of having more speakers and session suggestions than slots available. What we needed was a session suggestion and rating system allowing our speakers to submit proposals that could later be approved by us. Of course there are large conference management systems out there, often with boatloads of unneeded functionality like billing. We rather&amp;nbsp;wanted to use&amp;nbsp;a simple tool at no cost.&lt;/p&gt; &lt;h3&gt;The Solution&lt;/h3&gt; &lt;p&gt;So I went and wrote it myself an ASP.NET 2.0 web application. The outcome of my efforts,&amp;nbsp;named &lt;a href="http://www.codeplex.com/SessionManager"&gt;Session Manager&lt;/a&gt;, is available on &lt;a href="http://www.codeplex.com/SessionManager"&gt;CodePlex&lt;/a&gt;. Session Manager is free software licensed under the BSD License.&lt;/p&gt; &lt;p style="text-align: center"&gt;&lt;a rel="lightbox" href="http://www.therightstuff.de/content/binary/WindowsLiveWriter/SessionManagerAvailableOnCodePlex_10C8E/Session%20Manager.gif"&gt;&lt;img title="Session Manager Screen Shot" alt="Session Manager Screen Shot"  src="http://www.therightstuff.de/content/binary/WindowsLiveWriter/SessionManagerAvailableOnCodePlex_10C8E/Session%20Manager_thumb.gif"&gt;&lt;/a&gt; &lt;/p&gt; &lt;p&gt;If you're running a user group or plan to organize larger events besides regular&amp;nbsp;user group&amp;nbsp;meetings,&amp;nbsp;Session Manager certainly is worth a try. If you find it&amp;nbsp;not yet perfect, please go ahead &lt;a href="http://www.codeplex.com/SessionManager/SourceControl/ListDownloadableCommits.aspx"&gt;grab the source code&lt;/a&gt; and customize it to your needs or &lt;a href="http://www.codeplex.com/SessionManager/WorkItem/List.aspx"&gt;post a suggestion&lt;/a&gt;. I already wrote down some ideas on improvements.&lt;/p&gt; &lt;p&gt;Session Manager was a great opportunity to build an application&amp;nbsp;with the&amp;nbsp;&lt;a title="Video series on MVP" href="http://polymorphicpodcast.com/shows/mv%2Dpatterns/"&gt;Model View Presenter&lt;/a&gt; and &lt;a title="Video of how to implement WebNavigator" href="http://polymorphicpodcast.com/shows/webnavigator/"&gt;WebNavigator&lt;/a&gt; patterns in mind. One has to write&amp;nbsp;a little more code (mostly interface definitions) but gains great testability and portability across web and rich clients.&lt;/p&gt; &lt;h3&gt;Demo&lt;/h3&gt; &lt;p&gt;I've created a&amp;nbsp;&lt;a href="http://www.therightstuff.de/SessionManager/"&gt;demo installation&lt;/a&gt; based on the current version. Go ahead and fiddle,&amp;nbsp;you can't damage anything.&lt;/p&gt; &lt;ul&gt; &lt;li&gt;URL: &lt;a href="http://www.therightstuff.de/SessionManager/"&gt;http://www.therightstuff.de/SessionManager/&lt;/a&gt;  &lt;li&gt;User name: admin  &lt;li&gt;Password: admin&lt;/li&gt;&lt;/ul&gt; &lt;p&gt;Have fun!&lt;/p&gt;</Content>
+      <Created>2007-09-10T20:09:43.65425+02:00</Created>
+      <Modified>2007-09-10T20:09:43.65425+02:00</Modified>
+      <EntryId>5483de31-987b-42bc-881c-07ce0df3f1f4</EntryId>
+      <Description />
+      <Title>Session Manager Available On CodePlex</Title>
+      <Categories>ASP.NET;DNUG Leipzig;Tools and Software</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

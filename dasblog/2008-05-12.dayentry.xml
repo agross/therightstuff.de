@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2008-05-12T02:00:00+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;I recently added &lt;a title="Graffiti-UserGroups" href="http://code.google.com/p/graffiti-usergroups/"&gt;two&lt;/a&gt; of my &lt;a title="Now Playing" href="http://code.google.com/p/nowplaying-wlw/"&gt;pet projects&lt;/a&gt; to Google Code. I chose Google's Open Source hosting because they&amp;#160; have a very clean UI with integrated issue tracking and also offer native support for Subversion. One of the many aspects that make Subversion a decent choice is the ability to import existing SVN repositories to Google Code. That is, the whole history is uploaded and your soon-to-be open source project doesn't loose valuable undo history. &lt;a href="http://en.wikipedia.org/wiki/YAGNI"&gt;YAGNI&lt;/a&gt;? Maybe.&lt;/p&gt;  &lt;p&gt;Importing a complete repository to Google Code is &lt;a href="http://www.google.de/url?sa=t&amp;amp;ct=res&amp;amp;cd=1&amp;amp;url=http%3A%2F%2Fcode.google.com%2Fsupport%2Fbin%2Fanswer.py%3Fanswer%3D56673%26topic%3D10386&amp;amp;ei=9ysoSO-8PIyE0QTHiIWqCw&amp;amp;usg=AFQjCNH-JOXJfPSQ_qySajkCEYpMZFTwJA&amp;amp;sig2=IqgUJjq6ovV23t0WVDsDVQ"&gt;well documented&lt;/a&gt;, but what if your repository contains several projects and you just want to upload a certain one? Actually Subversion has all you need, there are just a couple of things to prepare. I will provide everything you need here, you may also want to use &lt;a href="http://whynotwiki.com/How_I_moved_my_code_repository_to_Google_Code"&gt;this excellent write-up&lt;/a&gt; (also &lt;a href="http://whynotwiki.com/Subversion_/_Dump_and_loading"&gt;look here&lt;/a&gt;) which I used as a reference. The syntax presented here works on Windows, whereas the author of the above articles was working on a *nix machine, so the command lines differ a bit.&lt;/p&gt;  &lt;h3&gt;Create your Google Code project and reset the Subversion repository to revision 0&lt;/h3&gt;  &lt;p&gt;After you created the project on Google Code you can find the &amp;quot;Reset Subversion Repository&amp;quot; link at the bottom of the &amp;quot;Source&amp;quot; tab.&lt;/p&gt; &lt;img style="text-align: center" alt="Reset" src="http://www.therightstuff.de/content/binary/WindowsLiveWriter/ImportingPrivateSubversionRepositoriesto_BF30/Reset_72dfcb9c-a246-4a5b-968d-55a3466d0d9b.png" /&gt;   &lt;h3&gt;Prepare your Subversion repository&lt;/h3&gt;  &lt;p&gt;You need local access to the Subversion server, a Remote Desktop or SSH connection would suffice. I'm assuming your repository is accessible over HTTPS on port 8443. Here are the paths used in the command lines below:&lt;/p&gt;  &lt;table cellspacing="0" cellpadding="0" width="612"&gt;&lt;thead&gt;     &lt;tr&gt;       &lt;th&gt;Property&lt;/th&gt;        &lt;th&gt;Value&lt;/th&gt;     &lt;/tr&gt;   &lt;/thead&gt;&lt;tbody&gt;     &lt;tr&gt;       &lt;td&gt;SVN repositories root&lt;/td&gt;        &lt;td&gt;C:\Subversion\&lt;/td&gt;     &lt;/tr&gt;      &lt;tr&gt;       &lt;td&gt;SVN repository containing the project&lt;/td&gt;        &lt;td&gt;C:\Subversion\projects&lt;/td&gt;     &lt;/tr&gt;      &lt;tr&gt;       &lt;td&gt;Repository URL&lt;/td&gt;        &lt;td&gt;https://localhost:8443/svn/projects/&lt;/td&gt;     &lt;/tr&gt;      &lt;tr&gt;       &lt;td&gt;Project to import to Google Code&lt;/td&gt;        &lt;td&gt;https://localhost:8443/svn/projects/foo/Project-FooBar/&lt;/td&gt;     &lt;/tr&gt;      &lt;tr&gt;       &lt;td&gt;Google Code Subversion URL&lt;/td&gt;        &lt;td&gt;https://project-foobar.googlecode.com/svn/&lt;/td&gt;     &lt;/tr&gt;   &lt;/tbody&gt;&lt;/table&gt;  &lt;h4&gt;Dump your repository filtering the project path&lt;/h4&gt;  &lt;p&gt;First you need to dump the SVN repository containing the project in question. &lt;strong&gt;svnadmin dump&lt;/strong&gt; saves the contents of the repository to the &lt;strong&gt;C:\Subversion\project-foobar.dump&lt;/strong&gt; file on disk. To only take the parts into account we're interested in, use &lt;strong&gt;svndumpfilter&lt;/strong&gt; to exclude everything outside the project path.&lt;/p&gt;  &lt;p&gt;Renumbering revisions and dropping empty revisions cleans up the resulting dump and prevents revisions with no changes.&lt;/p&gt;  &lt;pre&gt;&lt;a href="http://svnbook.red-bean.com/en/1.4/svn.ref.svnadmin.c.dump.html"&gt;svnadmin dump&lt;/a&gt; C:\Subversion\projects\ | svndumpfilter --drop-empty-revs --renumber-revs include /foo/Project-FooBar/ &amp;gt; C:\Subversion\project-foobar.dump
+
+Including (and dropping empty revisions for) prefixes:
+   'foo/Project-FooBar'
+
+* Dumped revision 0.
+Revision 0 committed as 0.
+* Dumped revision 1.
+Revision 1 skipped.
+...&lt;/pre&gt;
+
+&lt;h4&gt;Create a new repository for the project&lt;/h4&gt;
+
+&lt;p&gt;Now that you have dump in place, create a new repository for Project-FooBar.&lt;/p&gt;
+
+&lt;pre&gt;&lt;a href="http://svnbook.red-bean.com/en/1.4/svn.ref.svnadmin.c.create.html"&gt;svnadmin create&lt;/a&gt; C:\Subversion\project-foobar-import&lt;/pre&gt;
+
+&lt;h4&gt;Create directories needed to load the dump&lt;/h4&gt;
+
+&lt;p&gt;To make the import process succeed, you have to create the paths that are not included in the dump, i.e. all directories above the path that was included by &lt;strong&gt;svndumpfilter&lt;/strong&gt;. In the our case, this is the &lt;strong&gt;/foo&lt;/strong&gt; directory.&lt;/p&gt;
+
+&lt;pre&gt;&lt;a href="http://svnbook.red-bean.com/en/1.4/svn.ref.svn.c.mkdir.html"&gt;svn mkdir&lt;/a&gt; https://localhost:8443/svn/project-foobar-import/foo/ -m &amp;quot;Folder created for import&amp;quot;
+
+Committed revision 1.&lt;/pre&gt;
+
+&lt;h4&gt;Load the filtered dump&lt;/h4&gt;
+
+&lt;p&gt;It's time to import the dump to the repository just created.&lt;/p&gt;
+
+&lt;pre&gt;&lt;a href="http://svnbook.red-bean.com/en/1.4/svn.ref.svnadmin.html"&gt;svnadmin&lt;/a&gt; load C:\Subversion\project-foobar-import &amp;lt; C:\Subversion\project-foobar.dump
+
+&amp;lt;&amp;lt;&amp;lt; Started new transaction, based on original revision 1
+     * adding path : foo/Project-FooBar ... done.
+     * adding path : foo/Project-FooBar/trunk ... done.
+...&lt;/pre&gt;
+
+&lt;p&gt;If you didn't create all necessary directories in the last step, you will receive an error message like this:&lt;/p&gt;
+
+&lt;pre&gt;&amp;lt;&amp;lt;&amp;lt; Started new transaction, based on original revision 1
+     * adding path : foo/Project-FooBar ...svnadmin: File not found: transaction '1-1', path 'foo/Project-FooBar'&lt;/pre&gt;
+
+&lt;h4&gt;Move directories such that they follow the standard Subversion directory structure&lt;/h4&gt;
+
+&lt;p&gt;Your can now have a look at the new repository by pointing your browser to https://localhost:8443/svn/project-foobar-import/ where you only should see Project-FooBar.&lt;/p&gt;
+
+&lt;p&gt;The next step moves the project to the root of the repository and aligns the directory structure with &lt;a href="http://svnbook.red-bean.com/en/1.0/ch05s04.html#svn-ch-5-sect-6.1"&gt;Subversion's default directory layout&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;a href="http://svnbook.red-bean.com/en/1.4/svn.ref.svn.c.move.html"&gt;svn move&lt;/a&gt; https://localhost:8443/svn/project-foobar-import/foo/Project-FooBar/trunk/ https://localhost:8443/svn/project-foobar-import/trunk/ -m &amp;quot;Folder moved&amp;quot;
+svn move https://localhost:8443/svn/project-foobar-import/foo/Project-FooBar/tags/ https://localhost:8443/svn/project-foobar-import/tags/ -m &amp;quot;Folder moved&amp;quot;
+svn move https://localhost:8443/svn/project-foobar-import/foo/Project-FooBar/branches/ https://localhost:8443/svn/project-foobar-import/branches/ -m &amp;quot;Folder moved&amp;quot;
+&lt;a href="http://svnbook.red-bean.com/en/1.4/svn.ref.svn.c.delete.html"&gt;svn delete&lt;/a&gt; https://localhost:8443/svn/project-foobar-import/foo/Project-FooBar/ -m &amp;quot;Folder deleted&amp;quot;&lt;/pre&gt;
+
+&lt;h3&gt;Upload your Subversion repository to Google Code using &lt;a href="http://svnbook.red-bean.com/en/1.4/svn.ref.svnsync.html"&gt;svnsync&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;All set. The last step is to upload your Subversion repository to Google Code using the &lt;a href="http://www.google.de/url?sa=t&amp;amp;ct=res&amp;amp;cd=1&amp;amp;url=http%3A%2F%2Fcode.google.com%2Fsupport%2Fbin%2Fanswer.py%3Fanswer%3D56673%26topic%3D10386&amp;amp;ei=9ysoSO-8PIyE0QTHiIWqCw&amp;amp;usg=AFQjCNH-JOXJfPSQ_qySajkCEYpMZFTwJA&amp;amp;sig2=IqgUJjq6ovV23t0WVDsDVQ"&gt;documented command line&lt;/a&gt; below.&lt;/p&gt;
+
+&lt;pre&gt;&lt;a href="http://svnbook.red-bean.com/en/1.4/svn.ref.svnsync.c.init.html"&gt;svnsync init&lt;/a&gt; https://project-foobar.googlecode.com/svn/ https://localhost:8443/svn/project-foobar-import/
+Copied properties for revision 0.
+
+&lt;a href="http://svnbook.red-bean.com/en/1.4/svn.ref.svnsync.c.sync.html"&gt;svnsync sync&lt;/a&gt; https://project-foobar.googlecode.com/svn/
+Committed revision 1.
+Copied properties for revision 1.
+...&lt;/pre&gt;
+
+&lt;p&gt;The whole import process will take a little bit, depending on the size of your repository. It took me about 40 minutes for a repository with about 100 revisions, time to grab a cup of coffee.&lt;/p&gt;
+
+&lt;h3&gt;The script&lt;/h3&gt;
+
+&lt;p&gt;Of course you can script the whole process:&lt;/p&gt;
+
+&lt;pre&gt;@rem Create dump
+svnadmin dump C:\Subversion\projects\ | svndumpfilter --drop-empty-revs --renumber-revs include /foo/Project-FooBar/ &amp;gt; C:\Subversion\project-foobar.dump
+
+@rem Create repository for import
+svnadmin create C:\Subversion\project-foobar-import
+
+@rem Create directories needed for the import to succeed
+svn mkdir https://localhost:8443/svn/project-foobar-import/foo/ -m &amp;quot;Folder created for import&amp;quot;
+
+@rem Load dump
+svnadmin load C:\Subversion\project-foobar-import &amp;lt; C:\Subversion\project-foobar.dump
+
+@rem Move folders around
+svn move https://localhost:8443/svn/project-foobar-import/foo/Project-FooBar/trunk/ https://localhost:8443/svn/project-foobar-import/trunk/ -m &amp;quot;Folder moved&amp;quot;
+svn move https://localhost:8443/svn/project-foobar-import/foo/Project-FooBar/tags/ https://localhost:8443/svn/project-foobar-import/tags/ -m &amp;quot;Folder moved&amp;quot;
+svn move https://localhost:8443/svn/project-foobar-import/foo/Project-FooBar/branches/ https://localhost:8443/svn/project-foobar-import/branches/ -m &amp;quot;Folder moved&amp;quot;
+
+svn delete https://localhost:8443/svn/project-foobar-import/foo/Project-FooBar/ -m &amp;quot;Folder deleted&amp;quot;
+
+@rem Sync with Google Code
+svnsync init https://project-foobar.googlecode.com/svn/ https://localhost:8443/svn/project-foobar-import/
+svnsync sync https://project-foobar.googlecode.com/svn/&lt;/pre&gt;</Content>
+      <Created>2008-05-12T15:19:04.477125+02:00</Created>
+      <Modified>2008-05-12T15:19:04.477125+02:00</Modified>
+      <EntryId>b984a8e7-e94d-4eed-a705-5dc479f959e8</EntryId>
+      <Description />
+      <Title>Importing Subversion Repositories to Google Code</Title>
+      <Categories>Tools and Software</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

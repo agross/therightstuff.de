@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-08-12T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;After years of not finding time to update my web site I decided in opt-in to the blog hype:&lt;/P&gt;
+&lt;P&gt;A short introduction: My name is Alex (25 years by now) and I currently live in Leipzig. I am looking forward to finish my studies in Computer Science in the end of 2005. In September 2003 I started digging into .NET after years of coding C and C++. Yes, I am not one of the early adopters that used .NET in the early beta stages. I must admit that I'm not too unhappy with that decision (if you want to call it a decision just ignoring new technologies) since the framework lacks some detail functionality and makes the new life as a managed code dev not easier. I am planning to write about my adventures tackling the problems I encounter.&lt;/P&gt;
+&lt;P&gt;In my spare time I am almost always listening to music as long there's a Hi-Fi setup around me (an audiophile one to be preferred). There is one in my room, needless to say. As a result of my music addiction you'll find a "Now playing" &lt;A href="http://neopoleon.com/blog/posts/5981.aspx"&gt;After Blog Mint&lt;/A&gt; line at the bottom of each post.&lt;/P&gt;
+&lt;P&gt;Cooking&amp;nbsp;is also a big all-time favorite. During the years in Leipzig I've developed a tendency to cook for 6 or more people (15 at the most IIRC) which is a good training for managing multiple work items simultaneously. &lt;EM&gt;Multithreading&lt;/EM&gt; for you geeks out there. Just kidding.&lt;/P&gt;
+&lt;P&gt;Most of the contents that will be found here will be written in english. More to come as&amp;nbsp;stuff happens.&lt;/P&gt;
+&lt;P class="nowPlaying"&gt;Now playing: &lt;A href="http://www.music-map.de/monster+magnet.html"&gt;Monster Magnet&lt;/A&gt; - Monolithic Baby - On The Verge&lt;/P&gt;</Content>
+      <Created>2005-08-12T20:19:19.0460000+02:00</Created>
+      <Modified>2005-08-19T17:05:13.2500000+02:00</Modified>
+      <EntryId>a7888f82-9ae7-4e58-8985-630a03a7a302</EntryId>
+      <Description />
+      <Title>Welcome everyone!</Title>
+      <Categories>General</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

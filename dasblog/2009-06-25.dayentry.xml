@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2009-06-25T02:00:00+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;&lt;img style="margin-bottom: 1em; float: right; margin-left: 1em" title="Git Logo" alt="Git Logo" src="http://www.therightstuff.de/content/binary/WindowsLiveWriter/UseSourceGearDiffMergewithGit_11D62/git-logo_ba9c923f-7667-4383-9d95-fc7fbb3db552.png" /&gt;Today we changed the URL of our Subversion server at work to a new domain. Subversion and TortoiseSVN offer a separate &lt;code&gt;&lt;a href="http://svnbook.red-bean.com/en/1.1/re27.html"&gt;relocate&lt;/a&gt;&lt;/code&gt; command for that, which basically updates the local working copy metadata.&lt;/p&gt;  &lt;p&gt;Not so for Git. Git keeps SVN metadata in two places: the commit log messages themselves which hold a &lt;code&gt;git-svn-id&lt;/code&gt; entry for all commits that have been pushed to SVN, and in the &lt;strong&gt;.git/config&lt;/strong&gt; file.&lt;/p&gt;  &lt;pre&gt;commit e82751b4872142679ba61e26fc0c57e97c698e8f
+Author: agross &lt;agross  @8ED4A44C-BFB4-4748-A28A-FAD9255C4788&gt;
+Date:   Thu Jun 25 16:44:55 2009 +0000
+
+    Adding FxCop to the code quality task
+
+    git-svn-id: https://your.svn-server/svn/Crimson/trunk@67 8ed4a44c-bfb4-4748-a28a-fad9255c4788&lt;/pre&gt;
+
+&lt;pre&gt;[core]
+	repositoryformatversion = 0
+	filemode = false
+	bare = false
+	logallrefupdates = true
+	ignorecase = true
+[svn-remote &amp;quot;svn&amp;quot;]
+	url = https://your.svn-server/svn/Crimson/trunk
+	fetch = :refs/remotes/git-svn&lt;/pre&gt;
+
+&lt;p&gt;To update the SVN URL it’s required to update the Git configuration file (an easy edit) and also to rewrite the commit log messages, updating the values of &lt;code&gt;git-svn-id&lt;/code&gt; to reflect the new SVN server URL. The latter can be achieved with the &lt;a href="http://www.kernel.org/pub/software/scm/git-core/docs/git-filter-branch.html"&gt;git-filter-branch&lt;/a&gt; command which allows you to dissect the project history in interesting ways.&lt;/p&gt;
+
+&lt;p&gt;Having several local Git repositories to update, I went for the scripted solution. I found &lt;a href="http://translate.org.za/blogs/wynand/en/content/changing-your-svn-repository-address-git-svn-setup"&gt;this article on how to change the SVN repository URL&lt;/a&gt; and added some scripting goodness to it (aside from fixing the syntactic errors). It worked pretty good for my ~10 repositories.&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;You pass two arguments: 
+    &lt;ul&gt;
+      &lt;li&gt;The old SVN URL, i.e. &lt;a href="http://old.server"&gt;http://old.server&lt;/a&gt; &lt;/li&gt;
+
+      &lt;li&gt;The new SVN URL, i.e. &lt;a href="https://new.server"&gt;https://new.server&lt;/a&gt; &lt;/li&gt;
+
+      &lt;li&gt;The old URL will be matched against &lt;code&gt;git-svn-id&lt;/code&gt; entries with a regular expression, and the matched parts get replaced with the new URL. &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Rewrite the commit log messages, thus updating &lt;code&gt;git-svn-id&lt;/code&gt; &lt;/li&gt;
+
+  &lt;li&gt;Create a backup copy of &lt;strong&gt;.git/config&lt;/strong&gt; &lt;/li&gt;
+
+  &lt;li&gt;Replace the old SVN URL in &lt;strong&gt;.git/config&lt;/strong&gt; &lt;/li&gt;
+
+  &lt;li&gt;Delete all metadata Git has aquired about SVN &lt;/li&gt;
+
+  &lt;li&gt;Rebase against SVN, recreating the SVN metadata &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class="brush: bash;"&gt;#!/bin/sh
+
+# Must be called with two command-line args.
+# Example: git-svn-relocate.sh http://old.server https://new.server
+if [ $# -ne 2 ]  
+then
+  echo &amp;quot;Please invoke this script with two command-line arguments (old and new SVN URLs).&amp;quot;
+  exit $E_NO_ARGS
+fi  
+
+# Prepare URLs for regex search and replace.
+oldUrl=`echo $1 | awk '{gsub(&amp;quot;[\\\.]&amp;quot;, &amp;quot;\\\\\\\&amp;amp;&amp;quot;);print}'`
+newUrl=`echo $2 | awk '{gsub(&amp;quot;[\\\&amp;amp;]&amp;quot;, &amp;quot;\\\\\\\&amp;amp;&amp;quot;);print}'`
+
+filter=&amp;quot;sed \&amp;quot;s|^git-svn-id: $oldUrl|git-svn-id: $newUrl|g\&amp;quot;&amp;quot;
+git filter-branch --msg-filter &amp;quot;$filter&amp;quot; -- --all
+
+sed -i.backup -e &amp;quot;s|$oldUrl|$newUrl|g&amp;quot; .git/config
+
+rm -rf .git/svn
+git svn rebase&lt;/pre&gt;</Content>
+      <Created>2009-06-25T20:59:52.4355467+02:00</Created>
+      <Modified>2009-06-25T20:59:52.4355467+02:00</Modified>
+      <EntryId>22ecab83-b7d1-4b48-84d3-2ad7b0cdbc35</EntryId>
+      <Description />
+      <Title>Rewriting Git History: Relocating Subversion URLs</Title>
+      <Categories>.NET;Git</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

@@ -38,7 +38,7 @@ class DasBlogDataSource < Nanoc3::DataSources::FilesystemUnified
   
   private
   def identifier_for(attributes)
-    attributes[:created_at].strftime("%Y/%m/%d/") + attributes[:title].slug
+    attributes[:created_at].strftime("%Y/%m/%d/") + attributes[:title]
   end
   
   def parse_entry(entry, filename)

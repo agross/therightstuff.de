@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-03-05T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;UL&gt;
+&lt;LI&gt;500 g Schweinehack (gewürzt oder ungewürzt)&lt;/LI&gt;
+&lt;LI&gt;1 EL Senf&lt;/LI&gt;
+&lt;LI&gt;1 EL Quark&lt;/LI&gt;
+&lt;LI&gt;Semmelbrösel&lt;/LI&gt;
+&lt;LI&gt;4&amp;nbsp;Eier&lt;/LI&gt;
+&lt;LI&gt;1 TL gemahlenes Piment&lt;/LI&gt;
+&lt;LI&gt;1 TL gemahlener Kümmel&lt;/LI&gt;
+&lt;LI&gt;2&amp;nbsp;Lorbeerblätter&lt;/LI&gt;
+&lt;LI&gt;4&amp;nbsp;Zwiebeln&lt;/LI&gt;
+&lt;LI&gt;2 Gläser Kapern&lt;/LI&gt;
+&lt;LI&gt;3 ganze Pimentkörner&lt;/LI&gt;
+&lt;LI&gt;Salz, Pfeffer&lt;/LI&gt;
+&lt;LI&gt;1 Becher saure Sahne&lt;/LI&gt;
+&lt;LI&gt;etwas Sud von Gewürzgurken&lt;/LI&gt;
+&lt;LI&gt;heller Soßenbinder oder Mehl&lt;/LI&gt;&lt;/UL&gt;
+&lt;P&gt;Schweinehack würzen falls es ungewürzt ist. 2 gewürfelte Zwiebeln, 2 Eier, Quark, Senf, gemahlenes Piment und Kümmel hinzugeben und gut vermengen. Falls die Masse zu feucht ist, mit etwas Semmelbröseln abbinden. Anlschießend mit der Hand Klopse formen.&lt;/P&gt;
+&lt;P&gt;1,5 Liter Wasser in einem großen Topf zum Kochen bringen und&amp;nbsp;salzen und pfeffern. Die Lorbeerblätter, Pimentkörner und zwei ganze Zwiebeln hineingeben. Die Klopse vorsichtig in das Wasser legen und&amp;nbsp;10 Minuten leicht kochen. Wenn die Klopse oben schwimmen, diese, die Gewürze und Zwiebeln aus dem Wasser nehmen. Die restlichen 2 Eier mit dem Schneebesen schnell unterrühren. Anschließend die Soße mit hellem Soßenbinder andicken.&amp;nbsp;Falls kein Soßenbinder zur Verfügung steht, etwas etwas Soße mit Mehl verquirlen und damit andicken. Saure Sahne unterrühren, die Kapern&amp;nbsp;und Gurkensud nach Geschmack hinzugeben. Evtl. nachsalzen und die Klopse wieder in den Topf geben. Dazu Kartoffeln servieren.&lt;/P&gt;</Content>
+      <Created>2006-03-05T17:45:36.6700000+01:00</Created>
+      <Modified>2006-03-12T17:45:36.6704600+01:00</Modified>
+      <EntryId>ff562e07-173e-4687-b1d7-fe0d44b2ebc5</EntryId>
+      <Description />
+      <Title>Rezept: Königsberger Klopse</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-01-29T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p align="center"&gt;&lt;img alt="Unix Geek" src="http://www.it99.org/axl/content/binary/Unix%20Geek.jpg" border="0"&gt;&lt;/p&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;a href="http://www.music-map.de/koop.html"&gt;Koop&lt;/a&gt; - &lt;A href="http://www.amazon.com/exec/obidos/ASIN/B00000B66M/therightstu0e-20"&gt;Sons of Koop&lt;/a&gt; - Absolute space&lt;/p&gt;</Content>
+      <Created>2006-01-29T15:44:43.2730000+01:00</Created>
+      <Modified>2006-01-29T15:56:39.5794898+01:00</Modified>
+      <EntryId>4b45bf21-29a0-4900-acd8-83afe5e73a85</EntryId>
+      <Description />
+      <Title>Why I'm Fond Of Windows</Title>
+      <Categories>Fun Stuff</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+    <Entry>
+      <Content>&lt;P&gt;&lt;A href="http://www.moox.nl/blogworm/" target=_blank&gt;&lt;IMG height=131 alt=Blog.Worm src="http://www.moox.nl/blogworm/virus.gif" width=244 border=0&gt; &lt;/A&gt;&lt;/P&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;A href="http://www.music-map.de/roxette.html"&gt;Roxette&lt;/A&gt; - &lt;A href="http://www.amazon.com/exec/obidos/ASIN/B000002TPD/therightstu0e-20"&gt;Crash! Boom! Bang!&lt;/A&gt; - Sleeping in my car&lt;/P&gt;</Content>
+      <Created>2006-01-29T23:19:42.8540963+01:00</Created>
+      <Modified>2006-01-29T23:19:42.8540963+01:00</Modified>
+      <EntryId>b6e42b8d-c005-43df-8a80-7fc32b1c4ec3</EntryId>
+      <Description />
+      <Title>Infected</Title>
+      <Categories>Fun Stuff</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-05-23T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;UL&gt;
+&lt;LI&gt;1 Aldi Frischkäse&lt;/LI&gt;
+&lt;LI&gt;1 Thunfischdose + 1/2 Öl der Dose&lt;/LI&gt;
+&lt;LI&gt;1 kleine Zwiebel ganz klein geschnitten&lt;/LI&gt;
+&lt;LI&gt;Salz, Pfeffer, etwas Zitrone&lt;/LI&gt;&lt;/UL&gt;
+&lt;P&gt;Rühren, durchziehen lassen, fertig. Am besten auf frisches Brot oder Baguette auftragen.&lt;/P&gt;</Content>
+      <Created>2006-05-23T15:28:05.9907301+02:00</Created>
+      <Modified>2006-05-23T15:28:05.9907301+02:00</Modified>
+      <EntryId>b377070c-9fc4-4b19-ac59-6031b708ce42</EntryId>
+      <Description />
+      <Title>Rezept: Silkes Thunfischpaste</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

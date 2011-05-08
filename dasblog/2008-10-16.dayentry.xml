@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2008-10-16T02:00:00+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;Tomorrow around 3 P.M. I will be heading to Leipzig's &lt;a href="http://www.mediencampus-villa-ida.de/"&gt;Mediencampus Villa Ida&lt;/a&gt; to finish the last preparations of the first &lt;a href="http://netopenspace.de/English.ashx"&gt;.NET Open Space 2008&lt;/a&gt; in Leipzig, Germany.&lt;/p&gt; &lt;div style="text-align: center;"&gt;&lt;a title=".NET Open Space vom 18.10. bis 19.10.2008 in Leipzig" href="http://netopenspace.de/English.ashx"&gt;&lt;img alt=".NET Open Space vom 18.10. bis 19.10.2008 in Leipzig" src="http://netopenspace.de/GetFile.aspx?File=Logos/nos-logo-3.png"&gt; &lt;/a&gt;&lt;/div&gt; &lt;p&gt;The .NET Open Space 2008 is an "unconference" in the style of &lt;a href="http://en.wikipedia.org/wiki/Open_Space_Technology"&gt;Open Spaces&lt;/a&gt; and was inspired by the recent ALT.NET conferences in &lt;a href="http://www.altnetuk.com/"&gt;London&lt;/a&gt; and &lt;a href="http://altdotnet.org/events/seattle/"&gt;Seattle&lt;/a&gt;. That is, we as attendees decide on the actual topics of the &lt;a href="http://en.wikipedia.org/wiki/Unconference"&gt;sessions&lt;/a&gt;: There's no separation in speakers, attendees and the organizing team. Thus, every participant is responsible to make the best of the coming weekend; discuss, inspire, chat, meet people, &lt;a href="http://netopenspace.de/FAQ.ashx#Party"&gt;party&lt;/a&gt; and travel home with lots of new ideas. &lt;a href="http://netopenspace.de/English.ashx#team"&gt;We&lt;/a&gt; hope that a lively conversation will take place.&lt;/p&gt; &lt;p&gt;The open format allows us to skip the sometimes lengthy negotiation with speakers that Torsten and I went through for the last &lt;a href="dotnet-leipzig.de/summercamp"&gt;.NET Summercamp&lt;/a&gt; in 2007. Instead &lt;a href="http://www.lieser-online.de/blog/" rel="friend acquaintance"&gt;Stefan&lt;/a&gt;, &lt;a href="http://blogs.compactframework.de/Torsten.Weber/" rel="met friend"&gt;Torsten&lt;/a&gt; and I harnessed our otherwise wasted spare time to build an extensive list of &lt;a href="http://netopenspace.de/Sponsorenlogos.ashx"&gt;sponsors&lt;/a&gt; that allow for a pretty decent list of supplies and a couple of &lt;a href="http://netopenspace.de/Sponsoren.ashx"&gt;free products and books&lt;/a&gt; that we don't raffle but rather lay out all day long to let each attendee actually have a look at what's in for him and vote who should get the product.&lt;/p&gt; &lt;p&gt;I wish us &lt;a href="http://netopenspace.de/Teilnehmer.ashx"&gt;85&lt;/a&gt; a great weekend!&lt;/p&gt;</Content>
+      <Created>2008-10-16T23:31:30.015+02:00</Created>
+      <Modified>2009-01-13T00:17:04.671125+01:00</Modified>
+      <EntryId>91b719dd-ee03-43a0-bb1f-2e08a1ec215b</EntryId>
+      <Description />
+      <Title>.NET Open Space 2008</Title>
+      <Categories>ALT.NET;DNUG Leipzig;.NET</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

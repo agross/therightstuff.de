@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2008-09-14T02:00:00+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;ul&gt; &lt;li&gt;pro Person 1 große mittelreife Birne  &lt;li&gt;Rucola  &lt;li&gt;Feldsalat  &lt;li&gt;Blauschimmelkäse  &lt;li&gt;Butter  &lt;li&gt;Koriandersamen  &lt;li&gt;Balsamico  &lt;li&gt;brauner Zucker&lt;/li&gt;&lt;/ul&gt; &lt;p&gt;Die Salate waschen, putzen und auf einem Teller gleichmäßig verteilen. Den Blauschimmelkäse in kleine Würfel schneiden und gleichmäßig auf dem Salatbett anrichten. Die Birnen schälen, entkernen und vierteln. 2-3 EL Butter in einer beschichteten Pfanne zerlassen und die Birnen hineingeben. Mit etwas Zucker bestreuen und von jeder Seite vorsichtig anbraten bis sie leicht braun werden. Vor dem Wenden auf die letzten Seite 2 TL grob zermörserten Koriander darüberstreuen. Im Anschluss mit einem kräftigen Schuss Balsamico ablöschen und einkochen bis das Essigaroma fast verflogen ist und sich eine dicke, dunkle und kräftig-süße Soße gebildet hat.&lt;/p&gt; &lt;p&gt;Die gebratenen Birnen auf dem Teller anrichten und die heiße Balsamico-Soße über den Birnen und den Käsestückchen verteilen.&lt;/p&gt;</Content>
+      <Created>2008-09-14T15:07:20.03125+02:00</Created>
+      <Modified>2008-09-14T15:07:20.03125+02:00</Modified>
+      <EntryId>6a7c8720-007c-4442-93dc-fc09ef0cfe8f</EntryId>
+      <Description />
+      <Title>Rezept: Rucola mit warmen Birnen und Blauschimmelkäse</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

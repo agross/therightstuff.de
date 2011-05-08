@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-12-04T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;UL&gt;
+&lt;LI&gt;2 Frühlingszwiebeln (normale Zwiebeln schmecken auch) 
+&lt;LI&gt;1 Knoblauchzehe 
+&lt;LI&gt;200 ml Kokosmilch (1/2 Dose) 
+&lt;LI&gt;400 ml Gemüsebrühe 
+&lt;LI&gt;1 TL Chilipaste 
+&lt;LI&gt;1 Banane 
+&lt;LI&gt;1 EL Öl 
+&lt;LI&gt;Pfeffer, Salz, Zucker&lt;/LI&gt;&lt;/UL&gt;
+&lt;P&gt;Zwiebeln in Ringe schneiden, Knoblauchzehe und die Banane in Scheiben schneiden. Frühlingzwiebeln und Knoblauch dazugeben und kurz in Öl anbraten. Alle anderen Zutaten bis auf die Banane dazugeben und fünf Minuten köcheln lassen. 3/4 der Banane dazugeben und alles pürieren. Danach die restlichen Bananenscheiben dazugeben und alles erwärmen.&lt;/P&gt;
+&lt;P&gt;[via &lt;A href="http://www.leckerbisschen.de/SuppenSaucen/bananenchilisuppe.htm"&gt;Leckerbisschen&lt;/A&gt;]&lt;/P&gt;</Content>
+      <Created>2005-12-04T22:30:52.5120000+01:00</Created>
+      <Modified>2006-01-15T17:19:02.3189682+01:00</Modified>
+      <EntryId>e62cb45f-6fb8-46e4-93d5-212bc6fafc02</EntryId>
+      <Description />
+      <Title>Rezept: Bananen-Chili-Suppe</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

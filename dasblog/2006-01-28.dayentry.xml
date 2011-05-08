@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-01-28T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;ul&gt;
+&lt;li&gt;ein halbes Schwein, am besten von der Nuss&amp;nbsp;(200 g pro Person)
+&lt;/li&gt;&lt;li&gt;2 Zwiebeln
+&lt;/li&gt;&lt;li&gt;1/2 Becher Sahne
+&lt;/li&gt;&lt;li&gt;1 TL gemahlener Kümmel
+&lt;/li&gt;&lt;li&gt;1 TL gemahlenes Piment
+&lt;/li&gt;&lt;li&gt;2 Lorbeerblätter
+&lt;/li&gt;&lt;li&gt;getrocknete Waldpilze
+&lt;/li&gt;&lt;li&gt;Salz, Pfeffer
+&lt;/li&gt;&lt;li&gt;Soßenbinder&lt;/li&gt;&lt;li&gt;Kokosfett zum Anbraten&lt;br&gt;&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;Den Braten abwaschen und säubern, salzen und pfeffern. Das Fleisch&amp;nbsp;von allen Seiten in Kokosfett scharf anbraten - Bratensaft ist &lt;i&gt;die&lt;/i&gt;&amp;nbsp; Soßengrundlage.&amp;nbsp;Wenn die letzte Seite angebraten wird, kleingewürfelte Zwiebel hinzugeben und dünsten. Mit&amp;nbsp;Wasser auffüllen sodass das Fleisch bis zur Hälfte in der Soße liegt.&amp;nbsp;Kümmel, Piment, Salz und Pfeffer, 2 Lorbeerblätter und die&amp;nbsp;Pilze hinzugeben.&amp;nbsp;Das Ganze&amp;nbsp;ca. 60 Minuten&amp;nbsp;kochen.&amp;nbsp;Das Fleisch herausnehmen wenn es gar ist. Die Soße andicken und Sahne einrühren. Dazu passen Kartoffeln und&amp;nbsp;Rotkraut oder Schwarzwurzeln mit in Butter angerösteten Semmelbröseln.&lt;/p&gt;</Content>
+      <Created>2006-01-28T12:19:23.0570000+01:00</Created>
+      <Modified>2006-01-30T16:26:05.3998973+01:00</Modified>
+      <EntryId>7897d7ba-9fa1-4d8d-91ad-d6d3cd11cd49</EntryId>
+      <Description />
+      <Title>Rezept: Schweinebraten</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

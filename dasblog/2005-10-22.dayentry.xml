@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-10-22T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;UL&gt;
+&lt;LI&gt;pro Person 150 g Gulasch (Rind, Schwein oder gemischt)
+&lt;LI&gt;Margarine
+&lt;LI&gt;ein Haufen Zwiebeln
+&lt;LI&gt;edelsüßer Paprika
+&lt;LI&gt;Salz, Pfeffer
+&lt;LI&gt;Lorbeer, gemahlener Kümmel, gemahlener Piment
+&lt;LI&gt;Senf
+&lt;LI&gt;getrocknete Pilze
+&lt;LI&gt;Brühe
+&lt;LI&gt;Sahne&lt;/LI&gt;&lt;/UL&gt;
+&lt;P&gt;Fleisch in&amp;nbsp;gleich große Würfel schneiden. Das Bindegewebe muss nicht unbedingt entfernt werden. In einem großen Topf in Margarine scharf anbraten, salzen und&amp;nbsp;pfeffern.&amp;nbsp;Wenn das Fleisch bräunlich wird, jede Menge grob gewürfelte Zwiebeln hinzugeben.&amp;nbsp;Wenn der Bratensaft etwas verdunstet bzw. das Fleisch kross ist, 1 TL edelsüßen Paprika drüberstreuen und&amp;nbsp;sofort rühren (sonst wirds bitter).&amp;nbsp;Mit Wasser auffüllen und die Gewürze (Lorbeer, gemahlener Kümmel, gemahlener Piment) hinzugeben.&amp;nbsp;1 EL Senf und, wenn vorhanden,&amp;nbsp;getrocknete Waldpilze hinzugeben. Mit Deckel ca. 1 Stunde simmern lassen. Danach&amp;nbsp;evtl. mit Brühe nachwürzen. Sahne nach Geschmack hinzugeben und die Soße andicken. Dazu passen am besten Rotkraut und Semmelknödel.&lt;/P&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;A href="http://www.music-map.de/the+prodigy.html"&gt;The Prodigy&lt;/A&gt; - &lt;A href="http://www.amazon.com/exec/obidos/ASIN/B000002NFM/therightstu0e-20"&gt;The fat of the land&lt;/A&gt; - Narayan&lt;/P&gt;</Content>
+      <Created>2005-10-22T21:10:13.5620000+02:00</Created>
+      <Modified>2005-10-22T21:25:56.0000000+02:00</Modified>
+      <EntryId>073d170e-3b66-4876-bbee-44c71f373be1</EntryId>
+      <Description />
+      <Title>Rezept: Gulasch</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

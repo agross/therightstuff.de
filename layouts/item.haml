@@ -1,0 +1,32 @@
+.item.clear
+  .item-header
+    .onpage-navigation
+      OnPageNextLink("Next|DE:Weiter", "default\.aspx$")
+      OnPagePreviousLink("Previous|DE:Zurück", "default\.aspx$")
+
+    %h2.title
+      = item[:title]
+
+    .categories
+      Posted in categoryLinks
+      %span.print
+        at
+    
+    .item-content">
+      = yield
+
+    .item-footer
+      .left
+      .right
+      .content
+        %ul
+          %li.single-line
+            Posted at FormattedWhen("f")
+          %li.first
+            commentLink
+          %li
+            %a.permalink { :href => "PermalinkUrl", :rel => "bookmark" }
+              Permalink
+
+    <script src="http://feeds2.feedburner.com/~s/@vendor.feedburner.name@?i=<% PermalinkUrl %>" type="text/javascript" charset="utf-8"></script>
+    RelatedPostListDiv("related-posts")

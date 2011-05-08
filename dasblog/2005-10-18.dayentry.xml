@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-10-18T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;Yesterday I started writing my first and rather simple Smart Tag for &lt;a href="http://www.microsoft.com/office/"&gt;Office 2003&lt;/a&gt;. It's supposed to be nothing sophisticated, just a little demo that&amp;nbsp;will be used by my colleagues Jörg and Karsten in their current research projects. These projects are about information retrieval and the proper presentation to the information worker based on the current task. You may be reminded of &lt;a href="http://www.prebis.de/"&gt;PreBIS&lt;/a&gt;, but in my opinion the current project takes the notion developed by PreBIS a step further. To get the picture, imagine you're writing on a corporate document. A Smart Tag pops up telling you there's something interesting about the topic you're working on. After you clicked on it you'll see a list of related items and resources that may support you completing the task efficiently. These resources are shared by all corporate users and grow over time based on&amp;nbsp;experience&amp;nbsp;employees gain.&lt;/p&gt;
+&lt;p align="center"&gt;&lt;img src="http://www.it99.org/axl/content/binary/Smart%20Tag%20Screenshot.png" border="0"&gt;&lt;/p&gt;
+&lt;p&gt;Back on topic: I downloaded the &lt;a href="http://www.microsoft.com/downloads/details.aspx?FamilyID=c6189658-d915-4140-908a-9a0114953721&amp;amp;displaylang=en"&gt;Smart Tag SDK&lt;/a&gt;, added Smart Tag programmability support by installing the Smart Tag PIAs using Office setup and started implementing my solution based on the &lt;a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/stagsdk/html/stconWelcomeToSTagSDK_HV01074286.asp"&gt;C# walk-through&lt;/a&gt;. After tackling some deployment and CAS issues&amp;nbsp;everything seemed to be set up properly. I started the debugger. After some seconds Word came up and closed almost&amp;nbsp;immediately. What went wrong? I tried again. Word was still exiting. After rebooting the machine still&amp;nbsp;nothing changed. I tried tracking the problem down setting up a CAS policy that allowed all code to run under FullTrust but to no avail. The debugger hit not breakpoints and catched no exceptions (although explicitly set via&amp;nbsp;Debug -&amp;gt; Exceptions &lt;a href="http://msdn.microsoft.com/library/en-us/stagsdk/html/stconFrequentlyAskedQuestions_HV01043343.asp?frame=true"&gt;[Link]&lt;/a&gt;).&lt;/p&gt;
+&lt;p&gt;I headed to Google searching for a solution. After an hour of trial and error testing questionable solutions I finally found&amp;nbsp;&lt;a href="http://groups.google.com/group/microsoft.public.office.developer.smarttags/browse_frm/thread/4ef32b71ad6020c2/6ddcaaebec4134c7"&gt;this article&lt;/a&gt; on Google Groups stating that after removing the beta of &lt;a href="http://lab.msdn.microsoft.com/vs2005/"&gt;Visual Studio 2005&lt;/a&gt; Smart Tags work again. What do Office and VS 2005 have in common? Nothing I thought. I decided to give&amp;nbsp;this solution a try and uninstalled VS. And, behold, my Smart Tag solution was running as expected for the first time!&lt;/p&gt;
+&lt;p&gt;Lessons learned: Always install betas inside a Virtual Machine, although they might be slowed down until virtually unusable.&lt;/p&gt;
+&lt;p class="now-playing"&gt;Now playing: &lt;a href="http://www.music-map.de/big+bud.html"&gt;Big Bud&lt;/a&gt; - Producer 07 - High times&lt;/p&gt;</Content>
+      <Created>2005-10-19T01:54:55.4930000+02:00</Created>
+      <Modified>2006-12-16T20:45:49.7783188+01:00</Modified>
+      <EntryId>5e54eab9-94c9-40f8-8df9-b7fe86d7e642</EntryId>
+      <Description />
+      <Title>Smart Tags and Visual Studio 2005 beta 2</Title>
+      <Categories>Office;Visual Studio</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-02-06T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;&lt;img title="Media Player Classic" style="float: right; margin-bottom: 10px; margin-left: 10px;" alt="Media Player Classic" src="http://www.it99.org/axl/content/binary/Media%20Player%20Classic.png" border="0"&gt;I'm a big fan of &lt;a href="http://blogs.msdn.com/aaron_margosis/archive/2006/02/06/525455.aspx"&gt;Limited User Accounts&lt;/a&gt;: I'm running inside a LUA almost all the time and try to make every program willing to comply with LUAs using the &lt;a href="http://www.microsoft.com/technet/prodtechnol/windows/appcompatibility/default.mspx"&gt;Application Compatibility Toolkit (ACT)&lt;/a&gt; Microsoft provides. I like using an alternative media player for windows, &lt;a href="http://sourceforge.net/projects/guliverkli/"&gt;Media Player Classic&lt;/a&gt; (MPC), which is distributed with the &lt;a href="http://www.codecguide.com/about_kl.htm"&gt;K-Lite Mega Codec Pack&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I've encountered some issues making MPC LUA-compatible and I would like to share my resolutions here.&lt;/p&gt;
+&lt;p&gt;Some months ago I created the initial application fix for MPC using the Application Compatiblity Administrator which is a part of &lt;a href="http://www.microsoft.com/technet/prodtechnol/windows/appcompatibility/default.mspx"&gt;ACT&lt;/a&gt;. I used the quick method of creating app fixes which is to simply choose the executable, select LUA compatibility mode, do the test run, save the results to a &lt;strong&gt;sdb&lt;/strong&gt; file and install the fix. Everything worked fine... except when I tried to watch streamed &lt;a href="http://en.wikipedia.org/wiki/Real_media"&gt;RealMedia&lt;/a&gt; videos: The video stream was glitched, whereas audio playback&amp;nbsp;rendered fluenty.&lt;/p&gt;
+&lt;p&gt;Files residing on the local hard disk worked fine. Video streaming inside a browser window also was not a problem, MPC streaming with administrative rights worked smoothly. MPC and/or my appfix was the point of failure.&lt;/p&gt;
+&lt;p&gt;Today I sat down and chased the bug. Actually it was the application fix that broke RealVideo streaming. The default settings for a LUA application fix contains file system &lt;em&gt;and&lt;/em&gt; registry redirects to the fixed application's user-specific portion of the&amp;nbsp;environment. The registry redirect broke RealVideo streaming for some reason I was unable to determine. I suspect the error to happens somewhere buried inside MPC/ActiveX/RealAlternative. &lt;a href="http://www.sysinternals.com/Utilities/Regmon.html"&gt;Regmon&lt;/a&gt; was of no help in this case.&lt;/p&gt;
+&lt;p&gt;However, everything works fine now and I am happy to watch my RealMedia streams again outside a browser.&lt;/p&gt;
+&lt;p&gt;&lt;img title="Download" class="download" style="margin-right: 4px;" alt="Download" src="http://www.it99.org/axl/content/binary/Download.gif"&gt;&lt;a href="http://www.it99.org/axl/download/Media%20Player%20Classic%20with%20RealMedia%20Compatibility.sdb.zip"&gt;Download&lt;/a&gt; the application fix for Media Player Classic. Install it using &lt;strong&gt;sdbinst.exe "Media Player Classic with RealMedia Compatibility.sdb"&lt;/strong&gt;.&lt;/p&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;a href="http://www.music-map.de/yonderboi.html"&gt;Yonderboi&lt;/a&gt; - &lt;a href="http://www.amazon.com/exec/obidos/ASIN/B00005UNH5/therightstu0e-20"&gt;Shallow and Profound (Limited Edition)&lt;/a&gt; - No answer from Petrograd&lt;/p&gt;</Content>
+      <Created>2006-02-06T23:59:21.8500000+01:00</Created>
+      <Modified>2006-03-18T14:17:35.8653378+01:00</Modified>
+      <EntryId>caf0eada-8d94-4375-ae62-5dc8fc2f5ca6</EntryId>
+      <Description />
+      <Title>Chasing LUA Bugs of Media Player Classic</Title>
+      <Categories>Tools and Software;Windows</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

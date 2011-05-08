@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-05-01T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;Ein schönes Rezept meines Freundes Markus, passt sehr gut zu selbstgemachten Waffeln.&lt;/p&gt;
+&lt;p&gt;Für ca. 200 ml Soße braucht man:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;70 g Butter&lt;/li&gt;
+&lt;li&gt;100 g Zucker&lt;/li&gt;
+&lt;li&gt;5 cl Schnappes (mit Billigrum (40%) hats jedenfalls gebrannt wie Zunder), leckerer ist wahrscheinlich Cointreau&lt;/li&gt;
+&lt;li&gt;7 cl Blutorangensaft (z. B. vom Penny-Markt aus dem Kühlregal)&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;Butter zerlassen, mit Schneebesen schaumig rühren und dann den Zucker hinzugeben. Alles weiterrühren, bis alles noch schaumiger wird und der Zucker anfängt zu karamelisieren. Jetzt den Schnaps in den Butter-Zucker-Schaum geben und&amp;nbsp;&lt;em&gt;sofort&lt;/em&gt; anzünden, ein toller Spaß! Wenn alles ausgebrannt ist (und die Küche noch steht) den Blutorangensaft hinzugeben und weiterrühren. Die Suppe solange einkochen lassen, bis die gewünschte Konsistenz erreicht ist. Es sollte nicht ganz zäh sein, aber auch nicht so dünn wie Wasser.&lt;/p&gt;</Content>
+      <Created>2006-05-02T00:12:59.9180000+02:00</Created>
+      <Modified>2006-05-03T15:06:24.3991351+02:00</Modified>
+      <EntryId>4520e137-e73c-4634-8f6c-bb22d1ebc2c8</EntryId>
+      <Description />
+      <Title>Rezept: Waffelsoße</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

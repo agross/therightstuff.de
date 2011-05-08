@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-02-22T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;&lt;IMG title="DSL Modem" style="FLOAT: right; MARGIN-LEFT: 10px" alt="DSL Modem" src="http://www.it99.org/axl/content/binary/DSL%20Modem.png" border=0&gt;This&amp;nbsp;blog is hosted on a private server&amp;nbsp;located in&amp;nbsp;the lumber room of our apartment¹. Sites are served using a &lt;A href="http://en.wikipedia.org/wiki/Digital_Subscriber_Line"&gt;DSL&amp;nbsp;link&lt;/A&gt; that's running&amp;nbsp;at 3 Mbit/s downstream and 512 kbit/s upstream speed.&lt;/P&gt;
+&lt;P&gt;Two months ago we decided to&amp;nbsp;upgrade to a new DSL2+ connection (DSL 16000) provided by &lt;A href="http://www.arcor.de/"&gt;Arcor&lt;/A&gt;. I&amp;nbsp;ordered the upgrade on January 4th and &lt;EM&gt;today&lt;/EM&gt; Arcor finally was able to switch speeds. I didn't expect any problems as the Arcor salesman (beware!) told me that the physical line is able to manage that speed. I expected the change to happen flawlessly like the last one. Alas, read how it took place:&lt;/P&gt;
+&lt;P&gt;As you know, DSL speed is limited by the distance from your telephone jack to the next&amp;nbsp;network junction point&amp;nbsp;set up by the telco company. Signals travelling from&amp;nbsp;the router to&amp;nbsp;the carrier's network and back are subject attenuation, which means they get weaker. A piece of hardware (DSL modem) is yet able to tell signals from noise if a certain &lt;A href="http://en.wikipedia.org/wiki/SNR"&gt;signal-to-noise ratio&lt;/A&gt;&amp;nbsp;is achieved. Attenuation is measured in Dezibel and has to be lower than 25 in our case. Arcor's technical support told me some minutes ago that this &lt;STRONG&gt;not the case&lt;/STRONG&gt; for our line which has an attenuation of 27.25 dB.&lt;/P&gt;
+&lt;P&gt;The result of the bad line quality is that the internet connection&amp;nbsp;remains up for about 20 minutes before Arcor disconnects us. I suspect this is due to numerous data errors they receive.&amp;nbsp;The next login&amp;nbsp;is&amp;nbsp;only possible unless our&amp;nbsp;server is restarted. Pretty neat! The tech folks at Arcor will bring us back online within 48 hours and&amp;nbsp;the new DSL2+ connection will be downgraded to DSL 6000. This is not what I expected, especially since the upstream capabilities of DSL 16000 lie around 800 kbit/s as compared to DSL 6000's 640kbit/s.&lt;/P&gt;
+&lt;P&gt;Welcome to the world of DSL2+!&lt;/P&gt;
+&lt;P&gt;¹ I'm speaking of "us" here because I live in a shared appartment.&lt;/P&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;A href="http://www.music-map.de/boozoo+bajou.html"&gt;Boozoo Bajou&lt;/A&gt; - &lt;A href="http://www.amazon.com/exec/obidos/ASIN/B0009JK1C4/therightstu0e-20"&gt;Dust my Broom&lt;/A&gt; - Nine below zero&lt;/P&gt;</Content>
+      <Created>2006-02-22T23:00:00.8160000+01:00</Created>
+      <Modified>2006-02-22T23:13:12.4105145+01:00</Modified>
+      <EntryId>33007c01-1172-41c3-a34e-48d6b9ba87b8</EntryId>
+      <Description />
+      <Title>Network Outages</Title>
+      <Categories>General;Networking</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

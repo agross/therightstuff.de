@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-02-17T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;UL&gt;
+&lt;LI&gt;400 g Geflügelleber 
+&lt;LI&gt;Gewürzgurken (und ein wenig Gurkensud) 
+&lt;LI&gt;1 TL gemahlener Piment 
+&lt;LI&gt;2 Lorbeerblätter 
+&lt;LI&gt;3 Zwiebeln, gewürfelt 
+&lt;LI&gt;dunkler Soßenbinder (oder Mehl&amp;nbsp;in Wasser verquirlen) 
+&lt;LI&gt;1 EL Butter 
+&lt;LI&gt;250 ml Wasser 
+&lt;LI&gt;Salz, Pfeffer&lt;/LI&gt;&lt;/UL&gt;
+&lt;P&gt;Leber in kleine Stücke schneiden und &lt;EM&gt;ohne&lt;/EM&gt; Salz und Pfeffer&amp;nbsp;in Butter anbraten. Gewürfelte&amp;nbsp;Zwiebeln hinzugeben und anbraten bis sie glasig werden. Wasser und ein wenig Gurkenbrühe hinzugeben bis die Leber gut mit Flüssigkeit bedeckt ist (und je nachdem wie viel Soße man will). Gemahlenes Piment darüberstäuben, Lorbeerblätter hineingeben, umrühren und 5 bis 10 Minuten kochen lassen.&amp;nbsp;In Scheiben geschnittene Gewürzgurken hinzugeben, kurz aufkochen lassen.&amp;nbsp;Soße würzen, andicken und evtl. noch ein wenig einkochen lassen. Dazu passt am besten selbstgemachter Kartoffelbrei.&lt;/P&gt;</Content>
+      <Created>2006-02-17T19:34:07.8130000+01:00</Created>
+      <Modified>2006-02-17T19:34:43.7830079+01:00</Modified>
+      <EntryId>6919dfc7-0722-47df-b996-677206e7a855</EntryId>
+      <Description />
+      <Title>Rezept: Leber mit Soße</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

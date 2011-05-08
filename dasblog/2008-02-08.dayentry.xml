@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2008-02-08T01:00:00+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;By now there are a couple of Windows Servers that I actively manage, or, in the case of projects, I touched while moving the project forward. Most of these servers have an Internet connection. Since I've been asked how to make servers more secure and manageable, here are a couple of management rules I applied. Consider it a checklist.&lt;/p&gt; &lt;ul&gt; &lt;li&gt;Use a firewall and configure it accordingly.  &lt;li&gt;Enable automatic Windows Updates and upgrade to &lt;a href="http://update.microsoft.com/"&gt;Microsoft Update&lt;/a&gt; to receive updates of other Microsoft products like SQL Server.&lt;/li&gt;&lt;/ul&gt; &lt;p&gt;Okay, the two above should have been obvious.&lt;/p&gt; &lt;ul&gt; &lt;li&gt;&lt;strong&gt;Keep the machine clean.&lt;br&gt;&lt;/strong&gt;Don't install any unnecessary software and don't leave any temporary files on the server. I've seen certificate requests lingering on drive C: and "test" folder remnants. A clean system might reveal hacker activity early in case &lt;em&gt;they&lt;/em&gt; leave unfamiliar files behind.  &lt;li&gt;&lt;strong&gt;Leverage the &lt;a href="http://en.wikipedia.org/wiki/Principle_of_least_privilege"&gt;principle of least privilege&lt;/a&gt;.&lt;br&gt;&lt;/strong&gt;All users and service accounts should only have the minimum rights they need. Configure the file system such that system services can only access the files and folders they are in charge of. Typical example: &lt;a href="http://www.therightstuff.de/2006/01/23/Running+SQL+Server+2000+With+Limited+Rights.aspx"&gt;Use a dedicated service account for SQL Server.&lt;/a&gt; (Setting this up on SQL 2005 is even more simple.)  &lt;li&gt;&lt;strong&gt;Rename the Administrator account.&lt;br&gt;&lt;/strong&gt;&lt;a href="http://dotnetwizard.net/?p=296"&gt;Rename the Administrator account&lt;/a&gt; and make it match your preferred user naming scheme (i. e. &lt;em&gt;agross&lt;/em&gt;). You might apply this to your whole organization if you use Active Directory. This is another hurdle to guess the Administrator account from a list of user accounts and works good with account lockout enabled (see below).  &lt;li&gt;&lt;strong&gt;Create a new "Administrator" account&lt;br&gt;&lt;/strong&gt;and give it a very strong throw-away password. I typically use two or three concatenated &lt;a href="http://en.wikipedia.org/wiki/GUID"&gt;GUIDs&lt;/a&gt; that I immediately forget. Disallow this user to change his password, remove all group memberships and disable the account.  &lt;li&gt;&lt;strong&gt;Audit the hell out of the machine.&lt;br&gt;&lt;/strong&gt;Windows uses the Security event log to record security-related events. &lt;a href="http://www.microsoft.com/technet/security/guidance/serversecurity/tcg/tcgch03n.mspx"&gt;Configure auditing&lt;/a&gt; using &lt;strong&gt;secpol.msc&lt;/strong&gt; and enable success and failure logging at least for  &lt;ul&gt; &lt;li&gt;Account logon events,  &lt;li&gt;Logon events and  &lt;li&gt;Policy change.&lt;/li&gt;&lt;/ul&gt;The last option is for tracking changes to the policy you just set.  &lt;li&gt;&lt;strong&gt;&lt;a href="http://www.microsoft.com/technet/security/guidance/serversecurity/tcg/tcgch02n.mspx#EED"&gt;Enable complexity criteria for passwords and account lockout.&lt;/a&gt;&lt;br&gt;&lt;/strong&gt;To be found in the same MMC snap-in as above. For account lockout I often go with the default values of 5 attempts and 30 minutes of threshold and duration.  &lt;li&gt;&lt;strong&gt;Deactivate file sharing/Microsoft Networking on the WAN connection.&lt;br&gt;&lt;/strong&gt;Because it's most likely unneeded.  &lt;li&gt;&lt;strong&gt;Secure RDP sessions using a certificate.&lt;/strong&gt;&lt;br&gt;&lt;a href="http://blogs.compactframework.de/Torsten.Weber/" rel="friend met"&gt;Torsten&lt;/a&gt; has a nice write-up on how to leverage SSL to secure the RDP handshaking/authentication phase to overcome &lt;a href="http://en.wikipedia.org/wiki/Man_in_the_middle"&gt;man-in-the-middle&lt;/a&gt; and &lt;a href="http://en.wikipedia.org/wiki/ARP_Spoofing"&gt;ARP spoofing&lt;/a&gt; attacks. His article is available in German only so here's two-sentence recap: On the server's RDP security tab, enable SSL and choose the same certificate you use for HTTPS encryption. On the client side, enable server authentication.  &lt;li&gt;&lt;strong&gt;Extra: Allow RDP sessions only from white-listed workstations.&lt;br&gt;&lt;/strong&gt;For a server that was hacked a while ago using an ARP spoofing attack (see bullet above) I wrote a &lt;a href="http://www.microsoft.com/windowsserver2003/technologies/management/powershell/default.mspx"&gt;Powershell&lt;/a&gt; script forces RDP session to originate from a list of known workstations. Each RDP user can have multiple allowed workstations. If a logon attempt occurs from another machine that RDP session is killed immediately.&lt;br&gt;&lt;pre&gt;#
+# Alert.ps1
+#
+# Logon script for users with known RDP client names.
+#
+
+# Array of users with known workstations.
+$userWorkstations = @{
+	"user1" = @("VALIDCOMPUTERNAME1", "VALIDCOMPUTERNAME2")
+	"user2" = @("VALIDCOMPUTERNAME3")
+	}
+
+# Logoff executable.
+$logoffCommand = $Env:SystemRoot + "\system32\logoff.exe"
+
+# Trim the user name.
+$currentUser = $Env:UserName.Trim()
+
+# Cancel if a user that's not contained in $userWorkstations logs on.
+if ($userWorkstations.Keys -inotcontains $currentUser)
+{
+	return
+}
+
+# Send alert e-mail and log off if the user logs on from an unknown workstation.
+if ($userWorkstations[$currentUser] -inotcontains $Env:ClientName.Trim())
+{
+	$subject = $("Unknown RDP client '{0}' for user '{1}'" -f $Env:ClientName.Trim(), $currentUser)
+
+	$message = New-Object System.Net.Mail.MailMessage
+	$message.From = "alerts@example.com"
+	$message.To.Add("admin1@example.com")
+	$message.To.Add("admin2@example.com")
+
+	$message.IsBodyHtml = $false
+	$message.Priority = [System.Net.Mail.MailPriority]::High
+	$message.Subject = $subject
+	$message.Body = $subject
+
+	$smtp = New-Object System.Net.Mail.SmtpClient
+	$smtp.Host = "localhost"
+	$smtp.Send($message)
+
+	# Force logoff.
+	&amp;amp;$logoffCommand
+}&lt;/pre&gt;&lt;a href="http://technet2.microsoft.com/WindowsServer/en/Library/22cf660f-c165-49e3-b768-2b8898a5684b1033.mspx?mfr=true"&gt;Set the script as a logon script for your users&lt;/a&gt; using the &lt;strong&gt;Alert.cmd&lt;/strong&gt; helper script below.&lt;pre&gt;rem Alert.cmd - runs the Alert.ps1 Powershell script.
+@powershell.exe -noprofile -command .\Alert.ps1&lt;/pre&gt;
+&lt;li&gt;&lt;strong&gt;Enable SQL Server integrated authentication.&lt;/strong&gt;&lt;br&gt;I don't see a need for SQL Server Authentication in most scenarios, especially if you're running/hosting .NET applications. However, in some projects I've worked on there seems to be a tendency towards SQL Server Authentication for no special reason. 
+&lt;li&gt;&lt;strong&gt;Configure IIS log detail and directories.&lt;br&gt;&lt;/strong&gt;I tend to enable full IIS logs, that is, all information regarding a request should be logged. Also, I like my logs residing in "speaking" folders, so instead of &lt;strong&gt;%windir%\system32\LogFiles\W3SVC&amp;lt;Some number&amp;gt;&lt;/strong&gt; they should be placed in &lt;strong&gt;%windir%\system32\LogFiles\IIS &amp;lt;Site name&amp;gt;\W3SVC&amp;lt;Some number&amp;gt;&lt;/strong&gt;. This makes it easy to find the logs you're interested in. 
+&lt;li&gt;&lt;strong&gt;Use &lt;a href="http://de.wikipedia.org/wiki/SSH"&gt;SSH&lt;/a&gt; to connect remotely.&lt;br&gt;&lt;/strong&gt;There's a little &lt;a href="http://www.freesshd.com/"&gt;free SSH server&lt;/a&gt; out there that should fit most user's needs. Besides a secure shell environment &lt;a href="http://www.freesshd.com/"&gt;freeSSHd&lt;/a&gt; offers SFTP and port tunneling capabilities to &lt;a href="http://www.therightstuff.de/2006/11/21/Supporting+Users+Over+The+Internet+Overcoming+Firewalled+Networks.aspx"&gt;tunnel insecure protocols&lt;/a&gt;. Authentication works natively against Windows accounts. 
+&lt;li&gt;&lt;strong&gt;Deploy a server monitoring tool.&lt;br&gt;&lt;/strong&gt;&lt;a href="http://www.therightstuff.de/2007/04/06/Monitoring+Servers.aspx"&gt;I like to use&lt;/a&gt; the free &lt;a href="http://oss.oetiker.ch/mrtg/"&gt;MRTG&lt;/a&gt; tool, of course any other tool allowing you quickly view any uncommon activity to will do. 
+&lt;li&gt;&lt;strong&gt;Use a dedicated management network interface, if possible.&lt;br&gt;&lt;/strong&gt;You should configure strict firewall rules for that interface. Allow access only from a known management subnet.&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;What rules do you apply to make your servers more secure and manageable?&lt;/p&gt;
+&lt;p class="now-playing"&gt;Now Playing [&lt;a title="Insert Now Playing Into Your Own Blog Posts" href="http://www.therightstuff.de/Projects/NowPlaying/" rel="previewlink"&gt;?&lt;/a&gt;]: &lt;a title="Display relations of Morcheeba to other artists" href="http://www.music-map.de/morcheeba.html"&gt;Morcheeba&lt;/a&gt; – &lt;a title="Display Amazon page of the Dive Deep album" href="http://www.amazon.com/exec/obidos/ASIN/B0011HF6B4/therightstu0e-20"&gt;Dive Deep&lt;/a&gt; – &lt;a title="Preview Enjoy the ride (feat. Judy Tzuke) on Last.fm" href="http://www.last.fm/music/Morcheeba/_/Enjoy+the+ride+(feat.+Judy+Tzuke)/"&gt;Enjoy the ride (feat. Judy Tzuke)&lt;/a&gt;&lt;/p&gt;</Content>
+      <Created>2008-02-08T17:04:26.9599999+01:00</Created>
+      <Modified>2008-02-08T17:04:26.9599999+01:00</Modified>
+      <EntryId>eb599775-94c7-4dee-a763-7395f40fcf08</EntryId>
+      <Description />
+      <Title>General Considerations For Securing Windows Servers On The Internet (And Anywhere Else)</Title>
+      <Categories>IIS;Networking;PowerShell;Security;SQL Server;Windows</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

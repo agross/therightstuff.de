@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2010-01-24T01:00:00+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;Over the last years I’ve been contributing to several Open Source software projects, just to name the most recent:&lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;&lt;a href="http://fluentnhibernate.org/"&gt;Fluent NHibernate&lt;/a&gt; &lt;/li&gt;    &lt;li&gt;&lt;a href="http://github.com/machine/machine.specifications"&gt;Machine.Specifications&lt;/a&gt; &lt;/li&gt;    &lt;li&gt;&lt;a href="http://www.fubumvc.com/"&gt;FubuMVC&lt;/a&gt; &lt;/li&gt;    &lt;li&gt;&lt;a href="http://www.ayende.com/projects/rhino-mocks.aspx"&gt;Rhino Mocks&lt;/a&gt; &lt;/li&gt; &lt;/ul&gt;  &lt;p&gt;All of the above projects follow their own style how to lay out the source code using indents. It seems like everybody has a different opinion you would have to cater for, for example:&lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;Indenting is done with tabs &lt;/li&gt;    &lt;li&gt;4-space indents &lt;/li&gt;    &lt;li&gt;2-space indents &lt;/li&gt; &lt;/ul&gt;  &lt;p&gt;Often times these conventions are implicit, you have to read the source code to see the actual style the authors follow. It is encouraged to apply these guidelines to your patches ensure they will be accepted.&lt;/p&gt;  &lt;p&gt;I often switch between developing for projects, so before writing a single line of code I have to hit Visual Studio’s Tools | Options | Text Editor Options dialog and change the indent settings to match the project’s conventions.&lt;/p&gt;  &lt;p style="text-align: center"&gt;&lt;img title="Visual Studio Text Editor Options" alt="Visual Studio Text Editor Options" src="http://therightstuff.de/content/binary/WindowsLiveWriter/VisualStudioTipSetIndentWidthandTabsSpac_E986/image_0f53139e-32ad-45c0-87bb-dd6ef1a696c6.png" width="550" height="317" /&gt;&lt;/p&gt;  &lt;p&gt;This has become very tedious, additionally, I often forget to adjust the indent settings &lt;em&gt;before&lt;/em&gt; writing code. (Perhaps I forget it because it’s so annoying.)&lt;/p&gt;  &lt;p&gt;To scratch that itch I sat down and wrote some Visual Studio macros that apply the most commonly used settings:&lt;/p&gt;  &lt;pre class="brush: vb;"&gt;Imports System
+Imports EnvDTE
+Imports EnvDTE80
+Imports EnvDTE90
+Imports System.Diagnostics
+
+Public Module Fonts
+    Sub TwoSpaces()
+        Dim textEditor As Properties
+
+        textEditor = DTE.Properties(&amp;quot;TextEditor&amp;quot;, &amp;quot;AllLanguages&amp;quot;)
+        textEditor.Item(&amp;quot;IndentStyle&amp;quot;).Value = vsIndentStyle.vsIndentStyleSmart
+        textEditor.Item(&amp;quot;TabSize&amp;quot;).Value = 4
+        textEditor.Item(&amp;quot;IndentSize&amp;quot;).Value = 2
+        textEditor.Item(&amp;quot;InsertTabs&amp;quot;).Value = False
+    End Sub
+
+    Sub FourSpaces()
+        Dim textEditor As Properties
+
+        textEditor = DTE.Properties(&amp;quot;TextEditor&amp;quot;, &amp;quot;AllLanguages&amp;quot;)
+        textEditor.Item(&amp;quot;IndentStyle&amp;quot;).Value = vsIndentStyle.vsIndentStyleSmart
+        textEditor.Item(&amp;quot;TabSize&amp;quot;).Value = 4
+        textEditor.Item(&amp;quot;IndentSize&amp;quot;).Value = 4
+        textEditor.Item(&amp;quot;InsertTabs&amp;quot;).Value = False
+    End Sub
+
+    Sub OneTab()
+        Dim textEditor As Properties
+
+        textEditor = DTE.Properties(&amp;quot;TextEditor&amp;quot;, &amp;quot;AllLanguages&amp;quot;)
+        textEditor.Item(&amp;quot;IndentStyle&amp;quot;).Value = vsIndentStyle.vsIndentStyleSmart
+        textEditor.Item(&amp;quot;TabSize&amp;quot;).Value = 4
+        textEditor.Item(&amp;quot;IndentSize&amp;quot;).Value = 4
+        textEditor.Item(&amp;quot;InsertTabs&amp;quot;).Value = True
+    End Sub
+
+    Public Sub NormalFonts()
+        SetFontSize(10)
+    End Sub
+
+    Public Sub LargeFonts()
+        SetFontSize(14)
+    End Sub
+
+    Sub SetFontSize(ByVal size As Int32)
+        Dim textEditor As Properties
+
+        textEditor = DTE.Properties(&amp;quot;FontsAndColors&amp;quot;, &amp;quot;TextEditor&amp;quot;)
+        textEditor.Item(&amp;quot;FontSize&amp;quot;).Value = size
+    End Sub
+End Module&lt;/pre&gt;
+
+&lt;p&gt;These macros are associated with toolbar buttons:&lt;/p&gt;
+
+&lt;p style="text-align: center"&gt;&lt;img title="Visual Studio Toolbar Buttons" alt="Visual Studio Toolbar Buttons" src="http://therightstuff.de/content/binary/WindowsLiveWriter/VisualStudioTipSetIndentWidthandTabsSpac_E986/image_614f51d2-f107-40f0-abbe-f9d95b62bcb5.png" width="123" height="26" /&gt;&lt;/p&gt;
+
+&lt;p&gt;The first two buttons are associated to the &lt;code&gt;LargeFonts&lt;/code&gt; and &lt;code&gt;NormalFonts&lt;/code&gt; macros that set the editor font size. I like to invoke these when doing presentations. No more fiddling with Tools | Options to ensure your audience is able to read the code on the wall.&lt;/p&gt;
+
+&lt;p&gt;The last three buttons should be self-explaining, they’re to quickly set tabbed, two-space and four-space indents, respectively.&lt;/p&gt;</Content>
+      <Created>2010-01-24T17:07:16.8768444+01:00</Created>
+      <Modified>2010-01-24T17:08:30.4038444+01:00</Modified>
+      <EntryId>ef519229-154d-4ab9-85a3-dc5c18079bd6</EntryId>
+      <Description />
+      <Title>Visual Studio Tip: Setting Indent Width and Tabs/Spaces Quickly Using Macros</Title>
+      <Categories>.NET;Presentations;Visual Studio</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

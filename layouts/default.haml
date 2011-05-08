@@ -1,0 +1,17 @@
+!!!
+%html
+  %title&== #{@item[:title] + ' - ' unless @item[:title].empty? }#{configatron.app.meta.title}
+  = render '_meta'
+  = render '_google-analytics'
+  = render '_stylesheets'
+
+  %body
+    #content-wrapper
+      #content
+        = render '_header'
+
+        #blog-posts
+          = yield
+
+        #footer
+          = render '_footer'

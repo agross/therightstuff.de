@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-09-02T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;Nokia finally enables customers to perform firmware upgrades on their own. No need to have a Club Nokia card just to get free firmware updates&amp;nbsp;in the local Nokia store. I appreciate their decision as it's something that other manufacturers like Siemens do for years. However, I'm a little tempted to buy a Windows Mobile 5 phone when my T-Mobile contract is renewed next year. We'll see.&lt;/p&gt; &lt;p&gt;The firmware upgrade software is currently in&amp;nbsp;a testing phase in the UK, but you can &lt;a href="http://www.nokia.co.uk/nokia/0,8764,95599,00.html"&gt;download it&lt;/a&gt; even if you're not located in the United Kingdom. You'll need the battery charger attached to the device and the phone connected to the PC via the USB cable.&lt;/p&gt; &lt;p align="center"&gt;&lt;a href="http://www.it99.org/axl/content/binary/Nokia%20Software%20Updater.png"&gt;&lt;img title="Nokia Software Updater" alt="Nokia Software Updater" src="http://www.it99.org/axl/content/binary/Nokia%20Software%20Updater%20small.png" border="0"&gt;&lt;/a&gt;&lt;/p&gt; &lt;p&gt;The update of my 6680 went smoothly without any problems. I just had to run the updater under an administrative account.&lt;/p&gt; &lt;p&gt;As always, be sure to back up your phone data beforehand using PC Suite's Content Copier. Note that the lock code will be reset to its default value of 12345 and that all wallet data will be gone after the update (it's not included in the Content Copier backup). Side note: The update will not remove any phone branding.&lt;/p&gt; &lt;p&gt;Take a look at &lt;a href="http://aikon.ch/"&gt;Aikon.ch&lt;/a&gt; for a vast list of &lt;a href="http://aikon.ch/7650/div/firm.htm"&gt;Series60 firmware revision changelogs&lt;/a&gt;.&lt;/p&gt;</Content>
+      <Created>2006-09-03T01:59:51.7305000+02:00</Created>
+      <Modified>2006-09-03T23:34:09.9492500+02:00</Modified>
+      <EntryId>ef715277-5740-4f85-b350-f08af75ca861</EntryId>
+      <Title>Firmware Updates for Nokia Mobile Phones</Title>
+      <Categories>Mobility</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

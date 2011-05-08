@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-12-12T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;Ever wondered why Ctrl+C of a file on the Terminal Server and a subsequent&amp;nbsp;Ctrl+V on the local machine does not work? &lt;a href="http://torstenweber.online.de/DNUG/public/DNUG/Ansprechpartner.aspx"&gt;Torsten&lt;/a&gt; and I had a little chat some weeks ago discussing this particular&amp;nbsp;feature. It worked for me on several servers, but not for him. I was a little clueless why this happened, but some days ago Torsten provided a solution: &lt;strong&gt;You need to check the "connect local drives" checkbox.&lt;/strong&gt; This should have been obvious, but I didn't think of this feature being used by the clipboard to copy files over the RDP connection.&lt;/p&gt; &lt;p align="center"&gt;&lt;img title="Remote Desktop Connection Settings" alt="Remote Desktop Connection Settings" src="http://www.it99.org/axl/content/binary/Remote%20Desktop%20Connection%20Settings.png" border="0"&gt;&lt;/p&gt; &lt;p&gt;By the way, Microsoft released a &lt;a href="http://www.microsoft.com/downloads/details.aspx?familyid=26F11F0C-0D18-4306-ABCF-D4F18C8F5DF9&amp;amp;mg_id=10052" rel="previewlink"&gt;new version of Microsoft's Remote Desktop Client&lt;/a&gt; that supports&amp;nbsp;Terminal Services Gateways, 32-bit color, Clear Type font smoothing and a &lt;a href="http://support.microsoft.com/default.aspx/kb/925876" rel="previewlink"&gt;whole lot of other stuff&lt;/a&gt;. Unfortunately it's only available in English and thus won't install on my German Windows XP.&lt;/p&gt;</Content>
+      <Created>2006-12-12T20:52:47.9687500+01:00</Created>
+      <Modified>2006-12-12T20:52:47.9687500+01:00</Modified>
+      <EntryId>6345ad27-6809-40ac-97a7-73560e43c332</EntryId>
+      <Title>Copying And Pasting Files Over A Remote Desktop Connection</Title>
+      <Categories>Networking</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

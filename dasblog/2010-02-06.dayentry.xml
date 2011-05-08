@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2010-02-06T01:00:00+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;About two years ago I quit the pain of CruiseControl.NET’s XML hell and started using &lt;a href="http://www.jetbrains.com/teamcity/"&gt;JetBrains TeamCity&lt;/a&gt; for Continuous Integration. While&lt;em&gt;&amp;#160;&lt;/em&gt;being &lt;a href="http://www.jetbrains.com/devnet/academy/experts/Alexander_Gross.html"&gt;a bit biased&lt;/a&gt; here, I have to admit that every JetBrains product I looked at is absolutely killer and continues to provide productivity on a daily basis.&lt;/p&gt;  &lt;p&gt;I’ve been a fan of Continuous Integration ever since. I figured the next step in improving our practice was not only to automate building/compiling/testing the application, but also deploy it either &lt;em&gt;by clicking a button&lt;/em&gt; or &lt;em&gt;based on a schedule&lt;/em&gt;. For example, updates to this blog’s theme and the &lt;a href="http://netopenspace.de/"&gt;.NET Open Space&lt;/a&gt; web sites are automated by clicking the “Run” button on my local TeamCity instance.&lt;/p&gt;  &lt;p style="text-align: center"&gt;&lt;a title="Deployment Build Configurations in TeamCity" href="http://therightstuff.de/content/binary/WindowsLiveWriter/HowWePracticeContinuousIntegrationAndDep_DA91/Deployment_2.png" rel="lightbox"&gt;&lt;img title="Deployment Build Configurations in TeamCity" alt="Deployment Build Configurations in TeamCity" src="http://therightstuff.de/content/binary/WindowsLiveWriter/HowWePracticeContinuousIntegrationAndDep_DA91/Deployment_thumb.png" /&gt;&lt;/a&gt; &lt;/p&gt;  &lt;p&gt;Compare that button click to what we are forced to do &lt;em&gt;manually&lt;/em&gt; for some projects at work. Every time we roll out a new version someone will:&lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;Build the deployment package with TeamCity. &lt;/li&gt;    &lt;li&gt;Download the deployment package, which is usually a ZIP containing the application and database migrations. &lt;/li&gt;    &lt;li&gt;RDP into the production server. &lt;/li&gt;    &lt;li&gt;Upload the deployment package. &lt;/li&gt;    &lt;li&gt;Shut down the web application, Windows services, etc. &lt;/li&gt;    &lt;li&gt;Overwrite the binaries and configuration files with the current versions from the deployment package. &lt;/li&gt;    &lt;li&gt;Sometimes we have to match up and edit configuration files &lt;em&gt;by hand&lt;/em&gt;. &lt;/li&gt;    &lt;li&gt;Upgrade the database by executing *.sql files containing migrations in SQL Server Management Studio. &lt;/li&gt;    &lt;li&gt;Restart web application and Windows services, etc. &lt;/li&gt;    &lt;li&gt;Hope fervently that everything works. &lt;/li&gt; &lt;/ul&gt;  &lt;p&gt;I believe you can imagine that the manual process outlined has a lot of rope to hang yourself with. An inexperienced developer might simply miss a step. On top of that, implicit knowledge of which files need to be edited increases the &lt;a href="http://en.wikipedia.org/wiki/Bus_factor"&gt;bus factor&lt;/a&gt;. From a developer &lt;em&gt;and&lt;/em&gt; business perspective you don’t want to deal with such risks. &lt;strong&gt;Deployment should be well documented, automated and easy to do.&lt;/strong&gt;&lt;/p&gt;  &lt;h3&gt;Deployment Over Network Shares Or SSH &lt;/h3&gt;  &lt;p&gt;When I first looked into how I could do &lt;a href="http://en.wikipedia.org/wiki/Continuous_integration#Automate_deployment"&gt;Continuous Deployment&lt;/a&gt; there were not many free products available on the Windows platform. In a corporate environment you could push your application to a Windows network share and configure the web application through scripts running within a domain account’s security context.&lt;/p&gt;  &lt;p&gt;A different story is deployment over an internet connection. You would want to have a secure channel like a SSH connection to copy files remotely and execute scripts on the server. This solution requires SSH on the server and tools from the &lt;a href="http://www.chiark.greenend.org.uk/~sgtatham/putty/"&gt;Putty suite&lt;/a&gt; (i.e. psftp) to make the connection. I had such a setup in place for this blog and the .NET Open Space web sites, but it was rather brittle: psftp doesn’t provide synchronization, integration with Windows services like IIS is not optimal and you’re somewhat limited in what you can do on the server.&lt;/p&gt;  &lt;h3&gt;MSDeploy&lt;/h3&gt;  &lt;p&gt;Last year, Microsoft released &lt;a href="http://www.iis.net/expand/WebDeploymentTool"&gt;MSDeploy&lt;/a&gt; 1.0 which was &lt;a href="http://blogs.iis.net/msdeploy/archive/2010/02/04/web-deploy-1-1-has-shipped.aspx"&gt;updated to version 1.1 last week&lt;/a&gt;. MSDeploy is targeted to help with application deployment and server synchronization. In this article, I will focus on the deployment aspects exclusively. Considering the requirements for deployment, MSDeploy had everything I asked for. MSDeploy either &lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;runs as the &lt;em&gt;Web Deployment Agent Service&lt;/em&gt; providing administrators unrestricted access to the remote machine through NTLM authentication, or &lt;/li&gt;    &lt;li&gt;runs as the &lt;em&gt;Web Deployment Handler&lt;/em&gt; together with the IIS Management Service to let any user run a specified set of operations remotely. &lt;/li&gt; &lt;/ul&gt;  &lt;p&gt;Both types of connections can be secured using HTTPS, which is great and, in my opinion, a must-have.&lt;/p&gt;  &lt;p&gt;I won’t go into the details of how MSDeploy can be set up because these are &lt;strike&gt;well&lt;/strike&gt; &lt;a href="http://technet.microsoft.com/en-us/library/dd568996%28WS.10%29.aspx"&gt;documented&lt;/a&gt;. What I want to talk about what concepts we employ to deploy applications.&lt;/p&gt;  &lt;h3&gt;&lt;a name="workflow"&gt;&lt;/a&gt;The Deployment Workflow&lt;/h3&gt;  &lt;p&gt;With about three months of experience with MSDeploy under our belts, we divide deployments into four phases:&lt;/p&gt;  &lt;ol&gt;   &lt;li&gt;Initial, minimal manual preparation on the target server &lt;/li&gt;    &lt;li&gt;Operations to perform in preparation for the update &lt;/li&gt;    &lt;li&gt;Updating binaries &lt;/li&gt;    &lt;li&gt;Operations to perform after the update has finished &lt;/li&gt; &lt;/ol&gt;  &lt;p&gt;The initial setup to be done in phase 1 is a one-time activity that only occurs if we decide to provision a new server. This involves actions like installing IIS, SQL Server and MSDeploy on the target machine such that we can access it remotely. In phase 1 we also create web applications in IIS.&lt;/p&gt;  &lt;p&gt;Further, we put deployments into two categories: &lt;em&gt;Initial deployments&lt;/em&gt; and &lt;em&gt;upgrade deployments&lt;/em&gt;. These only differ in the operations executed before (phase 2) and after (phase 4) the application files have been copied (phase 3). For example, before we can update binaries on a machine that is running a Windows service, we first have to stop that service in phase 2. After updating the binaries, that service has to be restarted in phase 4.&lt;/p&gt;  &lt;p&gt;Over the last couple of weeks, a set of operations have been identified that we likely execute in phase 2 and 4.&lt;/p&gt;  &lt;table&gt;&lt;thead&gt;     &lt;tr&gt;       &lt;th&gt;Operation&lt;/th&gt;        &lt;th&gt;Description&lt;/th&gt;        &lt;th&gt;During Initial Deployment&lt;/th&gt;        &lt;th&gt;During Upgrade&lt;/th&gt;        &lt;th&gt;Before Or After Deployment&lt;/th&gt;     &lt;/tr&gt;   &lt;/thead&gt;&lt;tbody&gt;     &lt;tr&gt;       &lt;td&gt;Set-WebAppOffline&lt;/td&gt;        &lt;td&gt;Shuts down a web application by recycling the Application Pool and creating App_Offline.htm&lt;/td&gt;        &lt;td&gt;No&lt;/td&gt;        &lt;td&gt;Yes&lt;/td&gt;        &lt;td&gt;Before&lt;/td&gt;     &lt;/tr&gt;      &lt;tr&gt;       &lt;td&gt;Set-WebAppOnline&lt;/td&gt;        &lt;td&gt;Deletes App_Offline.htm&lt;/td&gt;        &lt;td&gt;No&lt;/td&gt;        &lt;td&gt;Yes&lt;/td&gt;        &lt;td&gt;After&lt;/td&gt;     &lt;/tr&gt;      &lt;tr&gt;       &lt;td&gt;Create-Database&lt;/td&gt;        &lt;td&gt;Creates the initial database &lt;/td&gt;        &lt;td&gt;Yes&lt;/td&gt;        &lt;td&gt;No&lt;/td&gt;        &lt;td&gt;After&lt;/td&gt;     &lt;/tr&gt;      &lt;tr&gt;       &lt;td&gt;Update-Database&lt;/td&gt;        &lt;td&gt;Run migrations on an existing database&lt;/td&gt;        &lt;td&gt;No&lt;/td&gt;        &lt;td&gt;Yes&lt;/td&gt;        &lt;td&gt;After&lt;/td&gt;     &lt;/tr&gt;      &lt;tr&gt;       &lt;td&gt;Import-SampleData&lt;/td&gt;        &lt;td&gt;Imports sample data to an existing database for QA instances&lt;/td&gt;        &lt;td&gt;Yes&lt;/td&gt;        &lt;td&gt;No&lt;/td&gt;        &lt;td&gt;After&lt;/td&gt;     &lt;/tr&gt;      &lt;tr&gt;       &lt;td&gt;Install-Service&lt;/td&gt;        &lt;td&gt;Installs a Windows service, for example one that runs nightly reports&lt;/td&gt;        &lt;td&gt;Yes&lt;/td&gt;        &lt;td&gt;Yes&lt;/td&gt;        &lt;td&gt;After&lt;/td&gt;     &lt;/tr&gt;      &lt;tr&gt;       &lt;td&gt;Uninstall-Service&lt;/td&gt;        &lt;td&gt;Stops and uninstalls a Windows service&lt;/td&gt;        &lt;td&gt;No&lt;/td&gt;        &lt;td&gt;Yes&lt;/td&gt;        &lt;td&gt;Before&lt;/td&gt;     &lt;/tr&gt;   &lt;/tbody&gt;&lt;/table&gt;  &lt;p&gt;&lt;img style="margin: 0px 0px 1em 1em; float: right" title="Deployment Directory Structure" src="http://therightstuff.de/content/binary/WindowsLiveWriter/HowWePracticeContinuousIntegrationAndDep_DA91/image_847e6355-c8ec-46f7-bb17-899bab434e38.png" /&gt;It’s no coincidence that the operations read like PowerShell &lt;a href="http://msdn.microsoft.com/en-us/library/ms714428%28VS.85%29.aspx"&gt;Verb-Noun&lt;/a&gt; cmdlets. In fact, we run operations with PowerShell on the server side.&lt;/p&gt;  &lt;p&gt;The deployment directory that will be mirrored between the build server and the production machine looks like the one depicted in the image to the right.&lt;/p&gt;  &lt;p&gt;The root directory contains a PowerShell script that implements the operations above as PowerShell functions. These might call other scripts inside the deployment directory. For example, we invoke &lt;a href="http://code.google.com/p/tarantino/"&gt;Tarantino&lt;/a&gt; (created by &lt;a href="http://www.lostechies.com/blogs/hex/"&gt;Eric Hexter&lt;/a&gt; and company) to have our database migrations done.&lt;/p&gt;  &lt;p&gt;&amp;#160;&lt;/p&gt;  &lt;pre class="brush: powershell;"&gt;$scriptPath = Split-Path -parent $MyInvocation.MyCommand.Definition
+
+# Change into the deployment root directory.
+Set-Location $scriptPath
+
+function Create-Database()
+{
+    &amp;amp; &amp;quot;.\SQL\create-database.cmd&amp;quot; /do_not_ask_for_permission_to_delete_database
+}
+
+function Import-SampleData()
+{
+    &amp;amp; &amp;quot;.\SQL\import-sample-data.cmd&amp;quot;
+}
+
+function Upgrade-Database()
+{
+    &amp;amp; &amp;quot;.\SQL\update-database.cmd&amp;quot;
+}
+
+function Install-Service()
+{
+    &amp;amp; &amp;quot;.\Reporting\deploy.ps1&amp;quot; Install-Service
+    &amp;amp; &amp;quot;.\Reporting\deploy.ps1&amp;quot; Run-Service
+}
+
+function Uninstall-Service()
+{
+    &amp;amp; &amp;quot;.\Reporting\deploy.ps1&amp;quot; Uninstall-Service
+}
+
+function Set-WebAppOffline()
+{
+    Copy-Item -Path &amp;quot;Web\App_Offline.htm.deploy&amp;quot; -Destination &amp;quot;Web\App_Offline.htm&amp;quot; -Force
+}
+
+function Set-WebAppOnline()
+{
+    Remove-Item -Path &amp;quot;Web\App_Offline.htm&amp;quot; -Force
+}
+
+# Runs all command line arguments as functions.
+$args | ForEach-Object { &amp;amp; $_ }
+
+# Hack, MSDeploy would run PowerShell endlessly.
+Get-Process -Name &amp;quot;powershell&amp;quot; | Stop-Process&lt;/pre&gt;
+
+&lt;p&gt;The last line is actually a hack, because &lt;a href="http://stackoverflow.com/questions/2041799/powershell-script-gets-stuck-doesnt-exit-when-called-from-batch-file"&gt;PowerShell 2.0 hangs&lt;/a&gt; after the script has finished.&lt;/p&gt;
+
+&lt;h3&gt;Rake And Configatron&lt;/h3&gt;
+
+&lt;p&gt;As you might remember from last week’s blog post we use &lt;a href="http://therightstuff.de/2010/01/30/Rake-YAML-And-Inherited-Build-Configuration.aspx"&gt;Rake and YAML&lt;/a&gt; in our build scripts. Rake and YAML (with &lt;a href="http://configatron.mackframework.com/"&gt;Configatron&lt;/a&gt;) allow us to&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;build the application, &lt;/li&gt;
+
+  &lt;li&gt;generate configuration files for the target machine, thus eliminating the need to make edits, and &lt;/li&gt;
+
+  &lt;li&gt;formulate MSDeploy calls in a legible and comprehensible way. &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Regarding the last point, please consider the following MSDeploy command line that synchronizes a local directory with a remote directory (think &lt;a href="#workflow"&gt;phase 3&lt;/a&gt;). PowerShell operations will to be performed before (&lt;code&gt;-preSync&lt;/code&gt;, phase 2) and after the sync operation (&lt;code&gt;-postSyncOnSuccess&lt;/code&gt;, phase 4).&lt;/p&gt;
+
+&lt;pre class="brush: bash;"&gt;&amp;quot;tools/MSDeploy/msdeploy.exe&amp;quot; -verb:sync -postSyncOnSuccess:runCommand=&amp;quot;powershell.exe -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command C:/Crimson/deploy.ps1 Create-Database Import-SampleData Install-Service Set-WebAppOnline &amp;quot;,waitInterval=60000 -allowUntrusted -skip:objectName=filePath,skipAction=Delete,absolutePath=App_Offline\.htm$ -skip:objectName=filePath,skipAction=Delete,absolutePath=\\Logs\\.*\.txt$ -skip:objectName=dirPath,skipAction=Delete,absolutePath=\\Logs.*$ -preSync:runCommand=&amp;quot;powershell.exe -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command C:/Crimson/deploy.ps1 Set-WebAppOffline Uninstall-Service &amp;quot;,waitInterval=60000 -usechecksum -source:dirPath=&amp;quot;build/for-deployment&amp;quot; -dest:wmsvc=BLUEPRINT-X86,username=deployer,password=deployer,dirPath=C:/Crimson&lt;/pre&gt;
+
+&lt;p&gt;The command line is convoluted and overly complex, isn’t it? Now please consider the following Rake snippet that was used to generate the command line above.&lt;/p&gt;
+
+&lt;pre class="brush: rb;"&gt;remote = Dictionary[]
+    
+if configatron.deployment.connection.exists?(:wmsvc) and configatron.deployment.connection.wmsvc
+    remote[:wmsvc] = configatron.deployment.connection.address
+    remote[:username] = configatron.deployment.connection.user
+    remote[:password] = configatron.deployment.connection.password
+else
+    remote[:computerName] = configatron.deployment.connection.address
+end
+
+preSyncCommand = &amp;quot;exit&amp;quot;
+postSyncCommand = &amp;quot;exit&amp;quot;
+
+if configatron.deployment.operations.before_deployment.any?
+    preSyncCommand = &amp;quot;\&amp;quot;powershell.exe -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command #{&amp;quot;deploy.ps1&amp;quot;.in(configatron.deployment.location)} #{configatron.deployment.operations.before_deployment.join(&amp;quot; &amp;quot;)} \&amp;quot;&amp;quot;
+end
+
+if configatron.deployment.operations.after_deployment.any?
+    postSyncCommand = &amp;quot;\&amp;quot;powershell.exe -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Unrestricted -Command #{&amp;quot;deploy.ps1&amp;quot;.in(configatron.deployment.location)} #{configatron.deployment.operations.after_deployment.join(&amp;quot; &amp;quot;)} \&amp;quot;&amp;quot;
+end
+
+MSDeploy.run \
+    :tool =&amp;gt; configatron.tools.msdeploy,
+    :log_file =&amp;gt; configatron.deployment.logfile,
+    :verb =&amp;gt; :sync,
+    :allowUntrusted =&amp;gt; true,
+    :source =&amp;gt; Dictionary[:dirPath, configatron.dir.for_deployment.to_absolute.escape],
+    :dest =&amp;gt; remote.merge({
+        :dirPath =&amp;gt; configatron.deployment.location
+        }),
+    :usechecksum =&amp;gt; true,
+    :skip =&amp;gt;[
+        Dictionary[
+            :objectName, &amp;quot;filePath&amp;quot;,
+            :skipAction, &amp;quot;Delete&amp;quot;,
+            :absolutePath, &amp;quot;App_Offline\\.htm$&amp;quot;
+        ],
+        Dictionary[
+            :objectName, &amp;quot;filePath&amp;quot;,
+            :skipAction, &amp;quot;Delete&amp;quot;,
+            :absolutePath, &amp;quot;\\\\Logs\\\\.*\\.txt$&amp;quot;
+        ],
+        Dictionary[
+            :objectName, &amp;quot;dirPath&amp;quot;,
+            :skipAction, &amp;quot;Delete&amp;quot;,
+            :absolutePath, &amp;quot;\\\\Logs.*$&amp;quot;
+        ]
+    ],
+    :preSync =&amp;gt; Dictionary[
+        :runCommand, preSyncCommand,
+        :waitInterval, 60000
+    ],
+    :postSyncOnSuccess =&amp;gt; Dictionary[
+        :runCommand, postSyncCommand,
+        :waitInterval, 60000
+    ]&lt;/pre&gt;
+
+&lt;p&gt;It’s a small &lt;a href="http://github.com/agross/rake-me/blob/master/msdeploy.rb"&gt;Rake helper class that transforms a Hash into a MSDeploy command line&lt;/a&gt;. That helper also includes console redirection that sends deployment output both to the screen and to a log file. The log file is also used to find errors that may occur during deployment (&lt;a href="#drawbacks"&gt;see below&lt;/a&gt;).&lt;/p&gt;
+
+&lt;p&gt;For your convenience, these are the relevant parts of the configuration, expressed in YAML and parsed with Configatron.&lt;/p&gt;
+
+&lt;pre class="brush: yaml; collapse: true;"&gt;some_config:
+  deployment:
+    location: C:/Crimson
+    operations:
+      before_deployment: [Set-WebAppOffline, Uninstall-Service]
+      after_deployment: [Create-Database, Import-SampleData, Install-Service, Set-WebAppOnline]
+    connection:
+      wmsvc: true
+      address: BLUEPRINT-X86
+      user: deployer
+      password: deployer&lt;/pre&gt;
+
+&lt;p&gt;&lt;a name="drawbacks"&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3&gt;What I Haven’t Talked About&lt;/h3&gt;
+
+&lt;p&gt;What’s missing? An idea that got me interested was to partition the application into roles like &lt;em&gt;database server&lt;/em&gt;, &lt;em&gt;reporting server&lt;/em&gt;, &lt;em&gt;web application server&lt;/em&gt;, etc. We mostly do single-server deployments, so I haven’t built that yet (YAGNI). &lt;a href="http://www.lostechies.com/blogs/hex/archive/2010/01/15/deploying-your-server-roles-using-msdeploy-for-enterprise-deployments.aspx"&gt;Eric Hexter talks about application roles&lt;/a&gt; in a recent blog entry.&lt;/p&gt;
+
+&lt;p&gt;Another aspect where MSDeploy unfortunately &lt;em&gt;doesn’t&lt;/em&gt; shine is error handling. Since we run important operations using the &lt;a href="http://technet.microsoft.com/en-us/library/ee619740%28WS.10%29.aspx"&gt;&lt;code&gt;runCommand&lt;/code&gt; provider&lt;/a&gt; (used by &lt;code&gt;-preSync&lt;/code&gt; and &lt;code&gt;-postSyncOnSuccess&lt;/code&gt;) we would want to fail when something bad happens. Unfortunately MSDeploy, to this day, ignores errorlevels that indicate errors. So we’re back to console redirection and string parsing. This functionality is already in my &lt;a href="http://github.com/agross/rake-me/blob/master/msdeploy.rb"&gt;MSDeploy helper for Rake&lt;/a&gt;, so you can rely on it to a certain degree. Manually scanning log files for errors, at least for the first couple of automated deployments is recommended, though.&lt;/p&gt;
+
+&lt;p&gt;Since we’re leveraging PowerShell on the server, why should we have to build the PowerShell script handling operations ourselves? I can imagine deploying the &lt;a href="http://code.google.com/p/psake/"&gt;PowerShell-based PSake build tool&lt;/a&gt; and a PSake build script containing operations turned build targets. This will allow for common build script usage scenarios like task inspection (administrators would want that), having task dependencies, error handling and so on.&lt;/p&gt;
+
+&lt;h3&gt;Wrapping Up&lt;/h3&gt;
+
+&lt;p&gt;In this rather long post, I hope I could provide you with information how MSDeploy can be used to deploy your applications automatically. For us, over the last couple of weeks, MSDeploy in combination with our Rakefiles has helped us tremendously deploying an application that’s currently under development: The pain of delivering current versions to the customer has gotten a breeze.&lt;/p&gt;</Content>
+      <Created>2010-02-06T18:35:15.8209325+01:00</Created>
+      <Modified>2010-07-30T11:01:06.537+02:00</Modified>
+      <EntryId>fc544216-b269-4f06-bdc6-972bb2dbc88a</EntryId>
+      <Description />
+      <Title>How We Practice Continuous Integration And Deployment With MSDeploy</Title>
+      <Categories>Build;Deployment;PowerShell</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

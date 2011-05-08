@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2008-09-16T02:00:00+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;A couple of days ago Aaron Jensen released &lt;a href="http://codebetter.com/blogs/aaron.jensen/archive/2008/09/02/mspec-v0-2.aspx"&gt;MSpec 0.2&lt;/a&gt;, a BDD-style testing framework. Since I got hooked on BDD during my last work project (readable test names!) I was eager giving MSpec a shot. MSpec comes with support for TestDriven.NET so using inside of Visual Studio is a no-brainer once you installed the MSpec support for TD.NET. The release contains everything you need.&lt;/p&gt; &lt;p&gt;Today I wrote my first couple of MSpec specifications and had a very good initial experience. However, there's one caveat with ReSharper's absolute killer feature (well, one of its many killer features): &lt;a href="http://www.jetbrains.com/resharper/features/code_formatting.html"&gt;Code Cleanup&lt;/a&gt;. I usually like to type code without caring too much about its layout and then do a quick re-format to make it align with my formatting conventions.&lt;/p&gt; &lt;p&gt;ReSharper formatted the specification like this:&lt;/p&gt;&lt;pre class="brush: c#"&gt;[Concern(typeof(StringExtensions), "String testing")]
+public class When_a_null_string_is_tested_to_have_a_value : String_testing_specification
+{
+    Establish context = () =&amp;gt; { Sut = null; };
+
+    It it_should_not_hold_a_value = () =&amp;gt; HasValue.ShouldBeFalse();
+
+    Because of = () =&amp;gt; HasValue = Sut.HasValue();
+}&lt;/pre&gt;
+&lt;p&gt;The code structure should follow order in which the specification is run, like so:&lt;/p&gt;&lt;pre class="brush: c#"&gt;[Concern(typeof(StringExtensions), "String testing")]
+public class When_a_null_string_is_tested_to_have_a_value : String_testing_specification
+{
+    Establish context = () =&amp;gt; { Sut = null; };
+
+    Because of = () =&amp;gt; HasValue = Sut.HasValue();
+
+    It it_should_not_hold_a_value = () =&amp;gt; HasValue.ShouldBeFalse();
+}&lt;/pre&gt;
+&lt;p&gt;Luckily, ReSharper supports defining a custom type member layout to control in which order members are placed in a reformatted code file. Just add the following lines to ReSharper/Options/Languages/C#/Type Members Layout (uncheck "Use Default Patterns"), under the Patterns element:&lt;/p&gt;&lt;pre class="brush: xml"&gt;&amp;lt;!-- Order Machine.Specifications methods: Members, Establish, Cleanup, Because, It --&amp;gt;
+&amp;lt;Pattern&amp;gt;
+    &amp;lt;Match&amp;gt;
+        &amp;lt;And Weight="100"&amp;gt;
+            &amp;lt;Kind Is="class"/&amp;gt;
+            &amp;lt;HasAttribute CLRName="Machine.Specifications.ConcernAttribute"
+                          Inherit="true"/&amp;gt;
+        &amp;lt;/And&amp;gt;
+    &amp;lt;/Match&amp;gt;
+    &amp;lt;Entry&amp;gt;
+        &amp;lt;Match&amp;gt;
+            &amp;lt;And&amp;gt;
+                &amp;lt;Kind Is="field"/&amp;gt;
+                &amp;lt;Or&amp;gt;
+                    &amp;lt;Access Is="protected"/&amp;gt;
+                    &amp;lt;Static/&amp;gt;
+                &amp;lt;/Or&amp;gt;
+            &amp;lt;/And&amp;gt;
+        &amp;lt;/Match&amp;gt;
+    &amp;lt;/Entry&amp;gt;
+    &amp;lt;Entry&amp;gt;
+        &amp;lt;Match&amp;gt;
+            &amp;lt;And&amp;gt;
+                &amp;lt;Kind Is="field"/&amp;gt;
+                &amp;lt;Name Is="context_once"
+                      IgnoreCase="true"/&amp;gt;
+            &amp;lt;/And&amp;gt;
+        &amp;lt;/Match&amp;gt;
+    &amp;lt;/Entry&amp;gt;
+    &amp;lt;Entry&amp;gt;
+        &amp;lt;Match&amp;gt;
+            &amp;lt;And&amp;gt;
+                &amp;lt;Kind Is="field"/&amp;gt;
+                &amp;lt;Name Is="context"
+                      IgnoreCase="true"/&amp;gt;
+            &amp;lt;/And&amp;gt;
+        &amp;lt;/Match&amp;gt;
+    &amp;lt;/Entry&amp;gt;
+    &amp;lt;Entry&amp;gt;
+        &amp;lt;Match&amp;gt;
+            &amp;lt;And&amp;gt;
+                &amp;lt;Kind Is="field"/&amp;gt;
+                &amp;lt;Name Is="after_each"
+                      IgnoreCase="true"/&amp;gt;
+            &amp;lt;/And&amp;gt;
+        &amp;lt;/Match&amp;gt;
+    &amp;lt;/Entry&amp;gt;
+    &amp;lt;Entry&amp;gt;
+        &amp;lt;Match&amp;gt;
+            &amp;lt;And&amp;gt;
+                &amp;lt;Kind Is="field"/&amp;gt;
+                &amp;lt;Name Is="after_all"
+                      IgnoreCase="true"/&amp;gt;
+            &amp;lt;/And&amp;gt;
+        &amp;lt;/Match&amp;gt;
+    &amp;lt;/Entry&amp;gt;
+    &amp;lt;Entry&amp;gt;
+        &amp;lt;Match&amp;gt;
+            &amp;lt;And&amp;gt;
+                &amp;lt;Kind Is="field"/&amp;gt;
+                &amp;lt;Name Is="of"
+                      IgnoreCase="true"/&amp;gt;
+            &amp;lt;/And&amp;gt;
+        &amp;lt;/Match&amp;gt;
+    &amp;lt;/Entry&amp;gt;
+    &amp;lt;!--All other members--&amp;gt;
+    &amp;lt;Entry/&amp;gt;
+&amp;lt;/Pattern&amp;gt;&lt;/pre&gt;</Content>
+      <Created>2008-09-16T19:35:35.827+02:00</Created>
+      <Modified>2009-02-09T03:13:41.5629996+01:00</Modified>
+      <EntryId>01fda2ec-57af-4cb4-a4b6-6131323e37ac</EntryId>
+      <Description />
+      <Title>ReSharper Type Members Layout for MSpec 0.2</Title>
+      <Categories>BDD;ReSharper</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

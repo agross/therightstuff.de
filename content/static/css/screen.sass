@@ -1,0 +1,116 @@
+// This import applies a global reset to any page that imports this stylesheet.
+@import blueprint/reset
+
+// To configure blueprint, edit the _base.sass file.
+@import base
+
+// Import all the default blueprint modules so that we can access their mixins.
+@import blueprint
+@import compass/utilities/general/min
+@import compass/utilities/text/replacement
+@import compass/utilities/lists/inline-block-list
+@import compass/utilities/lists/bullets
+
+@import page
+@import colors
+@import two_col
+
+body
+    +text
+    font: 16px/1.6em "Segoe UI", sans-serif
+    overflow-y: scroll
+    
+a
+    +link-colors($dark_blue, $dark_blue)
+    text-decoration: underline
+    
+hr
+    +colspacer
+    visibility: visible
+    margin-bottom: 0
+
+#header
+    margin: 1em 0
+    
+#logo
+    $indent: 15
+    +column(9, false)
+    +prepend($indent)
+
+#nav
+    +clearfix
+    +prepend(1)
+    margin: 1em 0 0 0
+    
+    ul
+        +inline-block-list
+        overflow: visible
+    
+    li
+        margin-right: 1em
+        padding: .5em
+        
+    li.first
+        margin-left: -.5em
+    
+    a
+        +link-colors($dark_gray, $dark_blue)
+        font-size: 1.4em
+        text-decoration: none
+
+    a:hover
+        text-decoration: underline
+    a.active
+        color: $dark_blue
+        
+    #active-item
+        background-repeat: no-repeat
+        background-attachment: scroll
+        
+    .active-none
+        background-image: none !important
+        
+    .active-0
+        background-position: 2.1em 0
+
+    .active-1
+        background-position: 9.8em 0
+
+    .active-2
+        background-position: 17.5em 0
+
+    .active-3
+        background-position: 25.8em 0
+        
+#content
+    +clearfix
+
+    h2
+        color: $dark_blue
+        font-size: 1.6em
+        margin: 1em 0
+    h3
+        color: $dark_blue
+        font-size: 1.4em
+        margin-bottom: .9em
+        
+    ul
+        
+        li
+            margin-bottom: 1.75em
+        
+    ul.teaser
+        +column(14, true)
+        
+    p.teaser
+        font-size: 1.4em
+        
+    p.info
+        color: #777
+        
+#footer
+    +clearfix
+    margin-bottom: 2em
+    
+    p
+        text-align: right

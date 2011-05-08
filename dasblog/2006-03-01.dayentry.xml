@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-03-01T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;&lt;a href="http://www.it99.org/axl/PermaLink,guid,3bcb998d-a509-429c-bfdf-6d9aacefecb7.aspx"&gt;It just rocks!&lt;/a&gt; Greetings to everyone from my hotel room in Esslingen near Stuttgart!&lt;/p&gt;
+&lt;p&gt;Note to self: Try unrolling the USB cable before connecting the mobile to the laptop. Otherwise the connection will not be established.&lt;/p&gt;</Content>
+      <Created>2006-03-01T19:04:43.7340000+01:00</Created>
+      <Modified>2007-02-12T21:42:23.7882500+01:00</Modified>
+      <EntryId>82eed77d-c70d-4995-8f69-ba113dd97f0c</EntryId>
+      <Description />
+      <Title>Mobile Internet Access</Title>
+      <Categories>NonTech;Mobility</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-04-16T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;UL&gt;
+&lt;LI&gt;Kaninchenrücken und -keulen&lt;/LI&gt;
+&lt;LI&gt;1 Flasche kräftiger Rotwein&lt;/LI&gt;
+&lt;LI&gt;2 Lorbeerblätter&lt;/LI&gt;
+&lt;LI&gt;10 Pfefferkörner&lt;/LI&gt;
+&lt;LI&gt;Ringe einer Zwiebel&lt;/LI&gt;&lt;/UL&gt;
+&lt;P&gt;Rotwein, Zwiebelringe, Pfefferkörner&amp;nbsp;und Lorbeer aufkochen und auskühlen lassen.&amp;nbsp;Kaninchenrücken und -keulen über Nacht darin marinieren.&lt;/P&gt;
+&lt;UL&gt;
+&lt;LI&gt;Knochen des Kaninchens&lt;/LI&gt;
+&lt;LI&gt;Suppengemüse, kleingeschnitten&lt;/LI&gt;
+&lt;LI&gt;1 gewürfelte Zwiebel&lt;/LI&gt;
+&lt;LI&gt;1 EL gewürfelter Speck&lt;/LI&gt;&lt;/UL&gt;
+&lt;P&gt;Alles anrösten, mit 1 l kochendem Wasser ablöschen, salzen und&amp;nbsp;pfeffern.&amp;nbsp;45 Minuten kochen lassen.&lt;/P&gt;
+&lt;UL&gt;
+&lt;LI&gt;1&amp;nbsp;EL gewürfelter Speck&lt;/LI&gt;
+&lt;LI&gt;1 EL Margarine&lt;/LI&gt;
+&lt;LI&gt;1 TL gemahlenes Piment&lt;/LI&gt;
+&lt;LI&gt;½&amp;nbsp;TL Zimt&lt;/LI&gt;
+&lt;LI&gt;2-3 TL Zucker&lt;/LI&gt;
+&lt;LI&gt;Saft einer Zitrone&lt;/LI&gt;
+&lt;LI&gt;1 Packung Studentenfutter&lt;/LI&gt;&lt;/UL&gt;
+&lt;P&gt;Speck in Margarine auslassen. Das abgetrocknete Fleisch darin von allen Seiten anbraten. Anschließend die die gesiebte Rotweinmarinade und die Knochenbrühe hinzugeben. Mit Piment, Zimt, Zucker und Zitronensaft würzen und bei niedriger Hitze gar schmoren.&amp;nbsp;Kurz vor Schluss 1 EL gehackte Nüsse und 1 EL Rosinen zugeben. Die Karottenscheiben aus der Knochenbrühe wieder hinzugeben, Soße andicken.&lt;/P&gt;
+&lt;P&gt;Dazu passen am besten Klöße und Rotkraut.&lt;/P&gt;</Content>
+      <Created>2006-04-16T10:31:21.5190000+02:00</Created>
+      <Modified>2006-04-18T10:31:21.5190293+02:00</Modified>
+      <EntryId>63eccd00-e942-4418-a4ea-60c298ac49da</EntryId>
+      <Description />
+      <Title>Rezept: Kaninchen in Rotweinsoße</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

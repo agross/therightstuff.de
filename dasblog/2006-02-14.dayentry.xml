@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-02-14T01:00:00+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;A rather long title for this post, but that's what it comes down to.&lt;/P&gt;
+&lt;P&gt;&lt;IMG title="SharePoint WebPart" style="FLOAT: right; MARGIN-LEFT: 10px" alt="SharePoint WebPart" src="http://www.it99.org/axl/content/binary/SharePoint%20WebPart.png" border=0&gt;Suppose you want to access controls in the same Web Part on the client side using JavaScript. For instance, you have two &lt;A href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/cpref/html/frlrfsystemwebuiwebcontrolsdropdownlistclasstopic.asp"&gt;DropDownList&lt;/A&gt;s placed on&amp;nbsp;a Web Part and you want to fill the second one dynamically based on the selected value of the first DropDownList&amp;nbsp;–&amp;nbsp;a simple master/detail type of control. Postbacks are no option here since a selection change of the upper DropDownList shouldn't bother the server and delay business process by having the user to wait for the result. An &lt;A href="http://en.wikipedia.org/wiki/AJAX"&gt;Ajax&lt;/A&gt;y approach may also be interesting, but out of the scope of this posting.&lt;/P&gt;
+&lt;P&gt;I've been struggling with some problems an couldn't find anything about this issue on the web, so I decided to post my findings.&lt;/P&gt;
+&lt;P&gt;Because it is possible to place a Web Part multiple times on a SharePoint web&amp;nbsp;page,&amp;nbsp;SharePoint Server will assign a&amp;nbsp;unique identifier to each control (that is, a Web Part and some of its child controls¹) to be able to distinguish between Postbacks originating from different Web Parts. The unique ID can be found in the&amp;nbsp;&lt;A href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/id.asp"&gt;ID&lt;/A&gt; attribute of a HTML element and looks similar to this: &lt;/P&gt;&lt;PRE&gt;TopZone_g_d72e1f89_87e6_4f08_b6c5_165dc560ce8a_&lt;B&gt;_ctl1&lt;/B&gt;&lt;/SPAN&gt;&lt;/PRE&gt;
+&lt;P&gt;&lt;CODE&gt;TopZone&lt;/CODE&gt; defines the location of the Web Part, along with its &lt;A href="http://en.wikipedia.org/wiki/GUID"&gt;GUID&lt;/A&gt;. The bold part (&lt;FONT face=Consolas&gt;_ctl1&lt;/FONT&gt;) denotes the ID of the&amp;nbsp;control in question, a &lt;A href="http://msdn.microsoft.com/workshop/author/dhtml/reference/objects/select.asp"&gt;SELECT&lt;/A&gt; in my case.&lt;/P&gt;
+&lt;P&gt;The JavaScript code to add an &lt;A href="http://msdn.microsoft.com/workshop/author/dhtml/reference/events/onchange.asp"&gt;onchange&lt;/A&gt; event handler to the master control looks like this:&lt;/P&gt;&lt;PRE&gt;master.Attributes.Add(&lt;SPAN style="COLOR: maroon"&gt;"onchange"&lt;/SPAN&gt;,
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;SPAN style="COLOR: teal"&gt;String&lt;/SPAN&gt;.Format(&lt;SPAN style="COLOR: maroon"&gt;"setDetail(document.getElementById('{0}'));"&lt;/SPAN&gt;,
+&amp;nbsp;&amp;nbsp;&amp;nbsp; detail.ClientID));
+&lt;/PRE&gt;
+&lt;P&gt;However, this will not work: The location and the GUID of the Web Part is evaluated when the page is rendered. These values then serve as a prefix to the control ID (&lt;FONT face=Consolas&gt;_ctl1&lt;/FONT&gt;) you set in your own code. You have to&amp;nbsp;retrieve the location/GUID prefix along with the control ID and combine them to the actual HTML ID. Because Web Parts should derive from &lt;CODE&gt;Microsoft.SharePoint.WebPartPages.&lt;SPAN style="COLOR: teal"&gt;WebPart&lt;/SPAN&gt;&lt;/CODE&gt; this is pretty easy to achieve.&lt;/P&gt;&lt;PRE&gt;&lt;SPAN style="COLOR: #008000"&gt;// Combine the Web Part's ID and the control ID.&lt;/SPAN&gt;&lt;BR&gt;master.Attributes.Add(&lt;SPAN style="COLOR: maroon"&gt;"onchange"&lt;/SPAN&gt;,
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;SPAN style="COLOR: teal"&gt;String&lt;/SPAN&gt;.Format(&lt;SPAN style="COLOR: maroon"&gt;"setDetail(document.getElementById('{0}_{1}'));"&lt;/SPAN&gt;,
+&amp;nbsp;&amp;nbsp;&amp;nbsp; &lt;SPAN style="COLOR: blue"&gt;base&lt;/SPAN&gt;.ClientID,
+&amp;nbsp;&amp;nbsp;&amp;nbsp; detail.ClientID));&lt;/PRE&gt;
+&lt;div class="download"&gt;
+&lt;p&gt;&lt;img class="download" src="http://www.therightstuff.de/content/binary/Download.gif" alt="Download" style="margin-right: 4px;" title="Download"/&gt;&lt;a href="http://therightstuff.de/download/PreBIS-Web-Parts-1.0.zip"&gt;Download the source code of the sample solution.&lt;/a&gt;&lt;p&gt;
+&lt;/div&gt;
+&lt;P&gt;¹ Those with an ID or a &lt;A href="http://msdn.microsoft.com/workshop/author/dhtml/reference/properties/name_2.asp"&gt;NAME&lt;/A&gt;.&lt;/P&gt;
+&lt;P class="now-playing"&gt;Now playing: Audiomatix - What a day&lt;/P&gt;</Content>
+      <Created>2006-02-14T04:38:50.252+01:00</Created>
+      <Modified>2008-07-03T00:38:51.953125+02:00</Modified>
+      <EntryId>78dde6ae-213c-4f8c-8f9c-3e82bd67807e</EntryId>
+      <Description />
+      <Title>Accessing Controls in SharePoint Web Parts using JavaScript on the Client Side</Title>
+      <Categories>ASP.NET;Office;SharePoint</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

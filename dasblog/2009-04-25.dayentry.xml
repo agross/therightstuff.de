@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2009-04-25T02:00:00+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;The server this blog is hosted on was upgraded recently, i.e. is now run on a new dedicated server. Actually, next to this blog there’s a lot more going on. We, a &lt;a title="Marcel Hoyer" href="http://pixelplastic.de/" rel="friend met"&gt;bunch&lt;/a&gt; &lt;a title="Peter Nowak" href="http://blogs.compactframework.de/Peter.Nowak/" rel="friend met"&gt;of&lt;/a&gt; &lt;a title="Torsten Weber" href="http://blogs.compactframework.de/Torsten.Weber/" rel="friend met"&gt;geeks&lt;/a&gt;, are self-hosting mail, web sites, blogs and some collaboration tools like SharePoint (Windows SharePoint Services, in our case). Yeah, SharePoint, a true beast in and of itself. I can’t tell you how much I do &lt;em&gt;not&lt;/em&gt; miss developing software for it and setting up customer sites.&lt;/p&gt;  &lt;p&gt;I wanted to make the move to the new server as smooth as possible for our SharePoint users. Because we do not use Active Directory to authenticate our users, we obviously had to migrate the SharePoint user accounts manually. That is, re-create each user on the new server giving them a random password and communicate the change.&lt;/p&gt;  &lt;p&gt;Moving a SharePoint site is surprisingly &lt;a href="http://technet.microsoft.com/en-us/library/dd622870.aspx"&gt;pretty well documented on TechNet&lt;/a&gt;, but won’t tell you about one important aspect: When you move the site to a new farm and the site does not use Active Directory, you will have to set up security anew.&lt;/p&gt;  &lt;p&gt;Why? Because SharePoint matches user accounts by their &lt;abbr title="Security Identifier"&gt;SID&lt;/abbr&gt;, a value that is unique for each user account, even across machines: OLDMACHINE\foo’s SID is different from NEWMACHINE\foo’s SID. Burdening the four &lt;a href="http://technet.microsoft.com/en-us/library/cc742548.aspx"&gt;site collection&lt;/a&gt; administrator with this task is simply a no-go.&lt;/p&gt;  &lt;p&gt;During my research how to work around that I found the Dustin Miller’s excellent post “&lt;a href="http://www.sharepointblogs.com/dustin/archive/2007/04/08/stsadm-in-a-gui-2007-version.aspx"&gt;Fix those SIDs&lt;/a&gt;”. It describes the process of massaging a SharePoint site collection database to replace old SIDs with the account SIDs of the current machine. I’ve extended it a bit, because I also decided to rename the SharePoint Search account while moving to the new server (note the extra REPLACE in line 11).&lt;/p&gt;  &lt;pre class="brush: sql;"&gt;DECLARE @login nvarchar(255), @SystemId varbinary(512)
+
+DECLARE curUsers CURSOR LOCAL FOR 
+SELECT tp_Login, tp_SystemID FROM UserInfo WHERE tp_Deleted = 0
+
+OPEN curUsers
+FETCH NEXT FROM curUsers INTO @login, @systemid
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+    DECLARE @newLoginName AS nvarchar(255) = REPLACE(REPLACE(@login, 'OLDMACHINE', 'NEWMACHINE'), 'spsearch', 'sharepoint-search')
+    DECLARE @newSID varbinary(85) = SUSER_SID(@newLoginName)
+    
+    IF @newSID IS NOT NULL
+    BEGIN
+        PRINT 'Resetting user ' + @login + ' to new login ' + @newLoginName  + ' with SID '
+        PRINT SUSER_SID(@newLoginName)
+
+        UPDATE UserInfo
+        SET    tp_SystemID = SUSER_SID(@newLoginName),
+               tp_Login = @newLoginName
+        WHERE CURRENT OF curUsers
+    END
+    
+    FETCH NEXT FROM curUsers INTO @login, @systemid
+END
+
+CLOSE curUsers
+DEALLOCATE curUsers
+GO&lt;/pre&gt;
+
+&lt;p&gt;After the script ran, take a look at the &lt;code&gt;UserInfo&lt;/code&gt; table and &lt;code&gt;SELECT&lt;/code&gt; rows that still contain OLDMACHINE in the &lt;code&gt;tp_Login&lt;/code&gt; column. This helps you get a quick overview of what accounts have been missed during account re-creation.&lt;/p&gt;
+
+&lt;p&gt;As an extra step, I found it appropriate to update the site’s user entry as well (the account name that shows up in the site’s user list when no full name is given) to reflect the new machine name.&lt;/p&gt;
+
+&lt;pre class="brush: sql;"&gt;UPDATE    [AllUserData]
+SET       [nvarchar1] = REPLACE(REPLACE([nvarchar1], 'OLDMACHINE', 'NEWMACHINE'), 'spsearch', 'sharepoint-search'),
+          [nvarchar2] = REPLACE(REPLACE([nvarchar2], 'OLDMACHINE', 'NEWMACHINE'), 'spsearch', 'sharepoint-search'),
+          [nvarchar3] = REPLACE(REPLACE([nvarchar3], 'OLDMACHINE', 'NEWMACHINE'), 'spsearch', 'sharepoint-search')&lt;/pre&gt;</Content>
+      <Created>2009-04-25T16:40:29.9539303+02:00</Created>
+      <Modified>2009-04-25T16:42:11.8421181+02:00</Modified>
+      <EntryId>e8a61eec-b25d-4d53-a274-98481232d57b</EntryId>
+      <Description />
+      <Title>Migrating SharePoint Content Databases To A New Farm While Keeping Security Settings</Title>
+      <Categories>.NET;SharePoint;SQL Server</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

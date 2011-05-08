@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2010-03-27T01:00:00+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;ul&gt;   &lt;li&gt;1 Suppengemüse (Lauch, Sellerie, Karotten, Petersilie) &lt;/li&gt;    &lt;li&gt;300 g Hackfleisch &lt;/li&gt;    &lt;li&gt;400 g Kartoffeln &lt;/li&gt;    &lt;li&gt;Nudeln oder Spätzle &lt;/li&gt; &lt;/ul&gt;  &lt;p&gt;Kartoffel schälen und in mundgerechte Stücke schneiden. Kartoffelstücke und Nudeln separat in Salzwasser kochen. In Scheiben geschnittetenen Lauch, gehackte Zwiebeln und Fleisch anbraten. Mit etwas Mehl überstäuben und verrühren. Beiseite stellen.&lt;/p&gt;  &lt;p&gt;Das restliche kleingeschnittene Gemüse in einem großen Topf kochen. Wenn das Gemüse gar ist, die anderen Zutaten hinzugeben und gut durchmischen. Ziehen lassen, fertig.&lt;/p&gt;</Content>
+      <Created>2010-03-27T14:33:54.6212+01:00</Created>
+      <Modified>2010-03-27T14:33:54.6212+01:00</Modified>
+      <EntryId>baf5cf49-f19b-4fc5-b39f-c32f7a1397a8</EntryId>
+      <Description />
+      <Title>Rezept: Eintopf</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

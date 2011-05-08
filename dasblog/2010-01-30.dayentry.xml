@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2010-01-30T01:00:00+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;We’ve been using Rake for quite a while at work. Sometime last year I sat down and converted our ~30 KB &lt;a href="http://nant.sourceforge.net/"&gt;NAnt&lt;/a&gt; build scripts to &lt;a href="http://rake.rubyforge.org/"&gt;Rake&lt;/a&gt;, a light-weight Ruby build framework with low friction and no XML. Since then I have written &lt;a href="http://github.com/agross/rake-me/tree/master/tools/Rake/"&gt;a bunch of Rake tasks&lt;/a&gt; to support our builds (we use &lt;a href="http://www.jetbrains.com/teamcity/"&gt;TeamCity&lt;/a&gt;).&lt;/p&gt;  &lt;p&gt;I started a bit out of the blue, because frameworks like &lt;a href="http://albacorebuild.net/"&gt;Albacore&lt;/a&gt; didn’t exist back then and other .NET-specific task collections didn’t fit our needs or simply were inconvenient to use.&lt;/p&gt;  &lt;p&gt;Without prior Ruby experience it was also a great opportunity to learn Ruby and give the language and design concepts a spin. I have to admit, I like the fluent style of Ruby, it’s almost like the language tries to stay out of your way.&lt;/p&gt;  &lt;h3&gt;YAML&lt;/h3&gt;  &lt;p&gt;Soon after I started building the first Rake script I needed to configure the build for different environments. Like: &lt;em&gt;in production, we have to use another database server&lt;/em&gt;. You want to externalize such information into a configuration file. Having database connection strings hard coded in your application’s App.config will make tailoring the application for deployment tedious and error-prone. I’ve been there, and I don’t recommend it!&lt;/p&gt;  &lt;p&gt;I came across YAML which is an intuitive notation for configuration files (amongst others):&lt;/p&gt;  &lt;pre class="brush: yaml;"&gt;development:
+  database:
+    server: (local)
+    name: Indigo
+
+qa:
+  database:
+    server: DB
+    name: Indigo_QA
+
+production:
+  database:
+    server: DB
+    name: Indigo_Production&lt;/pre&gt;
+
+&lt;p&gt;Is that legible? I think so!&lt;/p&gt;
+
+&lt;p&gt;We use the &lt;a href="http://configatron.mackframework.com/"&gt;configatron&lt;/a&gt; Ruby Gem to read such files and dereference configuration information in the build script.&lt;/p&gt;
+
+&lt;pre class="brush: rb;"&gt;configatron.configure_from_yaml 'properties.yml', :hash =&amp;gt; 'production'
+
+puts configatron.database.server
+# =&amp;gt; 'DB'
+
+puts configatron.database.name
+# =&amp;gt; 'Indigo_Production'&lt;/pre&gt;
+
+&lt;h3&gt;YAML’s “Inheritance”&lt;/h3&gt;
+
+&lt;p&gt;Another useful aspect of YAML is that it supports a simple form of inheritance by merging hashes.&lt;/p&gt;
+
+&lt;pre class="brush: yaml;"&gt;qa: &amp;amp;customer_config
+  database:
+    server: DB
+    name: Indigo_QA
+
+production:
+  &amp;lt;&amp;lt;: *customer_config
+  database:
+    name: Indigo_Production&lt;/pre&gt;
+
+&lt;p&gt;Unfortunately this kind of inheritance has some subtleties as it wouldn’t work as you would expect. I read the snippet above like the &lt;code&gt;production&lt;/code&gt; configuration inherits all values from &lt;code&gt;qa&lt;/code&gt; and overwrites the &lt;code&gt;database.name&lt;/code&gt;. Let's see:&lt;/p&gt;
+
+&lt;pre class="brush: rb;"&gt;configatron.configure_from_yaml 'properties.yml', :hash =&amp;gt; 'production'
+
+puts configatron.database.server.nil?
+# =&amp;gt; true
+# Huh? That should be &amp;quot;DB&amp;quot;.
+
+puts configatron.database.name
+# =&amp;gt; 'Indigo_Production'&lt;/pre&gt;
+
+&lt;p&gt;Actually, there is an article describing the problem with &lt;a href="http://atechie.net/2009/07/merging-hashes-in-yaml-conf-files/"&gt;merging hashes in YAML files&lt;/a&gt;&amp;#160; that I found after our build broke in interesting ways after loading an incomplete configuration. The proposed solution is either to duplicate all configuration information between &lt;code&gt;qa&lt;/code&gt; and &lt;code&gt;production&lt;/code&gt;, or to use more anchors (&lt;code&gt;&amp;amp;foo&lt;/code&gt;) and merge references (&lt;code&gt;&amp;lt;&amp;lt;: *foo&lt;/code&gt;). I think both clutters a YAML file unnecessarily.&lt;/p&gt;
+
+&lt;h3&gt;Custom Inheritance&lt;/h3&gt;
+
+&lt;p&gt;After I identifying why composition doesn’t work as one would expect let’s see what we can do about it.&lt;/p&gt;
+
+&lt;p&gt;I went with solution based on a convention that inheritance should be defined using a &lt;code&gt;default_to&lt;/code&gt; configuration entry.&lt;/p&gt;
+
+&lt;pre class="brush: yaml;"&gt;qa:
+  database:
+    server: DB
+    name: Indigo_QA
+
+production:
+  default_to: qa
+  database:
+    name: Indigo_Production&lt;/pre&gt;
+
+&lt;p&gt;The &lt;code&gt;default_to&lt;/code&gt; entry in the &lt;code&gt;production&lt;/code&gt; section refers to another section that the configuration will be inherited from. You could also build inheritance chains like &lt;code&gt;production&lt;/code&gt; → &lt;code&gt;qa&lt;/code&gt; → &lt;code&gt;default&lt;/code&gt; and additionally use ordinary transparent YAML hash merges.&lt;/p&gt;
+
+&lt;p&gt;Instead of initializing configatron from the YAML file, we’ll preprocess the deserialized YAML (basically, a &lt;a href="http://ruby-doc.org/core/classes/Hash.html"&gt;Hash&lt;/a&gt;), evaluate the configuration inheritance chain and then pass the Hash to configatron:&lt;/p&gt;
+
+&lt;pre class="brush: rb;"&gt;yaml = Configuration.load_yaml 'properties.yml', :hash =&amp;gt; 'production', :inherit =&amp;gt; :default_to
+configatron.configure_from_hash yaml
+
+puts configatron.database.server.nil?
+# =&amp;gt; false
+
+puts configatron.database.server
+# =&amp;gt; 'DB'
+
+puts configatron.database.name
+# =&amp;gt; 'Indigo_Production'&lt;/pre&gt;
+
+&lt;p&gt;The &lt;a href="http://github.com/agross/rake-me/commit/a432e97001517b28fb0539296e91add649a0d1f4"&gt;code for the Configuration class&lt;/a&gt; that accounts for evaluating the inheritance chain is up on GitHub.&lt;/p&gt;</Content>
+      <Created>2010-01-30T15:03:51.3798017+01:00</Created>
+      <Modified>2010-07-30T11:01:56.993+02:00</Modified>
+      <EntryId>509458ae-9d2d-473f-9a34-3612fd9193ab</EntryId>
+      <Description />
+      <Title>Rake, YAML and Inherited Build Configuration</Title>
+      <Categories>Build;Ruby</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

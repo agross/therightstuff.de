@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-09-01T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;Whoo-hoo! Great news today! :-)&lt;/P&gt;
+&lt;P&gt;For some years I've been looking for a particular song that I've seen/heard in a commercial on TV advertising some relax/chillout compilation.&amp;nbsp;I didn't buy the compilation just to get the song and decided to wait until it crosses my path in the future. Unfortunately the commercial didn't show any info about the track. Yesterday, on the way back from Cospuden lake&amp;nbsp;we heard the last 3 seconds of it on &lt;A href="http://www.mdr.de/mdr1-radio-sachsen/"&gt;MDR 1 Radio Sachsen&lt;/A&gt;.&amp;nbsp;I wrote an e-mail to their editorial department asking for the details of the song they played around 8:27 PM. Today morning MDR's&amp;nbsp;Eberhard Mende responded giving me the details: &lt;A href="http://www.janhammer.com/trak19.html"&gt;Jan Hammer's "Crockett's Theme"&lt;/A&gt; is the song I was looking for about seven years. Splendid!&lt;/P&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;A href="http://www.music-map.de/oasis.html"&gt;Oasis&lt;/A&gt; - &lt;A href="http://www.amazon.com/exec/obidos/ASIN/B00097A5I6/therightstu0e-20"&gt;Don't believe the truth&lt;/A&gt; - Guess god thinks I'm Abel&lt;/P&gt;</Content>
+      <Created>2005-09-01T13:49:27.9530000+02:00</Created>
+      <Modified>2007-02-12T21:42:31.9757500+01:00</Modified>
+      <EntryId>d51c4def-6c1c-47a6-9da1-2e8653f605c8</EntryId>
+      <Description />
+      <Title>Finally, I've found it!</Title>
+      <Categories>NonTech</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

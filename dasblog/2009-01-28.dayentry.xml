@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2009-01-28T01:00:00+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;&lt;img title="Git Logo" style="float: right; margin-bottom: 1em; margin-left: 1em" height="97" alt="Git Logo" src="http://www.therightstuff.de/content/binary/WindowsLiveWriter/UseSourceGearDiffMergewithGit_11D62/git-logo_ba9c923f-7667-4383-9d95-fc7fbb3db552.png" /&gt; For about six month I’m using &lt;a href="http://git-scm.com/"&gt;Git&lt;/a&gt; as my preferred Source Control Management system. That is, while my colleagues at work still work with Subversion and &lt;a href="http://tortoisesvn.tigris.org/"&gt;TortoiseSVN&lt;/a&gt;, I am leveraging the powers of Git behind the scenes. That is, I work on local (Git) feature branches that I commit to our SVN trunk every once in a while, typically after I finished working on a feature.&lt;/p&gt;  &lt;p&gt;If you want to get started with Git, I recommend watching the &lt;a href="http://gitcasts.com/"&gt;GitCasts&lt;/a&gt; and try one of the Windows distributions, &lt;a href="http://code.google.com/p/msysgit/"&gt;msysgit&lt;/a&gt; or &lt;a href="http://www.cygwin.com/"&gt;Cygwin&lt;/a&gt;. (I switched to Cygwin after the msysgit team dropped SVN integration in their 1.6 release.)&lt;/p&gt;  &lt;p&gt;Git heavily relies on the command line, and UI tools like gitk and &lt;a href="http://code.google.com/p/tortoisegit/"&gt;TortoiseGit&lt;/a&gt; are not quite there yet. Using a &lt;a href="http://en.wikipedia.org/wiki/Command-line_interface"&gt;CLI&lt;/a&gt; might be something a lot of Windows developers do not look forward to, but you still can configure support for some UI tools. For example, file diffs and merges can be customized to work with any tool (UI and CLI-based). I use &lt;a href="http://www.sourcegear.com/diffmerge/"&gt;SourceGear DiffMerge&lt;/a&gt; (free) as my primary diff and merge tool. It’s far better that what comes with TortoiseSVN or Git itself (again CLI-based).&lt;/p&gt;  &lt;p&gt;I could only find &lt;a href="http://support.sourcegear.com/viewtopic.php?f=33&amp;amp;t=10077"&gt;sparse&lt;/a&gt; documentation on how to make DiffMerge work with Git, so I dove into the world of Shell programming and created a couple of simple scripts. Here is what I came up with.&lt;/p&gt;  &lt;h3&gt;diffmerge-diff.sh&lt;/h3&gt;  &lt;pre class="brush: bash"&gt;#!/bin/sh
+
+path=&amp;quot;$(cygpath $1)&amp;quot;
+old=&amp;quot;$(cygpath --mixed --absolute &amp;quot;$2&amp;quot;)&amp;quot;
+new=&amp;quot;$(cygpath --mixed --absolute &amp;quot;$5&amp;quot;)&amp;quot;
+
+#echo -e &amp;quot;path\n$path&amp;quot;
+#echo -e &amp;quot;old\n$old&amp;quot;
+#echo -e &amp;quot;new\n$new&amp;quot;
+
+&amp;quot;/cygdrive/C/Tools/DiffMerge/diffmerge.exe&amp;quot; &amp;quot;$old&amp;quot; &amp;quot;$new&amp;quot; --title1=&amp;quot;Old&amp;quot; --title2=&amp;quot;New $path&amp;quot;&lt;/pre&gt;
+
+&lt;h3&gt;diffmerge-merge.sh&lt;/h3&gt;
+
+&lt;pre class="brush: bash"&gt;#!/bin/sh
+
+localPath=&amp;quot;$(cygpath --mixed --absolute &amp;quot;$2&amp;quot;)&amp;quot;
+basePath=&amp;quot;$(cygpath --mixed --absolute &amp;quot;$1&amp;quot;)&amp;quot;
+remotePath=&amp;quot;$(cygpath --mixed --absolute &amp;quot;$3&amp;quot;)&amp;quot;
+resultPath=&amp;quot;$(cygpath --mixed --absolute &amp;quot;$4&amp;quot;)&amp;quot;
+
+if [ ! -f $basePath ]
+then
+    basePath=&amp;quot;$(cygpath --mixed --absolute ~/diffmerge-empty)&amp;quot;
+fi
+
+#echo -ne &amp;quot;local\n$localPath\n&amp;quot;
+#echo -ne &amp;quot;base\n$basePath\n&amp;quot;
+#echo -ne &amp;quot;remote\n$remotePath\n&amp;quot;
+#echo -ne &amp;quot;result\n$resultPath\n&amp;quot;
+
+&amp;quot;/cygdrive/C/Tools/DiffMerge/diffmerge.exe&amp;quot; --merge --result=&amp;quot;$resultPath&amp;quot; &amp;quot;$localPath&amp;quot; &amp;quot;$basePath&amp;quot; &amp;quot;$remotePath&amp;quot; --title1=&amp;quot;Mine&amp;quot; --title2=&amp;quot;Merged: $4&amp;quot; --title3=&amp;quot;Theirs&amp;quot;&lt;/pre&gt;
+
+&lt;h3&gt;Setting up Git&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Put the files above in your home directory, either &lt;strong&gt;C:\Cygwin\home\&amp;lt;username&amp;gt;&lt;/strong&gt; (Cygwin) or &lt;strong&gt;C:\Users\&amp;lt;username&amp;gt;&lt;/strong&gt; (msysgit). Make sure the line endings are LF-only (UNIX style) and the file is saved without the UTF &lt;a href="http://en.wikipedia.org/wiki/Byte-Order_Mark"&gt;byte-order mark&lt;/a&gt; (BOM). &lt;/li&gt;
+
+  &lt;li&gt;Create an empty file named &lt;strong&gt;diffmerge-empty&lt;/strong&gt; in the same directory. &lt;/li&gt;
+
+  &lt;li&gt;Modify the scripts to point to the correct location of DiffMerge (see the last lines). Some more modifications will be needed if you’re from the msysgit crowd, as the cygpath utility is not available there. &lt;/li&gt;
+
+  &lt;li&gt;Open a Git CLI and enter the following commands: 
+    &lt;pre class="brush:bash"&gt;git config --global merge.tool diffmerge
+git config --global mergetool.diffmerge.cmd &amp;quot;~/diffmerge-merge.sh \&amp;quot;\$BASE\&amp;quot; \&amp;quot;\$LOCAL\&amp;quot; \&amp;quot;\$REMOTE\&amp;quot; \&amp;quot;\$MERGED\&amp;quot;&amp;quot;
+git config --global mergetool.diffmerge.trustExitCode false 
+git config --global diff.external &amp;quot;C:/Cygwin/home/&amp;lt;username&amp;gt;/diffmerge-diff.sh&amp;quot;&lt;/pre&gt;
+This should add the following lines to your &lt;strong&gt;.gitconfig&lt;/strong&gt;: 
+
+    &lt;pre class="brush: plain"&gt;[merge]
+    tool = diffmerge
+[mergetool &amp;quot;diffmerge&amp;quot;]
+    cmd = ~/diffmerge-merge.sh \&amp;quot;$BASE\&amp;quot; \&amp;quot;$LOCAL\&amp;quot; \&amp;quot;$REMOTE\&amp;quot; \&amp;quot;$MERGED\&amp;quot;
+    trustExitCode = false
+[diff]
+    external = C:/Cygwin/home/&amp;lt;username&amp;gt;/diffmerge-diff.sh&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;Using DiffMerge&lt;/h3&gt;
+
+&lt;p&gt;Using DiffMerge is pretty easy, the normal &lt;a href="http://www.kernel.org/pub/software/scm/git/docs/git-diff.html"&gt;git diff&lt;/a&gt; and &lt;a href="http://www.kernel.org/pub/software/scm/git/docs/git-mergetool.html"&gt;git mergetool&lt;/a&gt; commands work as usual, but will now spawn DiffMerge instead of &lt;a href="http://en.wikipedia.org/wiki/Vi"&gt;vi&lt;/a&gt; (which is the default). If anything does not work as expected, uncomment the &lt;code&gt;#echo&lt;/code&gt; lines and use a tool like &lt;a href="http://technet.microsoft.com/en-us/sysinternals/bb896645.aspx"&gt;Process Monitor&lt;/a&gt; and &lt;a href="http://technet.microsoft.com/de-de/sysinternals/bb896653.aspx"&gt;Process Explorer&lt;/a&gt; to see where things go wrong.&lt;/p&gt;
+
+&lt;p&gt;Happy diffing!&lt;/p&gt;</Content>
+      <Created>2009-01-28T21:18:58.091+01:00</Created>
+      <Modified>2009-06-25T21:00:45.2898316+02:00</Modified>
+      <EntryId>f9eb67c2-2a52-4c80-9181-3160b05cfd72</EntryId>
+      <Description />
+      <Title>Setting up SourceGear DiffMerge with Git</Title>
+      <Categories>.NET;ALT.NET;Git</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

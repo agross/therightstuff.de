@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-12-15T01:00:00+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;&lt;a href="http://www.boldhaus.info/blog/2005/12/15/audiophiles-horen-nett-umschrieben/"&gt;Gunnar&lt;/a&gt; links to a&amp;nbsp;good (and&amp;nbsp;funny)&amp;nbsp;&lt;a href="http://www.spiegel.de/spiegel/0,1518,389688,00.html"&gt;article&lt;/a&gt; on Spiegel Online on&amp;nbsp;&lt;strike&gt;superfluous paraphernalia&lt;/strike&gt; accessories for high-end audiophiles. Not that I am that much into Hi-Fi that I would actually&amp;nbsp;spend money just for &lt;em&gt;clean&lt;/em&gt; power...&lt;/p&gt;
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+&lt;p align="center"&gt;&lt;img alt="Wooden Amp" src="http://www.it99.org/axl/content/binary/Wooden%20Amp.png" border="0"&gt;&lt;/p&gt;</Content>
+      <Created>2005-12-15T23:31:59.476+01:00</Created>
+      <Modified>2007-11-28T00:37:41.5634708+01:00</Modified>
+      <EntryId>69b504fa-ac82-4d0d-8ee6-90f07c75f966</EntryId>
+      <Description />
+      <Title>Audiophile Accessories</Title>
+      <Categories>Hi-Fi</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

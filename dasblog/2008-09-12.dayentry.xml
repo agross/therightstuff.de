@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2008-09-12T02:00:00+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;Over the last couple of months I read &lt;a href="http://www.amazon.com/Peopleware-Productive-Projects-Teams-Second/dp/0932633439/"&gt;Peopleware&lt;/a&gt; by Tom DeMarco and Timothy Lister (yeah, I know, I'm a slow reader). Peopleware is a book focusing on the human issues of software development, not the technical ones. The book is an excellent read, stuffed with little anecdotes from the authors' past experience with their clients. It has been very influential to me with regards to thinking about my workplace and the things we could do to become a better team (the authors call these "jelled" teams). I also found ideas for a couple of questions I will definitely ask at my next job interview. (I'm not looking for a new employer, BTW.)&lt;/p&gt; &lt;p&gt;Even though Peopleware is not a technical book per se, I strongly encourage you, dear reader, to buy a copy for yourself. The key takeaways will not only help you become a better developer in terms of communication skills, but will also make your life easier once you make the transition into project management. Not only then you would want to make sure your colleagues work in a great environment that actually makes them more productive.&lt;/p&gt; &lt;p&gt;As &lt;a href="http://www.yourdon.com/"&gt;Ed Yourdon&lt;/a&gt;&lt;a href="http://www.joelonsoftware.com/"&gt;&amp;nbsp;&lt;/a&gt;suggests on the back cover, you should not only read the book yourself, but rather buy a copy for &lt;em&gt;your&lt;/em&gt; boss. That's exactly what I did today, along with a note from us developers:&lt;/p&gt; &lt;p style="text-align: center"&gt;&lt;a title="Peopleware" href="http://www.therightstuff.de/content/binary/WindowsLiveWriter/GoodDeedForTheDay_CEBF/Peopleware_4.jpg" rel="lightbox"&gt;&lt;img height="240" alt="Peopleware" src="http://www.therightstuff.de/content/binary/WindowsLiveWriter/GoodDeedForTheDay_CEBF/Peopleware_thumb_1.jpg" width="196" border="0"&gt;&lt;/a&gt;&lt;/p&gt;</Content>
+      <Created>2008-09-12T15:10:01.828125+02:00</Created>
+      <Modified>2008-09-12T15:10:01.828125+02:00</Modified>
+      <EntryId>0a0873d4-8a30-4a49-868d-8434501ea190</EntryId>
+      <Description />
+      <Title>Good Deed For The Day</Title>
+      <Categories>NonTech</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+    <Entry>
+      <Content>&lt;p&gt;Zutaten für 6 Personen:&lt;/p&gt; &lt;ul&gt; &lt;li&gt;220g Hartweizengries&lt;/li&gt; &lt;li&gt;2 Eier&lt;/li&gt; &lt;li&gt;1/2 l Milch&lt;/li&gt; &lt;li&gt;2 EL Zucker&lt;/li&gt; &lt;li&gt;eine Prise Salz&lt;/li&gt; &lt;li&gt;1 Vanilleschote&lt;/li&gt; &lt;li&gt;1 l Orangensaft&lt;/li&gt; &lt;li&gt;1/2 l lieblicher Weißwein&lt;/li&gt; &lt;li&gt;Soßenbinder (hell) oder Mehl zum Andicken&lt;/li&gt; &lt;li&gt;4-5 Orangen&lt;/li&gt;&lt;/ul&gt; &lt;p&gt;Die Milch mit einer Prise Salz, dem Zucker und dem Mark der Vanillaschote kurz aufkochen. Den Gries einrühren bis eine feste Masse entsteht und abkühlen lassen. Anschließend die Eier mit dem Knethaken einrühren. Salzwasser in einem Topf aufkochen. Mit zwei Teelöffeln kleine Klöschen aus der Griesmasse ausstechen und in das Wasser geben. 10-15 Minuten ziehen lassen bis die Klöschen oben schwimmen.&lt;/p&gt; &lt;p&gt;Während die Griesmasse abkühlt: Orangen filetieren (Schale abschneiden, dann das Fruchtfleisch mit einem scharfen Messer herauslösen). Orangensaft und Weißwein in einem Topf aufkochen und andicken.&lt;/p&gt; &lt;p&gt;Zum Servieren die Suppe auf einen Teller geben, dazu 4-5 Griesklöschen und ein paar Orangenfilets obenauf.&lt;/p&gt;</Content>
+      <Created>2008-09-12T15:24:09.921875+02:00</Created>
+      <Modified>2008-09-12T15:24:09.921875+02:00</Modified>
+      <EntryId>20e05ca3-2d28-4f36-9c4a-75da7a1d932b</EntryId>
+      <Description />
+      <Title>Rezept: Orangensuppe</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

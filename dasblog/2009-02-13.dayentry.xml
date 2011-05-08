@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2009-02-13T01:00:00+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;About a month ago I got myself an &lt;a href="http://www.lenovovision.com/lv2/mediaplayer.php?fid=thinkpad_x301_tour"&gt;IBM Lenovo X301 laptop&lt;/a&gt;. It’s the third machine I regularly use: I have a desktop at work, one workstation at home and now there also is the sweet X301. Even with only the second machine at work in place I found it crucial to keep my work environments &lt;em&gt;automatically&lt;/em&gt; in sync. &lt;a href="https://www.mesh.com/"&gt;Live Mesh&lt;/a&gt; has been of great help with that. Despite being a CPU hog at times, it’s a great tool to synchronize your files across machines.&lt;/p&gt;  &lt;p&gt;Now with Remote Desktop Connection files (*.rdp) there is actually a bit more work involved than just syncing files. My workstations both have two monitors and I like Remote Desktop windows to be placed on the second monitor. The laptop, on the other hand just has a single display (surprise!) and less screen real estate. Because of the varying screen resolutions a RDP window on my home workstation will not fit the display area at work without obscuring other UI&amp;#160; elements like the taskbar. On the laptop, the situation gets worse as the display is simply not large enough to fit my default window size of 1500x1024 pixels.&lt;/p&gt;  &lt;p&gt;&lt;img title="Desktops" style="border-top-width: 0px; display: block; border-left-width: 0px; float: none; border-bottom-width: 0px; margin-left: auto; margin-right: auto; border-right-width: 0px" height="188" alt="Desktops" src="http://www.therightstuff.de/content/binary/WindowsLiveWriter/CreatingRemoteDesktopConnectionFilesOnTh_D2B6/Desktops_fa7083d5-3071-4035-8945-be6176652644.png" width="550" border="0" /&gt; &lt;/p&gt;  &lt;p&gt;The dimensions and location of the Remote Desktop window is stored in the plain-text RDP file itself. A conceivable solution might be to create three RDP files per server, one for each of my machines. Actually this would involve touching three files every time I need to change some value for the connection. Horrible.&lt;/p&gt;  &lt;p&gt;Fortunately there is &lt;a href="http://www.microsoft.com/windowsserver2003/technologies/management/powershell/default.mspx"&gt;PowerShell&lt;/a&gt; to the rescue. There’s even a &lt;a href="http://poshcode.org/679"&gt;script&lt;/a&gt; that you can use to create RDP files on the fly. You’ll have to patch line 178 to make it work (see below). Also make the &lt;code&gt;Set-RDPSetting&lt;/code&gt; function global by uncommenting lines 87 and 216.&lt;/p&gt;  &lt;pre class="brush:posh; first-line: 177"&gt;# Old
+$content += @(&amp;quot;${tempname}:$($datatypes[$tempname]):$tempvalue&amp;quot;)
+
+# New
+$content += @(&amp;quot;${tempname}:$($datatypes[$tempname]):$tempvalue&amp;quot; + [System.Environment]::NewLine)&lt;/pre&gt;
+
+&lt;p&gt;Now that we're set to use the &lt;code&gt;&lt;a href="http://poshcode.org/679"&gt;Set-RDPSetting&lt;/a&gt;&lt;/code&gt; function, let us create a script to create a RDP file in the system’s temporary folder. See the highlighted lines below, there are three hashtables:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;$workstations&lt;/code&gt; for your workstations (mine are AXL, FIRIEL and EOWYN), &lt;/li&gt;
+
+  &lt;li&gt;&lt;code&gt;$servers&lt;/code&gt; for the RDP servers you want to connect to and &lt;/li&gt;
+
+  &lt;li&gt;&lt;code&gt;$defaults&lt;/code&gt; for default connection properties. &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre class="brush:posh; highlight: [3, 18, 33]"&gt;. c:\Path\To\Set-RDPSetting.ps1
+
+$workstations = @{
+	'AXL' = @{
+		'desktopwidth' = 1500
+		'desktopheight' = 1024
+		}
+	'FIRIEL' = @{
+		'desktopwidth' = 1300
+		'desktopheight' = 800
+		}
+	'EOWYN' = @{
+		'desktopwidth' = 1300
+		'desktopheight' = 800
+		}
+	}
+	
+$servers = @{
+	'192.168.6.161' = @{
+		'session bpp' = 24
+		'domain' = 'DEVELOPMENT'
+		}
+	'host.with.ssl.certificate' = @{
+		'session bpp' = 24
+		'authentication level' = 2
+		'disable wallpaper' = $true
+		'desktopwidth' = 1280
+		'desktopheight' = 1024
+		}
+	}
+
+# http://dev.remotenetworktechnology.com/ts/rdpfile.htm
+$defaults = @{
+	'allow desktop composition' = $true
+	'allow font smoothing' = $true
+	'alternate shell' = $null
+	'audiomode' = 2
+	'authentication level' = $false
+	'auto connect' = $true
+	'autoreconnection enabled' = $true
+	'bitmapcachepersistenable' = $true
+	'compression' = $true
+	'connect to console' = $false
+	'desktopheight' = $null
+	'desktopwidth' = $null
+	'disable cursor setting' = $false
+	'disable full window drag' = $false
+	'disable menu anims' = $true
+	'disable themes' = $false
+	'disable wallpaper' = $false
+	'displayconnectionbar' = $true
+	'domain' = $null
+	'drivestoredirect' = '*'
+	'full address' = $args[0]
+	'keyboardhook' = 1
+	'maximizeshell' = $false
+	'negotiate security layer' = $true
+	'prompt for credentials' = $false
+	'promptcredentialonce' = $true
+	'redirectclipboard' = $true
+	'redirectcomports' = $false
+	'redirectdrives' = $false
+	'redirectposdevices' = $false
+	'redirectprinters' = $false
+	'redirectsmartcards' = $false
+	'remoteapplicationmode' = $false
+	'screen mode id' = 1
+	'server port' = 3389
+	'session bpp' = 32
+	'shell working directory' = $null
+	'smart sizing' = $true
+	'username' = 'agross' # Does not really matter what's in here.
+	# http://blogs.msdn.com/ts/archive/2008/09/02/specifying-the-ts-client-start-location-on-the-virtual-desktop.aspx
+	'winposstr' = '0,3,2046,129,3086,933'	
+	}&lt;/pre&gt;
+
+&lt;p&gt;Next we check if the local machine has a configuration section in the &lt;code&gt;$workstations&lt;/code&gt; hashtable and the script has been called with parameters.&lt;/p&gt;
+
+&lt;pre class="brush:posh; first-line: 77"&gt;if ($workstations.Keys -inotcontains $Env:ComputerName)
+{
+	&amp;quot;The local computer is not configured.&amp;quot;
+	exit
+}
+
+if ($args -eq $null -or $args.Length -eq 0)
+{
+	&amp;quot;No arguments. Supply the RDP server name as the first argument.&amp;quot;
+	exit
+}&lt;/pre&gt;
+
+&lt;p&gt;Note the &lt;code&gt;Patch-Defaults&lt;/code&gt; function and how we use it to add and replace keys in the &lt;code&gt;$defaults&lt;/code&gt; hashtable. The replacement values come from &lt;code&gt;$workstations&lt;/code&gt; and &lt;code&gt;$servers&lt;/code&gt;, with the server settings having precedence. This way, you can configure the connection profile according to the current machine &lt;em&gt;and&lt;/em&gt; the server to which the connection will be made. Flexibility!&lt;/p&gt;
+
+&lt;pre class="brush:posh; first-line: 89"&gt;function Patch-Defaults
+{
+	param(
+		[Hashtable] $defaults = $(Throw &amp;quot;Defaults hashtable is missing&amp;quot;),
+		[Hashtable] $patch = $(Throw &amp;quot;Patch hashtable is missing&amp;quot;)
+		)
+
+	end
+	{
+		if ($patch -ne $null)
+		{
+			$patch.GetEnumerator() | ForEach-Object { $defaults[$_.Name] = $_.Value }
+		}
+	}
+}	
+
+Patch-Defaults -Defaults $defaults -Patch $workstations[$Env:ComputerName.ToUpper()]
+Patch-Defaults -Defaults $defaults -Patch $servers[$args[0].ToLower()]
+$defaults.GetEnumerator() | Sort-Object -Property Name&lt;/pre&gt;
+
+&lt;p&gt;Now that we have all connection properties in place, we create a temporary connection file from the hashtable key/value pairs and start &lt;strong&gt;mstsc.exe&lt;/strong&gt; with that file.&lt;/p&gt;
+
+&lt;pre class="brush:posh; first-line: 109"&gt;$tempFile = [System.IO.Path]::GetTempFileName()
+$defaults.GetEnumerator() | Sort-Object -Property Name | Set-RDPSetting -Path $tempFile -Name $_ -Value $_
+
+# For debugging purposes.
+#&amp;quot;Temporary file: &amp;quot; + $tempFile
+#Get-Content $tempFile
+#Read-Host
+
+$MstscCommand = $Env:SystemRoot + &amp;quot;\system32\mstsc.exe&amp;quot;
+&amp;amp;$MstscCommand $tempFile&lt;/pre&gt;
+
+&lt;div class="download"&gt;
+  &lt;p&gt;&lt;img class="download" title="Download" style="margin-right: 4px" alt="Download" src="http://www.therightstuff.de/content/binary/Download.gif" /&gt;&lt;a href="http://www.therightstuff.de/download/Open-CustomRDP.zip"&gt;Download Open-CustomRDP.ps1&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;p&gt;How do we use the script we just created?&lt;/p&gt;
+
+&lt;p&gt;You can either create batch files calling the script or use a tool like &lt;a href="http://bayden.com/SlickRun/"&gt;SlickRun&lt;/a&gt; to execute PowerShell with the script.&lt;/p&gt;
+
+&lt;pre class="brush:shell"&gt;@powershell.exe -noprofile -command .\Open-CustomRDP.ps1 your.server.example&lt;/pre&gt;
+
+&lt;p&gt;Another tedious task has been automated!&lt;/p&gt;</Content>
+      <Created>2009-02-13T18:28:51.4525+01:00</Created>
+      <Modified>2009-02-13T18:29:33.765+01:00</Modified>
+      <EntryId>0208191e-13ce-4566-ba91-ade75b145da1</EntryId>
+      <Description />
+      <Title>Creating Remote Desktop Connection Files On The Fly With PowerShell</Title>
+      <Categories>.NET;PowerShell</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

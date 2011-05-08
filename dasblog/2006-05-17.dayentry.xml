@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-05-17T02:00:00+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;Thomas Wölfer &lt;A href="http://www.die.de/blog/PermaLink.aspx?guid=8e3f6a8a-cf92-498b-8a23-8bcb68c3fbe2"&gt;describes how to view the entire source of e-mail messages in Outlook&lt;/A&gt;&amp;nbsp;(in German). This is something I've craving for since I started using Outlook in 2003. Outlook Express provides this functionality for years. I've been suprised that the&amp;nbsp;more complex &lt;A href="http://en.wikipedia.org/wiki/Personal_information_manager"&gt;PIM&lt;/A&gt; needs a registry hack to enable it. This may be due to space considerations since the registry key (see below) indicates that Outlook saves things twice.&lt;/P&gt;
+&lt;P&gt;A quick recap of &lt;A href="http://www.die.de/blog/"&gt;Thomas'&lt;/A&gt; how-to:&lt;/P&gt;
+&lt;OL&gt;
+&lt;LI&gt;Open &lt;STRONG&gt;regedit.exe&lt;/STRONG&gt;&lt;/LI&gt;
+&lt;LI&gt;Browse to the following key:&lt;BR&gt;&lt;PRE&gt;HKEY_CURRENT_USER\Software\Microsoft\Office\11.0\Outlook\Options\Mail&lt;/PRE&gt;If you have an older version of Outlook, replace &lt;CODE&gt;11.0&lt;/CODE&gt; with the &lt;A href="http://support.microsoft.com/?scid=kb%3Ben-us%3B870929&amp;amp;x=5&amp;amp;y=8"&gt;appropriate version number&lt;/A&gt;. I'm not sure if this works on other versions than 2003, but you may give it a try.&lt;/LI&gt;
+&lt;LI&gt;Create a new DWORD value named &lt;CODE&gt;SaveAllMIMENotJustHeaders&lt;/CODE&gt; and give it a value of 1&lt;/LI&gt;
+&lt;LI&gt;Close the Registry Editor&lt;/LI&gt;
+&lt;LI&gt;Restart Outlook&lt;/LI&gt;&lt;/OL&gt;
+&lt;P&gt;You'll be able to view the complete source of all&amp;nbsp;e-mail messages received after the registry key has been set. Right-click a mail&amp;nbsp;item and choose "Options..." from the context menu. The source code is displayed in the lower part of the window.&lt;/P&gt;
+&lt;P align=center&gt;&lt;IMG title="Outlook View Source" height=431 alt="Outlook View Source" src="http://www.it99.org/axl/content/binary/Outlook%20View%20Source.png" width=566 border=0&gt;&lt;/P&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;A href="http://www.music-map.de/madonna.html"&gt;Madonna&lt;/A&gt; - &lt;A href="http://www.amazon.com/exec/obidos/ASIN/B000B8QEZG/therightstu0e-20"&gt;Confessions on a dance floor&lt;/A&gt; - I love New York&lt;/P&gt;</Content>
+      <Created>2006-05-17T20:33:51.007+02:00</Created>
+      <Modified>2008-10-15T15:44:36.140625+02:00</Modified>
+      <EntryId>7887bd40-56f2-4e68-a2e0-53cf68d6137d</EntryId>
+      <Description />
+      <Title>View Source in Outlook</Title>
+      <Categories>Office;Tools and Software</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>false</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-12-16T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;The main computer department (&lt;A href="http://www.uni-leipzig.de/urz/"&gt;computing centre&lt;/A&gt;) of the University of Leipzig has a rather exceptional password policy. The error&amp;nbsp;message on top says the the password I tried to set is too &lt;EM&gt;long&lt;/EM&gt;, i.e. it must not be longer than 8 characters.&lt;/P&gt;
+&lt;P align=center&gt;&lt;IMG alt="Password is too long" src="http://www.it99.org/axl/content/binary/Password%20Too%20Long.png" border=0&gt;&lt;/P&gt;
+&lt;P&gt;Update: As Karsten pointed out this is due some legacy Solaris system the users accounts were migrated from.&lt;/P&gt;</Content>
+      <Created>2005-12-16T22:29:39.5530000+01:00</Created>
+      <Modified>2005-12-20T18:04:46.9542663+01:00</Modified>
+      <EntryId>97d1313e-94e0-4d18-a7bb-fda43ef3e052</EntryId>
+      <Description />
+      <Title>A Computer Department's Strange Password Policy</Title>
+      <Categories>Geek Mode</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

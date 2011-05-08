@@ -1,0 +1,340 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2010-03-28T01:00:00+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;&lt;a href="http://whygitisbetterthanx.com"&gt;For obvious reasons&lt;/a&gt;, a couple weeks ago my team made the switch to Git. Hosting a Git server on Windows is by all means possible, and there are two options:&lt;/p&gt;  &lt;ol&gt;   &lt;li&gt;&lt;a href="http://eagain.net/gitweb/?p=gitosis.git"&gt;Gitosis&lt;/a&gt; is a Python-based solution that provides basic Git hosting with per-repository permissions. &lt;a href="http://www.shannoncornish.com/"&gt;Shannon Cornish&lt;/a&gt; has an excellent &lt;a href="http://www.shannoncornish.com/blog/2009/04/git-server-windows-2008/"&gt;two&lt;/a&gt;-&lt;a href="http://www.shannoncornish.com/blog/2009/04/gitosis-windows-server-2008/"&gt;part&lt;/a&gt; guide how to set that up. &lt;/li&gt;    &lt;li&gt;&lt;a href="http://github.com/sitaramc/gitolite"&gt;Gitolite&lt;/a&gt;, a Perl-based rewrite of Gitosis, is a more advanced Git server that has &lt;a href="http://github.com/sitaramc/gitolite/blob/master/doc/progit-article.mkd"&gt;a lot more configuration options&lt;/a&gt;. For example, it’s possible to specify who is able to force a push to a Git branch, an operation that is possibly problematic when working in teams. &lt;/li&gt; &lt;/ol&gt;  &lt;p&gt;A notable aspect of both solutions is that repository configuration and permissions management is done through Git itself. Over time, you will build a versioned history of the server configuration. Without further ado, let’s get started!&lt;/p&gt;  &lt;h3&gt;Contents&lt;/h3&gt;  &lt;p&gt;You’ll see that we have to deal with Cygwin and SSH mostly. Gitolite’s installation is pretty easy and does not require a lot of work by itself. Getting the Windows Server in a condition where it handles SSH takes most of our time.&lt;/p&gt;  &lt;ol&gt;   &lt;li&gt;&lt;a href="#cygwin"&gt;Installing Cygwin&lt;/a&gt; &lt;/li&gt;    &lt;li&gt;&lt;a href="#cyglsa"&gt;Connecting Cygwin to Windows Security&lt;/a&gt; &lt;/li&gt;    &lt;li&gt;&lt;a href="#ssh-install"&gt;Setting Up the SSH Server&lt;/a&gt; &lt;/li&gt;    &lt;li&gt;&lt;a href="#ssh-client-access"&gt;Enabling SSH Client Access&lt;/a&gt; &lt;/li&gt;    &lt;li&gt;&lt;a href="#ssh-password"&gt;Verifying SSH Password Access&lt;/a&gt;       &lt;ol&gt;       &lt;li&gt;&lt;a href="#ssh-identity"&gt;Creating Your SSH Identity&lt;/a&gt; &lt;/li&gt;     &lt;/ol&gt;   &lt;/li&gt;    &lt;li&gt;&lt;a href="#ssh-public-key"&gt;Making the SSH Server Aware of Your SSH Identity&lt;/a&gt; &lt;/li&gt;    &lt;li&gt;&lt;a href="#gitolite"&gt;Installing Gitolite&lt;/a&gt; &lt;/li&gt; &lt;/ol&gt;  &lt;hr /&gt;  &lt;h3&gt;What You Need&lt;/h3&gt;  &lt;ol&gt;   &lt;li&gt;A Windows Server (I’m using Windows Server 2008 x86) with permissions to log in as an Administrator. &lt;/li&gt;    &lt;li&gt;An internet connection to download Cygwin. &lt;/li&gt; &lt;/ol&gt;  &lt;h3 id="cygwin"&gt;Installing Cygwin&lt;/h3&gt;  &lt;ol&gt;   &lt;li&gt;Download the Cygwin setup program to C:\Cygwin and launch it. For this guide, I’ve used the current version 1.7.2. &lt;/li&gt;    &lt;li&gt;Select “Install from Internet”, click Next. &lt;/li&gt;    &lt;li&gt;Leave Root Directory as the default, C:\Cygwin, and install for all users. Click Next. &lt;/li&gt;    &lt;li&gt;Select C:\Cygwin\pkg as the Local Package Directory. Actually it doesn’t really matter what the directory is, you can delete it after the installation. Click Next. &lt;/li&gt;    &lt;li&gt;Select the Internet Connection you prefer: Direct, IE Settings or enter a manual proxy. Click Next. &lt;/li&gt;    &lt;li&gt;Select a mirror near your location, click Next. &lt;/li&gt;    &lt;li&gt;Acknowledge the “Setup Alert” warning about your installation. &lt;/li&gt;    &lt;li&gt;In the packages list, select the following packages by clicking on “Skip” text in the “New” column. When you clicked, the version that will be installed is displayed instead of “Skip”.      &lt;ul&gt;       &lt;li&gt;Net | openssh &lt;/li&gt;        &lt;li&gt;Devel | git &lt;/li&gt;     &lt;/ul&gt;   &lt;/li&gt;    &lt;li&gt;Click Next and wait for the installer to complete. &lt;/li&gt;    &lt;li&gt;You may choose to add icons to the Desktop and Start Menu. Click Complete. &lt;/li&gt; &lt;/ol&gt;  &lt;p&gt;I recommend leaving the setup.exe in place, as you can use the installer to add, remove or upgrade Cygwin packages later.&lt;/p&gt;  &lt;p&gt;Repeat the process on your local machine, this time with an extended set of packages to install:&lt;/p&gt;  &lt;ul&gt;   &lt;li&gt;Net | openssh &lt;/li&gt;    &lt;li&gt;Devel | git &lt;/li&gt;    &lt;li&gt;Devel | git-completion &lt;/li&gt;    &lt;li&gt;Devel | git-gui &lt;/li&gt;    &lt;li&gt;Devel | git-svn (if you want to commit to SVN) &lt;/li&gt;    &lt;li&gt;Devel | gitk &lt;/li&gt;    &lt;li&gt;Editors | vim &lt;/li&gt; &lt;/ul&gt;  &lt;h3 id="cyglsa"&gt;Connecting Cygwin to Windows Security&lt;/h3&gt;  &lt;p&gt;In preparation for the SSH server installation in the next section, we need to provide Cygwin with means to impersonate a SSH user as a Windows user with public key authentication. You can read more about &lt;a href="http://www.cygwin.com/cygwin-ug-net/ntsec.html#ntsec-nopasswd1"&gt;integrating with Windows Security&lt;/a&gt; in the Cygwin documentation.&lt;/p&gt;  &lt;ol&gt;   &lt;li&gt;On the server, open C:\Cygwin in Explorer. &lt;/li&gt;    &lt;li&gt;Locate Cygwin.bat, right-click and choose “Run as Administrator”.      &lt;pre class="brush: plain;"&gt;Copying skeleton files.
+These files are for the user to personalise their cygwin experience.
+
+They will never be overwritten nor automatically updated.
+
+`./.bashrc' -&amp;gt; `/home/Administrator//.bashrc'
+`./.bash_profile' -&amp;gt; `/home/Administrator//.bash_profile'
+`./.inputrc' -&amp;gt; `/home/Administrator//.inputrc'
+
+Administrator@GIT-SERVER ~
+$&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Execute &lt;code&gt;/bin/cyglsa-config&lt;/code&gt; 
+
+    &lt;pre class="brush: plain;"&gt;Warning: Registering the Cygwin LSA authentication package requires
+administrator privileges!  You also have to reboot the machine to
+activate the change.
+
+Are you sure you want to continue? (yes/no)&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Type &lt;code&gt;yes&lt;/code&gt;. 
+
+    &lt;pre class="brush: plain;"&gt;Cygwin LSA authentication package registered.
+
+Activating Cygwin's LSA authentication package requires to reboot.&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Reboot the machine. &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id="ssh-install"&gt;Setting Up the SSH Server&lt;/h3&gt;
+
+&lt;p&gt;SSH will encrypt and authenticate connections to your Git repositories. SSH will use public key authentication to check if the user is permitted to access the server. Once the user got past the SSH security check Gitolite will take over handling the request.&lt;/p&gt;
+
+&lt;p&gt;When the Git server finished rebooting:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Open a new Cygwin Bash prompt by running C:\Cygwin\Cygwin.bat as Administrator. &lt;/li&gt;
+
+  &lt;li&gt;Execute &lt;code&gt;ssh-host-config&lt;/code&gt; 
+
+    &lt;pre class="brush: plain;"&gt;Administrator@GIT-SERVER ~
+$ ssh-host-config
+*** Info: Generating /etc/ssh_host_key
+*** Info: Generating /etc/ssh_host_rsa_key
+*** Info: Generating /etc/ssh_host_dsa_key
+*** Info: Creating default /etc/ssh_config file
+*** Info: Creating default /etc/sshd_config file
+*** Info: Privilege separation is set to yes by default since OpenSSH 3.3.
+*** Info: However, this requires a non-privileged account called 'sshd'.
+*** Info: For more info on privilege separation read /usr/share/doc/openssh/README.privsep.
+*** Query: Should privilege separation be used? (yes/no)&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Type &lt;code&gt;yes&lt;/code&gt;. 
+
+    &lt;pre class="brush: plain;"&gt;*** Info: Note that creating a new user requires that the current account have
+*** Info: Administrator privileges.  Should this script attempt to create a
+*** Query: new local account 'sshd'? (yes/no)&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Type &lt;code&gt;yes&lt;/code&gt;. 
+
+    &lt;pre class="brush: plain;"&gt;*** Info: Updating /etc/sshd_config file
+
+
+*** Warning: The following functions require administrator privileges!
+
+*** Query: Do you want to install sshd as a service?
+*** Query: (Say &amp;quot;no&amp;quot; if it is already installed as a service) (yes/no)&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Type &lt;code&gt;yes&lt;/code&gt;. 
+
+    &lt;pre class="brush: plain;"&gt;*** Query: Enter the value of CYGWIN for the daemon: []&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Type &lt;code&gt;tty&lt;/code&gt;. 
+
+    &lt;pre class="brush: plain;"&gt;*** Info: On Windows Server 2003, Windows Vista, and above, the
+*** Info: SYSTEM account cannot setuid to other users -- a capability
+*** Info: sshd requires.  You need to have or to create a privileged
+*** Info: account.  This script will help you do so.
+
+*** Info: You appear to be running Windows 2003 Server or later.  On 2003
+*** Info: and later systems, it's not possible to use the LocalSystem
+*** Info: account for services that can change the user id without an
+*** Info: explicit password (such as passwordless logins [e.g. public key
+*** Info: authentication] via sshd).
+
+*** Info: If you want to enable that functionality, it's required to create
+*** Info: a new account with special privileges (unless a similar account
+*** Info: already exists). This account is then used to run these special
+*** Info: servers.
+
+*** Info: Note that creating a new user requires that the current account
+*** Info: have Administrator privileges itself.
+
+*** Info: No privileged account could be found.
+
+*** Info: This script plans to use 'cyg_server'.
+*** Info: 'cyg_server' will only be used by registered services.
+*** Query: Do you want to use a different name? (yes/no)&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Type &lt;code&gt;no&lt;/code&gt;. 
+
+    &lt;pre class="brush: plain;"&gt;*** Query: Create new privileged user account 'cyg_server'? (yes/no)&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Type &lt;code&gt;yes&lt;/code&gt;. 
+
+    &lt;pre class="brush: plain;"&gt;*** Info: Please enter a password for new user cyg_server.  Please be sure
+*** Info: that this password matches the password rules given on your system.
+*** Info: Entering no password will exit the configuration.
+*** Query: Please enter the password:&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Type and confirm a &lt;em&gt;secure&lt;/em&gt; password for the SSH service account. This account will later fork processes on behalf of the user logged in via SSH. You will see another slew of text (which you should read) and then a blinking prompt. &lt;/li&gt;
+
+  &lt;li&gt;Open the Windows Firewall and create an exception for port 22/tcp. &lt;/li&gt;
+
+  &lt;li&gt;Execute &lt;code&gt;sc start sshd&lt;/code&gt; &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id="ssh-client-access"&gt;Enabling SSH Client Access&lt;/h3&gt;
+
+&lt;p&gt;Next we will enable SSH access for the &lt;em&gt;git&lt;/em&gt; user that will be used to access repositories. &lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Create a new Windows user account named &lt;em&gt;git&lt;/em&gt; with a &lt;em&gt;secure&lt;/em&gt; password. That user should have no password expiration. You can also delete any group membership. &lt;/li&gt;
+
+  &lt;li&gt;In the Cygwin Bash prompt, execute &lt;code&gt;mkpasswd -l -u git &amp;gt;&amp;gt; /etc/passwd&lt;/code&gt; &lt;/li&gt;
+
+  &lt;li&gt;Close the Bash prompt (Ctrl + D) and log off from that machine. The rest of the setup process will be done from your machine. &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id="ssh-password"&gt;Verifying SSH Password Access&lt;/h3&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;On your workstation, open a Cygwin shell. &lt;/li&gt;
+
+  &lt;li&gt;Execute &lt;code&gt;ssh git@git-server&lt;/code&gt; 
+
+    &lt;pre class="brush: plain;"&gt;you@YOUR-MACHINE ~
+$ ssh git@git-server
+The authenticity of host 'git-server (172.16.0.42)' can't be established.
+RSA key fingerprint is 13:16:ba:00:d3:ac:d6:f2:bf:36:f4:28:df:fc:d5:26.
+Are you sure you want to continue connecting (yes/no)?&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Type &lt;code&gt;yes&lt;/code&gt;. 
+
+    &lt;pre class="brush: plain;"&gt;Warning: Permanently added 'git-server,172.16.0.42' (RSA) to the list of known hosts.
+git@git-server's password:&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Enter the password for the &lt;em&gt;git&lt;/em&gt; account and you will be presented with a prompt from git-server. 
+
+    &lt;pre class="brush: plain;"&gt;Copying skeleton files.
+These files are for the user to personalise their cygwin experience.
+
+They will never be overwritten nor automatically updated.
+
+`./.bashrc' -&amp;gt; `/home/git//.bashrc'
+`./.bash_profile' -&amp;gt; `/home/git//.bash_profile'
+`./.inputrc' -&amp;gt; `/home/git//.inputrc'
+
+git@git-server ~
+$ &lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Press Ctrl + D or execute &lt;code&gt;logout&lt;/code&gt; to end the session and you’ll be back on your machine’s prompt. &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h4 id="ssh-identity"&gt;Creating Your SSH Identity&lt;/h4&gt;
+
+&lt;p&gt;The next steps to create a SSH identity are optional and only required if you do not already have one, for example to access GitHub. Execute the following commands on your local machine.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;We’re about to generate a private and public key pair for you that will be used to authenticate SSH connections. Execute &lt;code&gt;ssh-user-config&lt;/code&gt; 
+
+    &lt;pre class="brush: plain;"&gt;*** Query: Shall I create an SSH1 RSA identity file for you? (yes/no)&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Type &lt;code&gt;no&lt;/code&gt;. 
+
+    &lt;pre class="brush: plain;"&gt;*** Query: Shall I create an SSH2 RSA identity file for you? (yes/no)&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Type &lt;code&gt;yes&lt;/code&gt;. 
+
+    &lt;pre class="brush: plain;"&gt;*** Info: Generating /home/agross/.ssh/id_rsa
+Enter passphrase (empty for no passphrase):&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Type and confirm a passphrase. You can omit the passphrase if you want, but that makes you less secure when you loose your private key file. 
+    &lt;pre class="brush: plain;"&gt;*** Query: Do you want to use this identity to login to this machine? (yes/no)&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Type &lt;code&gt;no&lt;/code&gt;. (Unless you want to remotely log in to your workstation with that key. Don't worry, this can be enabled later.) 
+
+    &lt;pre class="brush: plain;"&gt;*** Query: Shall I create an SSH2 DSA identity file for you? (yes/no)&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Type &lt;code&gt;no&lt;/code&gt;. 
+
+    &lt;pre class="brush: plain;"&gt;*** Info: Configuration finished. Have fun!&lt;/pre&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id="ssh-public-key"&gt;Making the SSH Server Aware of Your SSH Identity&lt;/h3&gt;
+
+&lt;p&gt;In order to be able to log-in to the Git server as the &lt;em&gt;git&lt;/em&gt; user using your SSH identity, execute &lt;code&gt;ssh-copy-id git@git-server&lt;/code&gt;. This adds your public key to the list of authorized keys for the &lt;em&gt;git&lt;/em&gt; account.&lt;/p&gt;
+
+&lt;pre class="brush: plain;"&gt;you@YOUR-MACHINE ~
+$ ssh-copy-id git@git-server
+git@git-server's password:
+Now try logging into the machine, with &amp;quot;ssh 'git@git-server'&amp;quot;, and check in:
+
+  .ssh/authorized_keys
+
+to make sure we haven't added extra keys that you weren't expecting.&lt;/pre&gt;
+
+&lt;p&gt;Verifying that public key authentication works, on the next log-in you do not have to enter git@git-server’s password.&lt;/p&gt;
+
+&lt;pre class="brush: plain;"&gt;you@YOUR-MACHINE ~
+$ ssh git@gitserver
+Last login: Fri Mar 26 02:04:40 2010 from your-machine
+
+git@git-server ~
+$&lt;/pre&gt;
+
+&lt;p&gt;You are now ready to install Gitolite!&lt;/p&gt;
+
+&lt;h3 id="gitolite"&gt;Installing Gitolite&lt;/h3&gt;
+
+&lt;p&gt;You can install Gitolite in two ways:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;User install 
+    &lt;br /&gt;Installs Gitolite remotely from your workstation. Upgrades to newer versions of Gitolite are easy and are run like the first-time installation. That is, you can just repeat the process outlined below, probably with a new Gitolite version. This installation method requires a SSH login, but we’ve just set-up things this way. &lt;/li&gt;
+
+  &lt;li&gt;System install 
+    &lt;br /&gt;Installs Gitolite on the server. Consider that the typical Windows installation where you have to RDP into the server and run things locally. The process is documented &lt;a href="http://github.com/sitaramc/gitolite/blob/master/doc/0-INSTALL.mkd"&gt;in the Gitolite docs&lt;/a&gt;. &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Next, we’re going to install remotely using the user install method.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Open a Cygwin shell on your workstation. &lt;/li&gt;
+
+  &lt;li&gt;Change into the temporary directory be executing &lt;code&gt;cd /tmp&lt;/code&gt; &lt;/li&gt;
+
+  &lt;li&gt;Next, clone the Gitolite repository from GitHub by executing &lt;code&gt;git clone git://github.com/sitaramc/gitolite.git&lt;/code&gt; &lt;/li&gt;
+
+  &lt;li&gt;Change into the directory containing the Gitolite installer by executing &lt;code&gt;cd gitolite/src&lt;/code&gt; &lt;/li&gt;
+
+  &lt;li&gt;&lt;strike&gt;As of the time of writing, the Gitolite &lt;em&gt;master&lt;/em&gt; branch (the one you just cloned and checked-out) contains a bug preventing successful installation on Cygwin systems. We have to switch to the &lt;em&gt;pu&lt;/em&gt; branch, which contains the fix. Execute &lt;code&gt;git checkout -b pu --track origin/pu&lt;/code&gt;&lt;/strike&gt; (Update: The fix is now in the &lt;em&gt;master&lt;/em&gt; branch.)&lt;/li&gt;
+
+  &lt;li&gt;&lt;strike&gt;Verify that you’re on the &lt;em&gt;pu&lt;/em&gt; branch, the asterisk should be in front of the &lt;code&gt;pu&lt;/code&gt; line. &lt;/strike&gt;
+
+    &lt;pre class="brush: plain;"&gt;$ git branch
+  master
+* pu&lt;/pre&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Install Gitolite for the &lt;em&gt;git&lt;/em&gt; user by executing &lt;code&gt;./gl-easy-install git git-server your-name&lt;/code&gt; 
+
+    &lt;br /&gt;Optional: Execute &lt;code&gt;./gl-easy-install&lt;/code&gt; to see a list of command line options. 
+
+    &lt;br /&gt;&lt;code&gt;your-name&lt;/code&gt; is your name as it will appear in the eventual Gitolite configuration. I went with &lt;em&gt;agross&lt;/em&gt;. &lt;/li&gt;
+
+  &lt;li&gt;You will be guided through the installation of Gitolite with every step being explained to you. &lt;/li&gt;
+
+  &lt;li&gt;When you’re at the step which starts with &lt;em&gt;the gitolite rc file needs to be edited by hand&lt;/em&gt; and you hit Return, you will be taken to the &lt;a href="http://en.wikipedia.org/wiki/Vim_%28text_editor%29"&gt;Vim&lt;/a&gt; editor. 
+
+    &lt;ol&gt;
+      &lt;li&gt;In the editor, press the letter &lt;em&gt;i&lt;/em&gt; to enter Vim’s insert mode. &lt;/li&gt;
+
+      &lt;li&gt;Right at the top of the file, insert the following line: &lt;code&gt;$ENV{PATH} = &amp;quot;/usr/local/bin:/bin:/usr/bin&amp;quot;;&lt;/code&gt; 
+
+        &lt;br /&gt;This is Cygwin-specific to work around some path related issues. &lt;/li&gt;
+
+      &lt;li&gt;Press ESC to leave Vim’s insert mode. &lt;/li&gt;
+
+      &lt;li&gt;Type &lt;code&gt;:w&lt;/code&gt; and hit Return to save the file. &lt;/li&gt;
+
+      &lt;li&gt;Apply any changes to the well-commented configuration you want to make. 
+        &lt;br /&gt;You can navigate using the cursor keys, and enter insert mode by pressing &lt;em&gt;i&lt;/em&gt; again. Leave insert mode by hitting ESC. &lt;/li&gt;
+
+      &lt;li&gt;Type &lt;code&gt;:wq&lt;/code&gt; and hit Return to save the file and exit Vim.&amp;#160; To dismiss any changes made in the last step and exit Vim, type &lt;code&gt;:q!&lt;/code&gt; and hit the Return key. &lt;/li&gt;
+    &lt;/ol&gt;
+  &lt;/li&gt;
+
+  &lt;li&gt;Continue the installation. &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Once the installation is finished, you will find the &lt;em&gt;gitolite-admin&lt;/em&gt; repository in your home directory. &lt;/p&gt;
+
+&lt;p&gt;To add repositories or change permissions on existing repositories, please refer to the &lt;a href="http://github.com/sitaramc/gitolite/blob/master/doc/2-admin.mkd"&gt;Gitolite documentation&lt;/a&gt;. The process uses Git itself, which is awesome:&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Make changes to your copy of the gitolite-admin repository in your home directory. &lt;/li&gt;
+
+  &lt;li&gt;Commit changes locally. &lt;/li&gt;
+
+  &lt;li&gt;Push to the Gitolite server and let it handle the updated configuration. &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3&gt;Wrapping Up&lt;/h3&gt;
+
+&lt;p&gt;This guide as been pretty long, longer than I wish it had been. Following &lt;a href="http://www.shannoncornish.com/blog/2009/04/git-server-windows-2008/"&gt;Shannon Cornish’s example&lt;/a&gt;, I wanted it to be rather too verbose than too short. At least, I did appreciate the detail of Shannon’s instructions when I installed Gitosis back in December. I’ve just begun to grasp the power of Unix – leveraging a set of tiny programs to orchestrate a system.&lt;/p&gt;
+
+&lt;p&gt;With the setup you have now in place, you can do anything you like – it’s a complete Git server. However, if you want to publish your server on the internet there’s more you will want to take care of. I will go into that in a future post, detailing some of Cygwin’s security features that helped us reduce the number of attacks on our server. Also, I will take a look at how you can enable the &lt;a href="https://git.wiki.kernel.org/index.php/Gitweb"&gt;Gitweb&lt;/a&gt; Repository Browser using the &lt;a href="http://www.lighttpd.net/"&gt;lighttpd&lt;/a&gt; web server.&lt;/p&gt;</Content>
+      <Created>2010-03-28T16:48:18.651+02:00</Created>
+      <Modified>2010-06-16T09:56:33.117+02:00</Modified>
+      <EntryId>b969ea4d-8d2c-42af-9806-de3631f4df68</EntryId>
+      <Description />
+      <Title>How To Set Up A Git Server On Windows Using Cygwin And Gitolite</Title>
+      <Categories>Git</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

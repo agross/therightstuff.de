@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-01-23T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;Microsoft has released&amp;nbsp;&lt;A href="http://www.microsoft.com/downloads/details.aspx?FamilyId=04A563D9-78D9-4342-A485-B030AC442084"&gt;a nifty&amp;nbsp;add-in&lt;/A&gt;&amp;nbsp;for &lt;A href="http://www.microsoft.com/windowsserver2003/default.mspx"&gt;Windows Server 2003&lt;/A&gt; making it possible to show users only those shares that they are allowed to access. The calculation incorporates&amp;nbsp;folder share rights &lt;EM&gt;and&lt;/EM&gt; NTFS rights which means that even objects within folders are filtered out.&lt;/P&gt;
+&lt;P&gt;[Via &lt;A href="http://www.orschel.info/index.php?op=ViewArticle&amp;amp;articleId=93&amp;amp;blogId=1"&gt;orschel.info&lt;/A&gt;]&lt;/P&gt;
+&lt;P class="now-playing"&gt;Now playing: Audio Lotion - Advanced Skin Care - 90 60 90&lt;/P&gt;</Content>
+      <Created>2006-01-23T22:33:18.4485663+01:00</Created>
+      <Modified>2006-01-23T22:33:18.4485663+01:00</Modified>
+      <EntryId>c022e691-ece7-4eac-a76c-7cfe59afaa80</EntryId>
+      <Description />
+      <Title>Windows Server 2003 Access-based Enumeration</Title>
+      <Categories>Tools and Software;Windows</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+    <Entry>
+      <Content>&lt;p&gt;I often see SQL Server 2000 installations where the server is left running under the SYSTEM account.&amp;nbsp;This is not a good idea because if SQL Server gets compromised, the attacker will have full control over the machine. Even if the server is running&amp;nbsp;under an account with Administrator or Power User rights&amp;nbsp;similar risks arise. If the account in question is a domain account, the attacker will have access to other systems of your organization as well.&lt;/p&gt;
+&lt;p&gt;I suspect the root cause for these often-seen SYSTEM-level instances lies in the fact that the SQL Server 2000 setup program suggests running the SQL Server services under the SYSTEM account.&lt;/p&gt;
+&lt;p&gt;There are actually ways to run SQL Server 2000 under a Limited User Account without having to sacrifice functionality. The administrative tools of Windows and SQL Server will help you to accomplish better security for your server. The settings made below may be applied earlier during the setup program. However, I'll describe how to change them after the installation has finished.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;Create a new local or domain account to be used just for SQL Server.&lt;br&gt;&lt;/strong&gt;&lt;a title="Create a New User" href="http://www.it99.org/axl/content/binary/SQL2000%20Create%20User.png" rel="lightbox"&gt;&lt;img style="float: left; margin-bottom: 10px; margin-right: 10px;" alt="Create a New User" src="http://www.it99.org/axl/content/binary/SQL2000%20Create%20User%20small.png" border="0"&gt;&lt;/a&gt;Open MMC or AD User Management to create a new user. Use the default naming convention deployed in your organization. This will it make more difficult to hackers that are trying to identify the account (I'll use smeier/Susanne Meier as an example). Set the password to never expire and revoke the right to change the password. Use a strong password containing numbers and special characters.&lt;br clear="all"&gt;
+&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Remove default group membership.&lt;/strong&gt;&lt;br&gt;&lt;a title="Remove New User from Users Group" href="http://www.it99.org/axl/content/binary/SQL2000%20Remove%20From%20User%20Group.png" rel="lightbox"&gt;&lt;img style="float: left; margin-bottom: 10px; margin-right: 10px;" alt="Remove New User from Users Group" src="http://www.it99.org/axl/content/binary/SQL2000%20Remove%20From%20User%20Group%20small.png" border="0"&gt;&lt;/a&gt;Newly created accounts are members of the User group by default. Remove this membership, it won't be needed. This also prevents interactive logons using this account.&lt;br clear="all"&gt;
+&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Tell SQL Server to use the newly created account.&lt;/strong&gt;&lt;br&gt;&lt;a title="Set new SQL Server Account" href="http://www.it99.org/axl/content/binary/SQL2000%20Set%20new%20SQL%20Server%20Account.png" rel="lightbox"&gt;&lt;img style="float: left; margin-bottom: 10px; margin-right: 10px;" alt="Set new SQL Server Account" src="http://www.it99.org/axl/content/binary/SQL2000%20Set%20new%20SQL%20Server%20Account%20small.png" border="0"&gt;&lt;/a&gt;Open the Enterprise Manager, select the SQL Server instance you want to secure. Right-click, select Properties and go to the Security tab. On the bottom you'll see the account settings. Enter the name of the newly created account and the password.&lt;br clear="all"&gt;
+&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Let&amp;nbsp;Enterprise Manager modify the rights for the&amp;nbsp;service account.&lt;/strong&gt;&lt;br&gt;After clicking the OK button Enterprise Manager (SQLEM) will grant the rights&amp;nbsp;required to run the SQL Server service to your SQL Server account. The SQL services will be restarted during this process.
+&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Set&amp;nbsp;the NTFS rights on your database files.&lt;/strong&gt;&lt;br&gt;&lt;a title="Modify NTFS Rights" href="http://www.it99.org/axl/content/binary/SQL2000%20Modify%20NTFS%20Rights.png" rel="lightbox"&gt;&lt;img style="float: left; margin-bottom: 10px; margin-right: 10px;" alt="Modify NTFS Rights" src="http://www.it99.org/axl/content/binary/SQL2000%20Modify%20NTFS%20Rights%20small.png" border="0"&gt;&lt;/a&gt;The SQL Server account needs change rights on the &lt;strong&gt;*.mdf&lt;/strong&gt; and &lt;strong&gt;*.ldf&lt;/strong&gt; files of your databases. SQLEM will modify the rights of the &lt;strong&gt;&amp;lt;SQL Server Path&amp;gt;\MSSQL\Data&lt;/strong&gt; directory automatically, which is the default path for new databases. For all databases outside this folder you will have to modify the rights manually using the File Properties Dialog.&lt;br clear="all"&gt;
+&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Restart SQL services.&lt;/strong&gt;&lt;br&gt;This step is only needed if you had to set NTFS rights manually in step 5.
+&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Verify that all databases are working.&lt;/strong&gt;&lt;br&gt;Use SQLEM and/or the&amp;nbsp;Windows Event Log to check that all databases could be loaded successfully. If errors occur, it's likely that NTFS rights are set incorrectly, i.e. the datebase files&amp;nbsp;are inaccessible.&lt;/li&gt;&lt;/ol&gt;
+&lt;p&gt;That's it. Your SQL Server instance is now running with limited rights. In case an attacker is able to gain access to the server he will be constrained in his abominable deeds. A side note: This makes sense on development machines too. Deploying security not only on production servers is key to best practice development.&lt;/p&gt;
+&lt;p&gt;Happy SQL'ing!&lt;/p&gt;</Content>
+      <Created>2006-01-23T18:25:48.2280000+01:00</Created>
+      <Modified>2006-12-16T20:38:09.1533188+01:00</Modified>
+      <EntryId>fa311589-8e7c-4be1-aa9f-43d3051acdf3</EntryId>
+      <Description />
+      <Title>Running SQL Server 2000 with Limited Rights</Title>
+      <Categories>SQL Server</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

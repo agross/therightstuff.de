@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-10-26T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;P&gt;Yesterday I had an interesting discussion on software&amp;nbsp;usability&amp;nbsp;with Robert. We focussed on operation systems, especially Mac OS X vs. Windows. Neither of us has deep knowledge of Linux, so we just didn't talk about it.&lt;/P&gt;
+&lt;P&gt;Robert stated that when you've got a Mac you just plug in some kind of hardware and it just works. Unlike as in Windows, no driver needs to be installed and as the OS recognized the new piece of hardware it will happily get along with it. On Windows you have to install drivers and pray that the systems doesn't stop working when the new hardware is initialized.&lt;/P&gt;
+&lt;P&gt;To my understanding the principles of &lt;A href="http://en.wikipedia.org/wiki/Plug-n-play"&gt;Plug-n-Play&lt;/A&gt; are the same on all operating systems. The implementation might differ, but the interface a PnP device sees and leverages is the same. Installing drivers on a OS is a crucial necessity as no OS vendor will be able to include drivers for &lt;EM&gt;all&lt;/EM&gt; devices that are available. So I won't agree to the statement that Macs don't need drivers.&lt;/P&gt;
+&lt;P&gt;The &lt;A href="http://en.wikipedia.org/wiki/Apple_Macintosh"&gt;Mac hardware platform&lt;/A&gt; has been pretty closed during the last years. Apple&amp;nbsp;had almost&amp;nbsp;full control over their hardware and software, so they were able to create a performant OS that comes with a bunch of good-looking eye candy. Windows, on the other hand, tries to reach a far broader hardware market. One may assemble a custom PC and install Windows on it; it's supposed to run.&amp;nbsp;Microsoft had to make sure that the core OS is compatible with a wide set of PC hardware. That definitely is a task hard to achieve when you keep in mind the many possible hardware combinations. It's all about a well defined &lt;A href="http://en.wikipedia.org/wiki/Windows_Driver_Model"&gt;driver architecture&lt;/A&gt; and isolating OS code from device drivers (this is not always possible and/or performant).&lt;/P&gt;
+&lt;P&gt;Microsoft does not write all drivers for their OS. To protect against possibly bogus hardware drivers they set up the &lt;A href="http://en.wikipedia.org/wiki/WHQL"&gt;WHQL&lt;/A&gt; certification program. A WHQL certified driver was &lt;A href="http://www.microsoft.com/whdc/whql/default.mspx"&gt;tested&lt;/A&gt; by Microsoft and is supposed to be running stable. MS even&amp;nbsp;adds a digital certificate to these drivers as this will prevent displaying the warning message when an uncertified driver is installed. However, the user usually wants to get the hardware to work, so who has ever clicked "Stop installation" when such a message box appeared? Microsoft cannot prevent you from installing those drivers, but you have to keep in mind that this might introduce &lt;A href="http://en.wikipedia.org/wiki/Blue_screen_of_death"&gt;BSODs&lt;/A&gt; by doing so.&lt;/P&gt;
+&lt;P&gt;Also, every software written by human beings will be prone to&amp;nbsp;bugs. There are secuity holes in Mac OS X as well they are in Linux or Windows or (place your favorite OS here).&lt;/P&gt;</Content>
+      <Created>2005-10-26T18:29:53.9778750+02:00</Created>
+      <Modified>2005-10-26T18:29:53.9778750+02:00</Modified>
+      <EntryId>e2b22dce-f728-4f8d-8654-eb894c7e2317</EntryId>
+      <Description />
+      <Title>Software Usability</Title>
+      <Categories>Geek Mode</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+    <Entry>
+      <Content>&lt;P&gt;&lt;A href="http://microsoft.sitestream.com/PDC05/"&gt;All sessions&lt;/A&gt; from this year's Professional Developer Confererence (PDC) are available online for six months from now. You can watch them online via streaming media&amp;nbsp;or pick a talk or two for download.&lt;/P&gt;
+&lt;P class="now-playing"&gt;Now playing: Audio Lotion - &lt;A href="http://www.amazon.com/exec/obidos/ASIN/B0009NDLMC/therightstu0e-20"&gt;Metrosensual&lt;/A&gt; - Eclipse&lt;/P&gt;</Content>
+      <Created>2005-10-27T00:00:11.3060000+02:00</Created>
+      <Modified>2005-10-27T00:00:11.3060000+02:00</Modified>
+      <EntryId>ee6e3e90-29ca-4c77-82a7-5564eef951c3</EntryId>
+      <Description />
+      <Title>PDC05 - The Videos</Title>
+      <Categories>Geek Mode</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

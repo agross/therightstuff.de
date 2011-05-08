@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2007-07-28T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;Ever had a helicopter taking off on your street? At least for us, today has been pretty eventful. The last time I remember that many people being on the street was after &lt;a href="http://forum.weatherzone.com.au/cgi-bin/ultimatebb.cgi?ubb=get_topic;f=1;t=006130"&gt;last year's hailstorm&lt;/a&gt;.&lt;/p&gt; &lt;div style="text-align: center"&gt;&lt;embed src="http://www.youtube.com/v/prlaCaN0x3M" width="425" height="350" type="application/x-shockwave-flash" wmode="transparent"&gt;&lt;/embed&gt;&lt;/div&gt; &lt;p&gt;High quality video is over&amp;nbsp;&lt;a href="http://therightstuff.de/download/Helicopter-Take-Off.mp4"&gt;here&lt;/a&gt;.&lt;/p&gt;</Content>
+      <Created>2007-07-28T19:27:36.3835000+02:00</Created>
+      <Modified>2007-07-28T19:27:36.3835000+02:00</Modified>
+      <EntryId>83970e49-038b-45b0-a60f-b3772ee0e297</EntryId>
+      <Description />
+      <Title>Helicopter Take-Off</Title>
+      <Categories>NonTech</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

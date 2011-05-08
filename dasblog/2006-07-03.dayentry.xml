@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-07-03T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;The &lt;a href="http://www.it99.org/axl/PermaLink,guid,b29e6b74-e9fe-477d-9c43-deb7d21275ab.aspx"&gt;new server&lt;/a&gt; is on its way... I'm eagerly waiting for its arrival and flooding the UPS site with tracking requests in the meantime.&lt;/p&gt;
+&lt;p align="center"&gt;&lt;img title="UPS Tracking" alt="UPS Tracking" src="http://www.it99.org/axl/content/binary/UPS%20Tracking.png" border="0"&gt;&lt;/p&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;a href="http://www.music-map.de/oasis.html"&gt;Oasis&lt;/a&gt; - &lt;A href="http://www.amazon.com/exec/obidos/ASIN/B000002C25/therightstu0e-20"&gt;Be Here Now&lt;/a&gt; - Magic pie&lt;/p&gt;</Content>
+      <Created>2006-07-03T19:21:17.0140000+02:00</Created>
+      <Modified>2006-07-04T08:57:46.5303750+02:00</Modified>
+      <EntryId>6b04b2bd-64fc-4511-9772-a49ba183d523</EntryId>
+      <Description />
+      <Title>Tracking</Title>
+      <Categories>Geek Mode</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

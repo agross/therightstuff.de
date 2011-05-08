@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-06-12T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;&lt;a href="http://www.it99.org/axl/PermaLink,guid,c625eff5-f9b7-49be-961d-77c073ba27e9.aspx"&gt;Speaking of Rocket Science&lt;/a&gt;, Marci found this crazy video of a man is actually flying over a bay using a couple of large water rockets.&lt;/p&gt;
+&lt;p align="center"&gt;&lt;a href="http://polyplex.org/rockets/other/bpj.wmv"&gt;&lt;img title="Japanese Rocket Scientist" alt="Japanese Rocket Scientist" src="http://www.it99.org/axl/content/binary/Japanese%20Rocket%20Scientist.jpg" border="0"&gt;&lt;/a&gt;&lt;br&gt;Click on the image to download the video.&lt;/p&gt;
+&lt;p&gt;We're planning to start the next rockets this weekend in the Clara-Zetkin-Park. Hopefully Robert and the other Robert will join us with another custom-made airship. I can't believe how obsessed we are.&lt;/p&gt;</Content>
+      <Created>2006-06-13T00:06:33.0120000+02:00</Created>
+      <Modified>2006-06-13T09:04:30.0215929+02:00</Modified>
+      <EntryId>7917c67b-2214-4757-b287-441060669715</EntryId>
+      <Description />
+      <Title>Japanese Rocket Sciene</Title>
+      <Categories>Fun Stuff</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-11-16T01:00:00.0000000+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;ul&gt;
+&lt;li&gt;350 g Zucker 
+&lt;/li&gt;&lt;li&gt;1 kg Quark (20% Fett) 
+&lt;/li&gt;&lt;li&gt;125 g Butter 
+&lt;/li&gt;&lt;li&gt;4 Eier 
+&lt;/li&gt;&lt;li&gt;Saft und Abrieb einer Zitrone 
+&lt;/li&gt;&lt;li&gt;50 g Rosinen (fakultativ) 
+&lt;/li&gt;&lt;li&gt;1&amp;nbsp;Päckchen&amp;nbsp;Puddingpulver (Vanille oder Sahne) 
+&lt;/li&gt;&lt;li&gt;1 Päckchen Backpulver&lt;/li&gt;&lt;li&gt;2 EL Gries&lt;/li&gt;&lt;/ul&gt;
+&lt;p&gt;Quark und Zucker schlagen, danach alle anderen Zutaten außer den Gries mit dem Handrührgerät einrühren. Butter u.U. vorher in der Mikrowelle anschmelzen. Eine Springform buttern und den Gries gleichmäßig dünn verteilen. Die Masse in die Form geben und für 1 Stunde bei 180 °C backen. Nach dem Abkühlen nach Wunsch mit Schokoladenkuvertüre überziehen.&lt;/p&gt;</Content>
+      <Created>2005-11-16T14:42:24.1570000+01:00</Created>
+      <Modified>2006-01-30T18:55:04.6031522+01:00</Modified>
+      <EntryId>b7a45f78-ab48-4dff-a11b-1b59faf92683</EntryId>
+      <Description />
+      <Title>Rezept: Quarktorte ohne Boden</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

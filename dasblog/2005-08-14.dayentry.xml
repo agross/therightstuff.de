@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2005-08-14T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;After years of using and recommending &lt;a href="http://www.steganos.de/?product=SSS7&amp;amp;language=de&amp;amp;layout=default"&gt;Steganos Password Manager&lt;/a&gt; as my solution to the lost password problem I accidentally discovered &lt;a href="http://keepass.sourceforge.net/"&gt;KeePass Password Safe&lt;/a&gt; today. This program seems a lot more capable of managing many passwords. KeePass organizes items in a tree view. My&amp;nbsp;copy&amp;nbsp;of&amp;nbsp;Steganos, not the recent one, has some limitations&amp;nbsp;of the UI (i.e. fixed window sizes) that were bugging me the last weeks.&lt;/p&gt;
+&lt;p align="center"&gt;&lt;img src="http://www.it99.org/axl/content/binary/KeePass%20Password%20Safe%20Screenshot.jpg" border="0"&gt;&lt;/p&gt;
+&lt;p&gt;KeePass is open source, extensible, has a nice UI and supports the&amp;nbsp;&lt;a href="http://keepass.sourceforge.net/features.php#lnkDragDrop"&gt;AutoType feature&lt;/a&gt; that fills passwords into controls in a customizable way. See the whole list &lt;a href="http://keepass.sourceforge.net/features.php"&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;One drawback: The program is not compatible with Windows Limited Users Accounts (LUA) as it stores the user configuration in the application path (&lt;strong&gt;C:\Program Files&lt;/strong&gt;) which is write-proteced for users. I've &lt;a href="http://www.it99.org/axl/download/KeePass%20Password%20Safe.sdb.zip"&gt;attached&lt;/a&gt; an Application Compatibility Fix (SDB file) created with the &lt;a href="http://www.microsoft.com/technet/prodtechnol/windows/appcompatibility/default.mspx"&gt;Application Compatibility Toolkit&lt;/a&gt;&amp;nbsp;that allows you to circumvent the wrong behavior and let the application save config data in &lt;strong&gt;C:\Documents and Settings&lt;/strong&gt; as it is appropriate.&lt;/p&gt;
+&lt;p&gt;&lt;img title="Download" class="download" style="margin-right: 4px;" alt="Download" src="http://www.it99.org/axl/content/binary/Download.gif"&gt;&lt;a href="http://www.it99.org/axl/download/KeePass%20Password%20Safe.sdb.zip"&gt;Download&lt;/a&gt;, unzip and install&amp;nbsp;the fix&amp;nbsp;from the command prompt:&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;pre&gt;sdbinst.exe "KeePass Password Safe.sdb"&lt;/pre&gt;
+&lt;p&gt;Time to install this great piece of software, fellows!&lt;/p&gt;
+&lt;p&gt;Update: The current version 1.02 fixed the problems with Limited User Accounts. No SDB file is needed.&lt;/p&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;a href="http://www.music-map.de/kula+shaker.html"&gt;Kula Shaker&lt;/a&gt; - K - Hollow Man (Parts 1 &amp;amp; 2)&lt;/p&gt;</Content>
+      <Created>2005-08-14T13:55:51.3750000+02:00</Created>
+      <Modified>2006-03-18T14:22:28.2909558+01:00</Modified>
+      <EntryId>9d68e98c-38bb-4f62-87fa-ec8552f2413a</EntryId>
+      <Description />
+      <Title>The new password manager</Title>
+      <Categories>Tools and Software</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>

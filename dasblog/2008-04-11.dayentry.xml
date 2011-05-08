@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2008-04-11T02:00:00+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;ul&gt; &lt;li&gt;500 g Champignons  &lt;li&gt;100 g Mascarpone  &lt;li&gt;1 Zitrone  &lt;li&gt;Schnittlauch  &lt;li&gt;Salz, Pfeffer  &lt;li&gt;1-2 EL Butter &lt;/li&gt;&lt;/ul&gt; &lt;p&gt;Die Champignons putzen und in grobe Stücke schneiden. Die Butter in einer beschichteten Pfanne zergehen lassen und&amp;nbsp; die Pilze kurz und kräftig anbraten, sie dürfen nicht zu sehr zusammenschrumpfen und nur wenig Wasser verlieren. Die Mascarpone hinzugeben und schmelzen lassen. Mit Zitronensaft abschmecken, sodass ein leicht säuerliches Aroma entsteht. Salzen, Pfeffern und mit Schnittlauch garnieren.&lt;/p&gt; &lt;p&gt;Ebenfalls gut zu Steak passen &lt;a href="http://www.chefkoch.de/forum/2,53,299180/Meine-IDEALE-Beilage-zu-Steak-gefunden.html"&gt;Kartoffeln mit Butter und Blauschimmelkäse&lt;/a&gt;.&lt;/p&gt;</Content>
+      <Created>2008-04-11T21:54:03.984375+02:00</Created>
+      <Modified>2008-04-11T21:54:03.984375+02:00</Modified>
+      <EntryId>4161c040-650d-498b-8335-0033fe341cec</EntryId>
+      <Description />
+      <Title>Beilagen zum Steak</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+    <Entry>
+      <Content>&lt;p&gt;Because I needed to install the &lt;a href="http://technet.microsoft.com/en-us/windowsserver/sharepoint/bb407286.aspx"&gt;20 free SharePoint Application Templates&lt;/a&gt; twice this week and Microsoft does not dare to include a batch installer... The batch below installs all *.wsp files in the current directory and deploys them immediately. Hopefully this saves you some time.&lt;/p&gt;&lt;pre&gt;@echo off
+for %%f in (*.wsp) do (
+    echo File %%f
+    "%CommonProgramFiles%\Microsoft Shared\web server extensions\12\BIN\stsadm.exe" -o addsolution -filename "%%f"
+    "%CommonProgramFiles%\Microsoft Shared\web server extensions\12\BIN\stsadm.exe" -o deploysolution -name "%%f" -allowgacdeployment -immediate -force
+)
+
+"%CommonProgramFiles%\Microsoft Shared\web server extensions\12\BIN\stsadm.exe" -o copyappbincontent
+"%CommonProgramFiles%\Microsoft Shared\web server extensions\12\BIN\stsadm.exe" -o execadmsvcjobs
+iisreset.exe
+&lt;/pre&gt;</Content>
+      <Created>2008-04-11T21:57:35.546875+02:00</Created>
+      <Modified>2008-04-11T21:57:35.546875+02:00</Modified>
+      <EntryId>06848954-7cf5-4648-a170-ac54f31e891e</EntryId>
+      <Description />
+      <Title>Batch Installing SharePoint Solution Deployment Packages (WSPs)</Title>
+      <Categories>SharePoint</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

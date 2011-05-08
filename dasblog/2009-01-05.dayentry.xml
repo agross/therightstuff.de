@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2009-01-05T01:00:00+01:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;ul&gt;   &lt;li&gt;2 rote Zwiebeln&lt;/li&gt;    &lt;li&gt;1 EL Butter&lt;/li&gt;    &lt;li&gt;1 EL Honig&lt;/li&gt;    &lt;li&gt;Balsamico&lt;/li&gt;    &lt;li&gt;Apfel-Kirsch-Saft o. ä.&lt;/li&gt;    &lt;li&gt;1-2 EL Zitronensaft&lt;/li&gt;    &lt;li&gt;Salz, Pfeffer&lt;/li&gt; &lt;/ul&gt;  &lt;p&gt;Zwiebeln schälen und in feine Ringe schneiden. Die Butter in einem Topf zergehen lassen und die Zwiebeln glasig dünsten. 1 EL Honig hinzugeben und leicht karamelisieren. 3 EL Balsamico angießen und einreduzieren. Anschließend wenig Apfel-Kirsch-Saft zugießen und einkochen lassen. Angießen und einkochen wiederholen bis die Zwiebeln weich gekocht sind (das dauert ca. 30 Minuten). Mit Zitronensaft, Salz und Pfeffer abschmecken.&lt;/p&gt;  &lt;p&gt;Die Zwiebelmarmelade passt aufgrund ihrer süßlichen Note gut zu Speisen mit würzigem Käse, z. B. Käsefondue oder Ziegenkäse.&lt;/p&gt;</Content>
+      <Created>2009-01-05T15:14:18.2716242+01:00</Created>
+      <Modified>2009-01-05T15:14:18.2716242+01:00</Modified>
+      <EntryId>107be0d0-9291-4f9e-826a-076c19279df2</EntryId>
+      <Description />
+      <Title>Rezept: Zwiebelmarmelade</Title>
+      <Categories>Recipes (German)</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+      <Latitude xsi:nil="true" />
+      <Longitude xsi:nil="true" />
+    </Entry>
+  </Entries>
+</DayEntry>

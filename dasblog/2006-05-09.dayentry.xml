@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DayEntry xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="urn:newtelligence-com:dasblog:runtime:data">
+  <Date>2006-05-09T02:00:00.0000000+02:00</Date>
+  <Entries>
+    <Entry>
+      <Content>&lt;p&gt;I finally decided to install &lt;a href="http://www.foldershare.com/"&gt;FolderShare&lt;/a&gt;, a file synchronization service acquired by Microsoft as a part of their &lt;a href="http://www.live.com/"&gt;Windows Live&lt;/a&gt; platform. The installer has been&amp;nbsp;sitting on my machine for some weeks now. There where no files to keep synchronized until a week ago, so there was simply no purpose using it. But still an interesting project, similar to &lt;a href="http://www.plaxo.com/"&gt;Plaxo&lt;/a&gt;, which synchronizes Outlook contacts over the Internet.&lt;/p&gt;
+&lt;p&gt;Now to the knowledge management part: Last week I found&amp;nbsp;&lt;a href="http://www.tiddlywiki.com/"&gt;TiddlyWiki&lt;/a&gt;&amp;nbsp;via Scott Hanselman's&amp;nbsp;&lt;a href="http://www.hanselminutes.com/default.aspx?showID=23"&gt;Hanselminutes podcast&lt;/a&gt;. TiddlyWiki is a light-weight&amp;nbsp;open source Wiki implementation that comes in just a single HTML file with lots of Ajax-y JavaScript code. There are absolutely no server components needed, just open the file in a &lt;a href="http://www.mozilla.com/firefox/"&gt;browser&lt;/a&gt; and start editing Tiddlers (Wiki articles are named like this).&lt;/p&gt;
+&lt;p&gt;The Wiki itself is highly customizable by editing some special predefined ("shadowed") Tiddlers. This way you can &lt;a href="http://www.tiddlywiki.com/#translations"&gt;translate&lt;/a&gt; the Wiki to any language and customize layout and styles. The list of &lt;a href="http://www.tiddlywiki.com/#MainFeatures"&gt;features&lt;/a&gt; goes on. I've borrowed my layout from the &lt;a href="http://www.tiddlywiki.com/#GTDTiddlyWiki"&gt;GTDTiddlyWiki&lt;/a&gt;, a template for implementing &lt;a href="http://www.43folders.com/2004/09/08/getting-started-with-getting-things-done/"&gt;Getting Things Done&lt;/a&gt;. The GTD-version is&amp;nbsp;based on an older version of TiddlyWiki, so I decided to exercise my CSS skills transferring GTDTiddlyWiki's visuals to a standard TiddlyWiki. Using the various &lt;a href="http://www.it99.org/axl/PermaLink,guid,061f9b83-3631-4ff2-86e2-66daea505b72.aspx"&gt;Firefox developer tools&lt;/a&gt; I've gotten pretty far. Right-click, Save As &lt;a href="http://www.it99.org/axl/download/Empty-TiddlyWiki.html"&gt;this link&lt;/a&gt; to get my version.&lt;/p&gt;
+&lt;p align="center"&gt;&lt;a href="http://www.it99.org/axl/content/binary/TiddlyWiki.png"&gt;&lt;img title="TiddlyWiki" alt="TiddlyWiki" src="http://www.it99.org/axl/content/binary/TiddlyWiki%20small.png" border="0"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;This single-file Wiki is an ideal candidate to synchronize between my work and home machine&amp;nbsp;using FolderShare. I've been&amp;nbsp;ready to take off&amp;nbsp;in about 20 minutes, including download and install. FolderShare's usability could be a little better, but I'm sure this changes since it's currently beta and runs PHP on the server side. Microsoft will certainly change this to ASPX.&lt;/p&gt;
+&lt;P class="now-playing"&gt;Now playing: &lt;a href="http://www.music-map.de/stuck+mojo.html"&gt;Stuck Mojo&lt;/a&gt; - &lt;A href="http://www.amazon.com/exec/obidos/ASIN/B000005HN3/therightstu0e-20"&gt;Pigwalk&lt;/a&gt; - The sermon&lt;/p&gt;</Content>
+      <Created>2006-05-09T20:17:05.4310000+02:00</Created>
+      <Modified>2006-05-09T21:09:50.5036325+02:00</Modified>
+      <EntryId>9eb621b2-3380-43b6-a71d-06ab48e54bb6</EntryId>
+      <Description />
+      <Title>FolderShare and Doing Knowledge Management the Wiki Way</Title>
+      <Categories>Tools and Software</Categories>
+      <Author>agross</Author>
+      <IsPublic>true</IsPublic>
+      <Syndicated>true</Syndicated>
+      <ShowOnFrontPage>true</ShowOnFrontPage>
+      <AllowComments>true</AllowComments>
+      <Attachments />
+      <Crossposts />
+    </Entry>
+  </Entries>
+</DayEntry>
